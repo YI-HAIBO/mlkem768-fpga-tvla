@@ -1,0 +1,55 @@
+---- impl kem : unified_ntt_kem ----
+  cmd: D:\FPGA\2026.1\Vivado\bin\vivado.bat -mode batch -nojournal
+  cwd: C:\tmp_impl_unified_ntt_kem_t73i_20261025_074711
+  [   10s] vivado started           00_start.txt
+  [   15s] project + sources + xdc loaded 10_project.txt
+  [  215s] synth_design finished    20_synth_done.txt
+  [  220s] opt_design finished      25_opt_done.txt
+  [  275s] place_design finished    30_place_done.txt
+  [  275s] ?                        35_pre_route_timing.txt
+  [  395s] route_design finished    40_route_done.txt
+  [  400s] post-route timing reported 50_post_timing.txt
+  [  400s] post-route utilization reported 55_post_util.txt
+  [  410s] report_drc finished      60_drc.txt
+  rc=1  time=430s  markers=10/11
+  ---- log tail (last 15 of 1084 lines) ----
+   | INFO: [DRC 23-27] Running DRC with 2 threads
+   | ERROR: [DRC NSTD-1] Unspecified I/O Standard: 80 out of 80 logical ports use I/O standard (IOSTANDARD) value 'DEFAULT', instead of a user assigned specific value. This ma
+   | ERROR: [DRC UCIO-1] Unconstrained Logical Port: 80 out of 80 logical ports have no user assigned specific location constraint (LOC). This may cause I/O contention or inco
+   | INFO: [Vivado 12-3199] DRC finished with 2 Errors
+   | INFO: [Vivado 12-3200] Please refer to the DRC report (report_drc) for more information.
+   | ERROR: [Vivado 12-1345] Error(s) found during DRC. Bitgen not run.
+   | INFO: [Common 17-83] Releasing license: Vivado_Implementation
+   | 6 Infos, 0 Warnings, 0 Critical Warnings and 3 Errors encountered.
+   | write_bitstream failed
+   | ERROR: [Common 17-39] 'write_bitstream' failed due to earlier errors.
+   | 
+   |     while executing
+   | "write_bitstream -force $BIT"
+   |     (file "C:/tmp_impl_unified_ntt_kem_t73i_20261025_074711\impl.tcl" line 62)
+   | INFO: [Common 17-206] Exiting Vivado at Sun Oct 25 07:54:21 2026...
+  reports: ['pre_route_timing.rpt', 'post_route_timing.rpt', 'util.rpt', 'drc.rpt']
+---- kem summary ----
+  impl_fmax_mhz                109.09884355225834
+  impl_hold_fails              0
+  impl_setup_fails             0
+  impl_tns                     0.0
+  impl_whs                     0.048
+  impl_wns                     0.834
+  synth_fmax_mhz               105.61892691170257
+  synth_hold_fails             21
+  synth_setup_fails            0
+  synth_tns                    0.0
+  synth_whs                    -0.067
+  synth_wns                    0.532
+  util_Block_RAM_Tile          36
+  util_Bonded_IOB              80
+  util_DSPs                    9
+  util_F7_Muxes                7
+  util_F8_Muxes                8
+  util_LUT_as_Logic            23196
+  util_LUT_as_Memory           0
+  util_Register_as_Flip_Flop   6639
+  util_Slice_LUTs              23196
+  util_Slice_Registers         6639
+

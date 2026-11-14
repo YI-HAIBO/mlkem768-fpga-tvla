@@ -1,0 +1,48 @@
+kyber_kem full-top synth, P2 retarget: xc7a200tfbg484-1
+part=xc7a200tfbg484-1  directive=RuntimeOptimized  rc=4294967295  elapsed=2177.4s
+
+--- Regression guards (must all stay closed) ---
+  Synth 8-7186 ram_style ignored / not inferred as ram (base 101) = 0
+  Synth 8-4767 RAM implemented in registers                   = 1
+  Synth 8-2914 unable to map RAM (multi-port)                 = 0
+  Synth 8-6090 blocking/non-blocking on the same variable     = 0
+  Synth 8-327  inferred latch                                 = 0
+  'inferring latch for variable' lines             = 0
+
+--- Other log diagnostics ---
+ERROR: lines = 0
+
+--- Netlist primitive footprint (PRIM_COUNT from log) ---
+  FDRE              0
+  FDCE              0
+  FDPE              0
+  LD                0
+  LUT6              0
+  LUT5              0
+  LUT4              0
+  MUXF7             0
+  MUXF8             0
+  RAMB36            0
+  RAMB18            0
+  DSP48E1           0
+  ------------------------
+  FF total          0
+  LUT total         0
+  BRAM total         0
+
+--- xc7a200tfbg484-1 budget check (device limits from Vivado) ---
+    FF           0 / 269200   -> fits (0.0%)
+    LUT          0 / 134600   -> fits (0.0%)
+    BRAM         0 / 365      -> fits (0.0%)
+
+--- Utilization (hierarchy table, top row) ---
+(no util.rpt - report_utilization may have hung)
+
+--- P1 (xc7a100tcsg324-1) reference ---
+    FF    39738  LUT  58852  LUTRAM  4448
+
+--- Timing ---
+(no timing.rpt)
+
+--- tmp dir (kept for inspection) ---
+C:/tmp_kem_p2_1791970280

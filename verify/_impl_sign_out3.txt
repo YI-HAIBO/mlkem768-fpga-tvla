@@ -1,0 +1,25 @@
+---- impl sign : unified_ntt_sign ----
+  cmd: D:\FPGA\2026.1\Vivado\bin\vivado.bat -mode batch -nojournal
+  cwd: C:\tmp_impl_unified_ntt_sign_t73c_20261024_184714
+  [   10s] vivado started           00_start.txt
+  [   15s] project + sources + xdc loaded 10_project.txt
+  rc=1  time=990s  markers=2/11
+  ---- log tail (last 15 of 515 lines) ----
+   | |12    |LUT5    |  9077|
+   | |13    |LUT6    | 26458|
+   | |14    |MUXF7   |  3672|
+   | |15    |MUXF8   |  1836|
+   | |16    |FDCE    | 14488|
+   | |17    |FDRE    |    60|
+   | |18    |IBUF    |    76|
+   | |19    |OBUF    |    29|
+   | |20    |OBUFT   |     9|
+   | +------+--------+------+
+   | ---------------------------------------------------------------------------------
+   | Finished Writing Synthesis Report : Time (s): cpu = 00:02:42 ; elapsed = 00:03:13 . Memory (MB): peak = 2452.699 ; gain = 1493.176
+   | ---------------------------------------------------------------------------------
+   | Synthesis finished with 0 errors, 0 critical warnings and 3 warnings.
+   | Synthesis Optimization Runtime : Time (s): cpu = 00:02:26 ; elapsed = 00:03:05 . Memory (MB): peak = 2452.699 ; gain = 1431.383
+  reports: NONE
+---- sign summary ----
+  (no timing data extracted)

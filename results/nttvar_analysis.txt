@@ -1,0 +1,100 @@
+====================================================================================================
+A. DEVICE-BUDGET TOTALS (report_utilization -hierarchical, xc7a100tcsg324-1)
+====================================================================================================
+tag   variant                                LUTs   LogicL  LUTRAM    FFs   DSP  BRAM  SRL
+V0    baseline                              28485    28485       0   4227    13     0    0
+V1    read_data=0  [DEAD CODE, invalid]       121      121       0     42     0     0    0
+V1b   read_addr const                       27820    27820       0   4297    13     0    0
+V2    ram_style=distributed                 28485    28485       0   4227    13     0    0
+V3    arith pass-through                    26696    26696       0   4262     0     0    0
+V4    N=256 -> N=16                          1690     1690       0    301    13     0    0
+
+====================================================================================================
+B. PRIMITIVE CENSUS (synth-log 'Report Cell Usage')
+====================================================================================================
+prim                V0          V1         V1b          V2          V3          V4
+LUT1                 0           3          27          23           1          54
+LUT2                 0          35         488         483        1028         215
+LUT3                 0          52        6574        2647         644         262
+LUT4                 0          31        4820        1108        4322         122
+LUT5                 0          14        5470        3773        9388         342
+LUT6                 0          22       13106       22429       12191         930
+MUXF7                0           0        2188        2188        2176          44
+MUXF8                0           0        1056        1088        1088          16
+CARRY4               0          23          92          92          33          92
+DSP48E1              0           0          13          13           0          13
+FDCE                 0          42        4297        4227        4262         301
+IBUF                 0           4          29          37          37          33
+OBUF                 0          18          18          18          18          18
+BUFG                 0           1           1           1           1           1
+LUT1..6              0         157       30485       30463       27574        1925
+FD*FFs               0          42        4297        4227        4262         301
+MUXF7+8              0           0        3244        3276        3264          60
+
+====================================================================================================
+C. CROSSES: netlist LUT sum vs report_utilization Total LUTs
+====================================================================================================
+V0    netLUT=   30463 netFF=   4227  util_LUTs=28485     gap=1978  names=38127
+V1    netLUT=     157 netFF=     42  util_LUTs=121       gap=36  names=245
+V1b   netLUT=   30485 netFF=   4297  util_LUTs=27820     gap=2665  names=38179
+V2    netLUT=   30463 netFF=   4227  util_LUTs=28485     gap=1978  names=38127
+V3    netLUT=   27574 netFF=   4262  util_LUTs=26696     gap=878  names=35189
+V4    netLUT=    1925 netFF=    301  util_LUTs=1690      gap=235  names=2443
+
+====================================================================================================
+D. Deltas vs V0 (netlist LUT sum)
+====================================================================================================
+V0 netlist LUT sum = 30463
+  V1 read_data=0  [DEAD CODE, invalid]       157     -30306  (-99.5%)
+  V1b read_addr const                       30485        +22  (+0.1%)
+  V2 ram_style=distributed                 30463         +0  (+0.0%)
+  V3 arith pass-through                    27574      -2889  (-9.5%)
+  V4 N=256 -> N=16                          1925     -28538  (-93.7%)
+
+====================================================================================================
+E. NAME-BUCKET ATTRIBUTION (netlist parse)
+====================================================================================================
+V0 (baseline)  LUT-bucket hits=28385  FF-bucket hits=4299  of 38127 names
+V1 (read_data=0  [DEAD CODE, invalid])  LUT-bucket hits=280  FF-bucket hits=58  of 245 names
+V1b (read_addr const)  LUT-bucket hits=28634  FF-bucket hits=4427  of 38179 names
+V2 (ram_style=distributed)  LUT-bucket hits=28385  FF-bucket hits=4299  of 38127 names
+V3 (arith pass-through)  LUT-bucket hits=27752  FF-bucket hits=4300  of 35189 names
+V4 (N=256 -> N=16)  LUT-bucket hits=1600  FF-bucket hits=331  of 2443 names
+
+bucket                      V0          V1         V1b          V2          V3          V4
+coeff                    25571           0       25513       25571       26231        1038
+p_4_out                     60           0        1167          60           0          60
+p_1_out                   1148           0        1148        1148           0          60
+read_data                 1088           0           0        1088        1088          64
+p_7_out                     60           0         213          60           0          60
+FSM_sequential             139          13         204         139         141          13
+state                      139          13         204         139         141          13
+cnt                        103         127         102         103          98         136
+j_cnt                       24         103          30          24          30          14
+block_cnt                   11          11          11          11          11         100
+zeta_cnt                    15           0          15          15           0          15
+zeta                        15           0          15          15           0          15
+len                          9          10           9           9           8           9
+layer_idx                    3           3           3           3           4           3
+
+FF bucket                   V0          V1         V1b          V2          V3          V4
+coeff                     4096           0        4096        4096        4096         256
+FSM_sequential              34           3          97          34          38           3
+state                       34           3          97          34          38           3
+cnt                         83          25          79          83          84          28
+j_cnt                       19           8          25          19          25           8
+block_cnt                    8           8           8           8           8           8
+len                          8           8           8           8           8           8
+zeta_cnt                     7           0           7           7           0           7
+zeta                         7           0           7           7           0           7
+layer_idx                    3           3           3           3           3           3
+
+====================================================================================================
+F. ROM INFERENCE + REGISTER COUNTS + WARNINGS
+====================================================================================================
+V0: ROM=[]  regbits=4139  warnings={'8-6014': 3}
+V1: ROM=[]  regbits=39  warnings={'8-6014': 100}
+V1b: ROM=[('kyber_ntt', 'get_zeta', '128', '14', 'LUT')]  regbits=4139  warnings={'8-6014': 3}
+V2: ROM=[('kyber_ntt', 'get_zeta', '128', '14', 'LUT')]  regbits=4139  warnings={'8-7186': 100, '8-6014': 3}
+V3: ROM=[]  regbits=4125  warnings={'8-6014': 4}
+V4: ROM=[('kyber_ntt', 'get_zeta', '128', '14', 'LUT')]  regbits=309  warnings={'8-6014': 3}

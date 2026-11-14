@@ -1,0 +1,23 @@
+==============================================================================
+COMPILE: sim\tb_unified_ntt_dual.v
+==============================================================================
+
+RUN: tb_unified_ntt_dual.v
+=== Phase A: KEM mode (q=3329, NL=7, 2^27 radix) ===
+  PASS A1: forward coeffs in [-q/2, q/2]
+  PASS A2: invntt(ntt(f)) == f*2^27 mod q (256/256)
+  PASS A3: invntt(ntt(0)) == 0
+  PASS A4: forward NTT non-trivial (256 non-zero)
+=== Phase B: SIGN mode (q=8380417, NL=8) ===
+  PASS B1: SIGN forward NTT bit-exact vs gold (256/256)
+  PASS B2: SIGN coeffs in [-q/2, q/2]
+  PASS B3: invntt(ntt(f)) == f*2^27 mod q (256/256)
+=== Phase C: KEM again (switch-back consistency) ===
+  PASS C: KEM->SIGN->KEM round-trip bit-identical (256/256)
+
+RESULT: DUAL-MODE ALL PASS
+C:\Users\Yi\WorkBuddy\2026-10-05-09-29-14\����FPGA��ģ�Ͱ�ȫ\�з�\ipx_aoi_fpga_prototype\sim/tb_unified_ntt_dual.v:1841: $finish called at 1102135000 (1ps)
+
+vvp rc=0
+
+ALL OK

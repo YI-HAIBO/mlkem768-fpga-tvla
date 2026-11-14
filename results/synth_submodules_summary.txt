@@ -1,0 +1,10 @@
+Sub-module synthesis summary (Artix-7 XC7A100T-1CSG324)
+======================================================================
+Module               Status           Time     LUTs     FFs  DSPs  Timing
+----------------------------------------------------------------------
+keccak_perm           FAIL(rc=1)     113.5s
+shake                 FAIL(rc=1)     246.7s
+kyber_sampler         FAIL(rc=1)      63.4s
+kyber_ntt             FAIL(rc=1)     540.5s
+kyber_poly            FAIL(rc=1)     262.0s
+kyber_kem             FAIL(rc=1)     478.5s

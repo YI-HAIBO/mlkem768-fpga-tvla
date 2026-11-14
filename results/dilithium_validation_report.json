@@ -1,0 +1,27 @@
+{
+  "timestamp": "2026-10-06T16:46:06.864307",
+  "project": "IPX-AOI-Sec",
+  "phase": "Phase 2 - Dilithium FPGA 核",
+  "xilinx_part": "xc7a50tcsg324-1",
+  "unit_simulation": true,
+  "top_integration": true,
+  "vivado_synthesis": {
+    "luts": "990",
+    "ffs": "519",
+    "dsps": "0",
+    "bram": "0",
+    "wns": "3.086",
+    "freq_mhz": 144.63,
+    "clk_period_ns": 6.914,
+    "synth_ok": true
+  },
+  "goals": {
+    "luts_lt": 400,
+    "freq_mhz_gt": 30
+  },
+  "notes": [
+    "Dilithium 核心当前为 Phase 2 框架版 (FSM + 占位算术)，非完整 Dilithium-2 多项式运算；",
+    "真实 NTT/采样/挑战多项式将在后续迭代替换 core 内算术；",
+    "子模块 (PUF/安全启动/混合FSM/侧信道/OP-PUF/AI威胁) 当前为桩，Phase 3 实现。"
+  ]
+}

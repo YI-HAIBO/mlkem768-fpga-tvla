@@ -1,0 +1,807 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
+| Date         : Sun Oct 18 08:29:57 2026
+| Host         : Yi running 64-bit major release  (build 9200)
+| Command      : report_timing -file C:/tmp_one_kyber_ntt-pipe2_1792283156/proj/reports/path.rpt -delay_type max -max_paths 5 -input_pins -sort_by group
+| Design       : kyber_ntt
+| Device       : 7a100t-csg324
+| Speed File   : -1  PRODUCTION 1.23 2018-06-13
+| Design State : Synthesized
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (VIOLATED) :        -7.751ns  (required time - arrival time)
+  Source:                 len_reg[5]/C
+                            (rising edge-triggered cell FDCE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            j_cnt_reg[0]/CE
+                            (rising edge-triggered cell FDCE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
+  Data Path Delay:        17.143ns  (logic 9.778ns (57.038%)  route 7.365ns (42.962%))
+  Logic Levels:           27  (CARRY4=19 LUT2=2 LUT3=1 LUT4=1 LUT6=4)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.130ns = ( 12.130 - 10.000 ) 
+    Source Clock Delay      (SCD):    2.454ns
+    Clock Pessimism Removal (CPR):    0.179ns
+  Clock Uncertainty:      0.261ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.100ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.200ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=0)                   0.000     0.000    clk
+                                                                      r  clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.971     0.971 r  clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.803     1.774    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.096     1.870 r  clk_IBUF_BUFG_inst/O
+                         net (fo=4411, unplaced)      0.584     2.454    clk_IBUF_BUFG
+                         FDCE                                         r  len_reg[5]/C
+  -------------------------------------------------------------------    -------------------
+                         FDCE (Prop_fdce_C_Q)         0.478     2.932 f  len_reg[5]/Q
+                         net (fo=16, unplaced)        1.019     3.951    p_0_in[6]
+                                                                      f  FSM_sequential_butter_ph[2]_i_26/I0
+                         LUT6 (Prop_lut6_I0_O)        0.295     4.246 r  FSM_sequential_butter_ph[2]_i_26/O
+                         net (fo=15, unplaced)        0.502     4.748    FSM_sequential_butter_ph[2]_i_26_n_0
+                                                                      r  FSM_sequential_butter_ph[2]_i_15/I0
+                         LUT2 (Prop_lut2_I0_O)        0.124     4.872 r  FSM_sequential_butter_ph[2]_i_15/O
+                         net (fo=4, unplaced)         0.473     5.345    FSM_sequential_butter_ph[2]_i_15_n_0
+                                                                      r  FSM_sequential_butter_ph[2]_i_51/I0
+                         LUT6 (Prop_lut6_I0_O)        0.124     5.469 r  FSM_sequential_butter_ph[2]_i_51/O
+                         net (fo=1, unplaced)         0.000     5.469    FSM_sequential_butter_ph[2]_i_51_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_23/S[1]
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533     6.002 r  FSM_sequential_butter_ph_reg[2]_i_23/CO[3]
+                         net (fo=1, unplaced)         0.000     6.002    FSM_sequential_butter_ph_reg[2]_i_23_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_14/CI
+                         CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.281     6.283 r  FSM_sequential_butter_ph_reg[2]_i_14/CO[0]
+                         net (fo=14, unplaced)        0.362     6.645    FSM_sequential_butter_ph_reg[2]_i_14_n_3
+                                                                      r  FSM_sequential_butter_ph[2]_i_96/I1
+                         LUT2 (Prop_lut2_I1_O)        0.360     7.005 r  FSM_sequential_butter_ph[2]_i_96/O
+                         net (fo=1, unplaced)         0.000     7.005    FSM_sequential_butter_ph[2]_i_96_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_54/DI[1]
+                         CARRY4 (Prop_carry4_DI[1]_CO[3])
+                                                      0.547     7.552 r  FSM_sequential_butter_ph_reg[2]_i_54/CO[3]
+                         net (fo=1, unplaced)         0.000     7.552    FSM_sequential_butter_ph_reg[2]_i_54_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_28/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     7.669 r  FSM_sequential_butter_ph_reg[2]_i_28/CO[3]
+                         net (fo=1, unplaced)         0.000     7.669    FSM_sequential_butter_ph_reg[2]_i_28_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_18/CI
+                         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.179     7.848 r  FSM_sequential_butter_ph_reg[2]_i_18/CO[1]
+                         net (fo=14, unplaced)        0.576     8.424    FSM_sequential_butter_ph_reg[2]_i_18_n_2
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_53/CYINIT
+                         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.803     9.227 r  FSM_sequential_butter_ph_reg[2]_i_53/CO[3]
+                         net (fo=1, unplaced)         0.000     9.227    FSM_sequential_butter_ph_reg[2]_i_53_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_27/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.344 r  FSM_sequential_butter_ph_reg[2]_i_27/CO[3]
+                         net (fo=1, unplaced)         0.000     9.344    FSM_sequential_butter_ph_reg[2]_i_27_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_16/CI
+                         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.179     9.523 r  FSM_sequential_butter_ph_reg[2]_i_16/CO[1]
+                         net (fo=14, unplaced)        0.576    10.099    FSM_sequential_butter_ph_reg[2]_i_16_n_2
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_64/CYINIT
+                         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.803    10.902 r  FSM_sequential_butter_ph_reg[2]_i_64/CO[3]
+                         net (fo=1, unplaced)         0.000    10.902    FSM_sequential_butter_ph_reg[2]_i_64_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_34/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    11.019 r  FSM_sequential_butter_ph_reg[2]_i_34/CO[3]
+                         net (fo=1, unplaced)         0.000    11.019    FSM_sequential_butter_ph_reg[2]_i_34_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_20/CI
+                         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.179    11.198 r  FSM_sequential_butter_ph_reg[2]_i_20/CO[1]
+                         net (fo=14, unplaced)        0.576    11.774    FSM_sequential_butter_ph_reg[2]_i_20_n_2
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_63/CYINIT
+                         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.803    12.577 r  FSM_sequential_butter_ph_reg[2]_i_63/CO[3]
+                         net (fo=1, unplaced)         0.000    12.577    FSM_sequential_butter_ph_reg[2]_i_63_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_33/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    12.694 r  FSM_sequential_butter_ph_reg[2]_i_33/CO[3]
+                         net (fo=1, unplaced)         0.000    12.694    FSM_sequential_butter_ph_reg[2]_i_33_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_19/CI
+                         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.179    12.873 r  FSM_sequential_butter_ph_reg[2]_i_19/CO[1]
+                         net (fo=14, unplaced)        0.576    13.449    FSM_sequential_butter_ph_reg[2]_i_19_n_2
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_78/CYINIT
+                         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.803    14.252 r  FSM_sequential_butter_ph_reg[2]_i_78/CO[3]
+                         net (fo=1, unplaced)         0.000    14.252    FSM_sequential_butter_ph_reg[2]_i_78_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_41/CI
+                         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.337    14.589 r  FSM_sequential_butter_ph_reg[2]_i_41/O[1]
+                         net (fo=2, unplaced)         0.622    15.211    FSM_sequential_butter_ph_reg[2]_i_41_n_6
+                                                                      r  FSM_sequential_butter_ph[2]_i_76/I2
+                         LUT3 (Prop_lut3_I2_O)        0.306    15.517 r  FSM_sequential_butter_ph[2]_i_76/O
+                         net (fo=1, unplaced)         0.000    15.517    FSM_sequential_butter_ph[2]_i_76_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_39/S[1]
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533    16.050 r  FSM_sequential_butter_ph_reg[2]_i_39/CO[3]
+                         net (fo=1, unplaced)         0.000    16.050    FSM_sequential_butter_ph_reg[2]_i_39_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_21/CI
+                         CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.281    16.331 r  FSM_sequential_butter_ph_reg[2]_i_21/CO[0]
+                         net (fo=2, unplaced)         0.322    16.653    FSM_sequential_butter_ph_reg[2]_i_21_n_3
+                                                                      r  FSM_sequential_butter_ph[2]_i_9/I0
+                         LUT4 (Prop_lut4_I0_O)        0.359    17.012 r  FSM_sequential_butter_ph[2]_i_9/O
+                         net (fo=1, unplaced)         0.000    17.012    FSM_sequential_butter_ph[2]_i_9_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_5/DI[0]
+                         CARRY4 (Prop_carry4_DI[0]_CO[3])
+                                                      0.576    17.588 r  FSM_sequential_butter_ph_reg[2]_i_5/CO[3]
+                         net (fo=15, unplaced)        0.801    18.389    FSM_sequential_butter_ph_reg[2]_i_5_n_0
+                                                                      r  j_cnt[7]_i_3/I5
+                         LUT6 (Prop_lut6_I5_O)        0.124    18.513 r  j_cnt[7]_i_3/O
+                         net (fo=1, unplaced)         0.449    18.962    j_cnt[7]_i_3_n_0
+                                                                      r  j_cnt[7]_i_1/I0
+                         LUT6 (Prop_lut6_I0_O)        0.124    19.086 r  j_cnt[7]_i_1/O
+                         net (fo=8, unplaced)         0.511    19.597    j_cnt[0]
+                         FDCE                                         r  j_cnt_reg[0]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.000    10.000 r  <hidden>
+                                                      0.000    10.000 r  clk
+                         net (fo=0)                   0.000    10.000    clk
+                                                                      r  clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.838    10.838 r  clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.763    11.600    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.091    11.691 r  clk_IBUF_BUFG_inst/O
+                         net (fo=4411, unplaced)      0.439    12.130    clk_IBUF_BUFG
+                         FDCE                                         r  j_cnt_reg[0]/C
+                         clock pessimism              0.179    12.309    <hidden>
+                         clock uncertainty           -0.261    12.048    <hidden>
+                         FDCE (Setup_fdce_C_CE)      -0.202    11.846    j_cnt_reg[0]
+  -------------------------------------------------------------------
+                         required time                         11.846    <hidden>
+                         arrival time                         -19.597    <hidden>
+  -------------------------------------------------------------------
+                         slack                                 -7.751    <hidden>
+
+Slack (VIOLATED) :        -7.751ns  (required time - arrival time)
+  Source:                 len_reg[5]/C
+                            (rising edge-triggered cell FDCE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            j_cnt_reg[1]/CE
+                            (rising edge-triggered cell FDCE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
+  Data Path Delay:        17.143ns  (logic 9.778ns (57.038%)  route 7.365ns (42.962%))
+  Logic Levels:           27  (CARRY4=19 LUT2=2 LUT3=1 LUT4=1 LUT6=4)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.130ns = ( 12.130 - 10.000 ) 
+    Source Clock Delay      (SCD):    2.454ns
+    Clock Pessimism Removal (CPR):    0.179ns
+  Clock Uncertainty:      0.261ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.100ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.200ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=0)                   0.000     0.000    clk
+                                                                      r  clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.971     0.971 r  clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.803     1.774    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.096     1.870 r  clk_IBUF_BUFG_inst/O
+                         net (fo=4411, unplaced)      0.584     2.454    clk_IBUF_BUFG
+                         FDCE                                         r  len_reg[5]/C
+  -------------------------------------------------------------------    -------------------
+                         FDCE (Prop_fdce_C_Q)         0.478     2.932 f  len_reg[5]/Q
+                         net (fo=16, unplaced)        1.019     3.951    p_0_in[6]
+                                                                      f  FSM_sequential_butter_ph[2]_i_26/I0
+                         LUT6 (Prop_lut6_I0_O)        0.295     4.246 r  FSM_sequential_butter_ph[2]_i_26/O
+                         net (fo=15, unplaced)        0.502     4.748    FSM_sequential_butter_ph[2]_i_26_n_0
+                                                                      r  FSM_sequential_butter_ph[2]_i_15/I0
+                         LUT2 (Prop_lut2_I0_O)        0.124     4.872 r  FSM_sequential_butter_ph[2]_i_15/O
+                         net (fo=4, unplaced)         0.473     5.345    FSM_sequential_butter_ph[2]_i_15_n_0
+                                                                      r  FSM_sequential_butter_ph[2]_i_51/I0
+                         LUT6 (Prop_lut6_I0_O)        0.124     5.469 r  FSM_sequential_butter_ph[2]_i_51/O
+                         net (fo=1, unplaced)         0.000     5.469    FSM_sequential_butter_ph[2]_i_51_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_23/S[1]
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533     6.002 r  FSM_sequential_butter_ph_reg[2]_i_23/CO[3]
+                         net (fo=1, unplaced)         0.000     6.002    FSM_sequential_butter_ph_reg[2]_i_23_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_14/CI
+                         CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.281     6.283 r  FSM_sequential_butter_ph_reg[2]_i_14/CO[0]
+                         net (fo=14, unplaced)        0.362     6.645    FSM_sequential_butter_ph_reg[2]_i_14_n_3
+                                                                      r  FSM_sequential_butter_ph[2]_i_96/I1
+                         LUT2 (Prop_lut2_I1_O)        0.360     7.005 r  FSM_sequential_butter_ph[2]_i_96/O
+                         net (fo=1, unplaced)         0.000     7.005    FSM_sequential_butter_ph[2]_i_96_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_54/DI[1]
+                         CARRY4 (Prop_carry4_DI[1]_CO[3])
+                                                      0.547     7.552 r  FSM_sequential_butter_ph_reg[2]_i_54/CO[3]
+                         net (fo=1, unplaced)         0.000     7.552    FSM_sequential_butter_ph_reg[2]_i_54_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_28/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     7.669 r  FSM_sequential_butter_ph_reg[2]_i_28/CO[3]
+                         net (fo=1, unplaced)         0.000     7.669    FSM_sequential_butter_ph_reg[2]_i_28_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_18/CI
+                         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.179     7.848 r  FSM_sequential_butter_ph_reg[2]_i_18/CO[1]
+                         net (fo=14, unplaced)        0.576     8.424    FSM_sequential_butter_ph_reg[2]_i_18_n_2
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_53/CYINIT
+                         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.803     9.227 r  FSM_sequential_butter_ph_reg[2]_i_53/CO[3]
+                         net (fo=1, unplaced)         0.000     9.227    FSM_sequential_butter_ph_reg[2]_i_53_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_27/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.344 r  FSM_sequential_butter_ph_reg[2]_i_27/CO[3]
+                         net (fo=1, unplaced)         0.000     9.344    FSM_sequential_butter_ph_reg[2]_i_27_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_16/CI
+                         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.179     9.523 r  FSM_sequential_butter_ph_reg[2]_i_16/CO[1]
+                         net (fo=14, unplaced)        0.576    10.099    FSM_sequential_butter_ph_reg[2]_i_16_n_2
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_64/CYINIT
+                         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.803    10.902 r  FSM_sequential_butter_ph_reg[2]_i_64/CO[3]
+                         net (fo=1, unplaced)         0.000    10.902    FSM_sequential_butter_ph_reg[2]_i_64_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_34/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    11.019 r  FSM_sequential_butter_ph_reg[2]_i_34/CO[3]
+                         net (fo=1, unplaced)         0.000    11.019    FSM_sequential_butter_ph_reg[2]_i_34_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_20/CI
+                         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.179    11.198 r  FSM_sequential_butter_ph_reg[2]_i_20/CO[1]
+                         net (fo=14, unplaced)        0.576    11.774    FSM_sequential_butter_ph_reg[2]_i_20_n_2
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_63/CYINIT
+                         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.803    12.577 r  FSM_sequential_butter_ph_reg[2]_i_63/CO[3]
+                         net (fo=1, unplaced)         0.000    12.577    FSM_sequential_butter_ph_reg[2]_i_63_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_33/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    12.694 r  FSM_sequential_butter_ph_reg[2]_i_33/CO[3]
+                         net (fo=1, unplaced)         0.000    12.694    FSM_sequential_butter_ph_reg[2]_i_33_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_19/CI
+                         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.179    12.873 r  FSM_sequential_butter_ph_reg[2]_i_19/CO[1]
+                         net (fo=14, unplaced)        0.576    13.449    FSM_sequential_butter_ph_reg[2]_i_19_n_2
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_78/CYINIT
+                         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.803    14.252 r  FSM_sequential_butter_ph_reg[2]_i_78/CO[3]
+                         net (fo=1, unplaced)         0.000    14.252    FSM_sequential_butter_ph_reg[2]_i_78_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_41/CI
+                         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.337    14.589 r  FSM_sequential_butter_ph_reg[2]_i_41/O[1]
+                         net (fo=2, unplaced)         0.622    15.211    FSM_sequential_butter_ph_reg[2]_i_41_n_6
+                                                                      r  FSM_sequential_butter_ph[2]_i_76/I2
+                         LUT3 (Prop_lut3_I2_O)        0.306    15.517 r  FSM_sequential_butter_ph[2]_i_76/O
+                         net (fo=1, unplaced)         0.000    15.517    FSM_sequential_butter_ph[2]_i_76_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_39/S[1]
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533    16.050 r  FSM_sequential_butter_ph_reg[2]_i_39/CO[3]
+                         net (fo=1, unplaced)         0.000    16.050    FSM_sequential_butter_ph_reg[2]_i_39_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_21/CI
+                         CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.281    16.331 r  FSM_sequential_butter_ph_reg[2]_i_21/CO[0]
+                         net (fo=2, unplaced)         0.322    16.653    FSM_sequential_butter_ph_reg[2]_i_21_n_3
+                                                                      r  FSM_sequential_butter_ph[2]_i_9/I0
+                         LUT4 (Prop_lut4_I0_O)        0.359    17.012 r  FSM_sequential_butter_ph[2]_i_9/O
+                         net (fo=1, unplaced)         0.000    17.012    FSM_sequential_butter_ph[2]_i_9_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_5/DI[0]
+                         CARRY4 (Prop_carry4_DI[0]_CO[3])
+                                                      0.576    17.588 r  FSM_sequential_butter_ph_reg[2]_i_5/CO[3]
+                         net (fo=15, unplaced)        0.801    18.389    FSM_sequential_butter_ph_reg[2]_i_5_n_0
+                                                                      r  j_cnt[7]_i_3/I5
+                         LUT6 (Prop_lut6_I5_O)        0.124    18.513 r  j_cnt[7]_i_3/O
+                         net (fo=1, unplaced)         0.449    18.962    j_cnt[7]_i_3_n_0
+                                                                      r  j_cnt[7]_i_1/I0
+                         LUT6 (Prop_lut6_I0_O)        0.124    19.086 r  j_cnt[7]_i_1/O
+                         net (fo=8, unplaced)         0.511    19.597    j_cnt[0]
+                         FDCE                                         r  j_cnt_reg[1]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.000    10.000 r  <hidden>
+                                                      0.000    10.000 r  clk
+                         net (fo=0)                   0.000    10.000    clk
+                                                                      r  clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.838    10.838 r  clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.763    11.600    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.091    11.691 r  clk_IBUF_BUFG_inst/O
+                         net (fo=4411, unplaced)      0.439    12.130    clk_IBUF_BUFG
+                         FDCE                                         r  j_cnt_reg[1]/C
+                         clock pessimism              0.179    12.309    <hidden>
+                         clock uncertainty           -0.261    12.048    <hidden>
+                         FDCE (Setup_fdce_C_CE)      -0.202    11.846    j_cnt_reg[1]
+  -------------------------------------------------------------------
+                         required time                         11.846    <hidden>
+                         arrival time                         -19.597    <hidden>
+  -------------------------------------------------------------------
+                         slack                                 -7.751    <hidden>
+
+Slack (VIOLATED) :        -7.751ns  (required time - arrival time)
+  Source:                 len_reg[5]/C
+                            (rising edge-triggered cell FDCE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            j_cnt_reg[2]/CE
+                            (rising edge-triggered cell FDCE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
+  Data Path Delay:        17.143ns  (logic 9.778ns (57.038%)  route 7.365ns (42.962%))
+  Logic Levels:           27  (CARRY4=19 LUT2=2 LUT3=1 LUT4=1 LUT6=4)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.130ns = ( 12.130 - 10.000 ) 
+    Source Clock Delay      (SCD):    2.454ns
+    Clock Pessimism Removal (CPR):    0.179ns
+  Clock Uncertainty:      0.261ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.100ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.200ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=0)                   0.000     0.000    clk
+                                                                      r  clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.971     0.971 r  clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.803     1.774    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.096     1.870 r  clk_IBUF_BUFG_inst/O
+                         net (fo=4411, unplaced)      0.584     2.454    clk_IBUF_BUFG
+                         FDCE                                         r  len_reg[5]/C
+  -------------------------------------------------------------------    -------------------
+                         FDCE (Prop_fdce_C_Q)         0.478     2.932 f  len_reg[5]/Q
+                         net (fo=16, unplaced)        1.019     3.951    p_0_in[6]
+                                                                      f  FSM_sequential_butter_ph[2]_i_26/I0
+                         LUT6 (Prop_lut6_I0_O)        0.295     4.246 r  FSM_sequential_butter_ph[2]_i_26/O
+                         net (fo=15, unplaced)        0.502     4.748    FSM_sequential_butter_ph[2]_i_26_n_0
+                                                                      r  FSM_sequential_butter_ph[2]_i_15/I0
+                         LUT2 (Prop_lut2_I0_O)        0.124     4.872 r  FSM_sequential_butter_ph[2]_i_15/O
+                         net (fo=4, unplaced)         0.473     5.345    FSM_sequential_butter_ph[2]_i_15_n_0
+                                                                      r  FSM_sequential_butter_ph[2]_i_51/I0
+                         LUT6 (Prop_lut6_I0_O)        0.124     5.469 r  FSM_sequential_butter_ph[2]_i_51/O
+                         net (fo=1, unplaced)         0.000     5.469    FSM_sequential_butter_ph[2]_i_51_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_23/S[1]
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533     6.002 r  FSM_sequential_butter_ph_reg[2]_i_23/CO[3]
+                         net (fo=1, unplaced)         0.000     6.002    FSM_sequential_butter_ph_reg[2]_i_23_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_14/CI
+                         CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.281     6.283 r  FSM_sequential_butter_ph_reg[2]_i_14/CO[0]
+                         net (fo=14, unplaced)        0.362     6.645    FSM_sequential_butter_ph_reg[2]_i_14_n_3
+                                                                      r  FSM_sequential_butter_ph[2]_i_96/I1
+                         LUT2 (Prop_lut2_I1_O)        0.360     7.005 r  FSM_sequential_butter_ph[2]_i_96/O
+                         net (fo=1, unplaced)         0.000     7.005    FSM_sequential_butter_ph[2]_i_96_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_54/DI[1]
+                         CARRY4 (Prop_carry4_DI[1]_CO[3])
+                                                      0.547     7.552 r  FSM_sequential_butter_ph_reg[2]_i_54/CO[3]
+                         net (fo=1, unplaced)         0.000     7.552    FSM_sequential_butter_ph_reg[2]_i_54_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_28/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     7.669 r  FSM_sequential_butter_ph_reg[2]_i_28/CO[3]
+                         net (fo=1, unplaced)         0.000     7.669    FSM_sequential_butter_ph_reg[2]_i_28_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_18/CI
+                         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.179     7.848 r  FSM_sequential_butter_ph_reg[2]_i_18/CO[1]
+                         net (fo=14, unplaced)        0.576     8.424    FSM_sequential_butter_ph_reg[2]_i_18_n_2
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_53/CYINIT
+                         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.803     9.227 r  FSM_sequential_butter_ph_reg[2]_i_53/CO[3]
+                         net (fo=1, unplaced)         0.000     9.227    FSM_sequential_butter_ph_reg[2]_i_53_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_27/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.344 r  FSM_sequential_butter_ph_reg[2]_i_27/CO[3]
+                         net (fo=1, unplaced)         0.000     9.344    FSM_sequential_butter_ph_reg[2]_i_27_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_16/CI
+                         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.179     9.523 r  FSM_sequential_butter_ph_reg[2]_i_16/CO[1]
+                         net (fo=14, unplaced)        0.576    10.099    FSM_sequential_butter_ph_reg[2]_i_16_n_2
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_64/CYINIT
+                         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.803    10.902 r  FSM_sequential_butter_ph_reg[2]_i_64/CO[3]
+                         net (fo=1, unplaced)         0.000    10.902    FSM_sequential_butter_ph_reg[2]_i_64_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_34/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    11.019 r  FSM_sequential_butter_ph_reg[2]_i_34/CO[3]
+                         net (fo=1, unplaced)         0.000    11.019    FSM_sequential_butter_ph_reg[2]_i_34_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_20/CI
+                         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.179    11.198 r  FSM_sequential_butter_ph_reg[2]_i_20/CO[1]
+                         net (fo=14, unplaced)        0.576    11.774    FSM_sequential_butter_ph_reg[2]_i_20_n_2
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_63/CYINIT
+                         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.803    12.577 r  FSM_sequential_butter_ph_reg[2]_i_63/CO[3]
+                         net (fo=1, unplaced)         0.000    12.577    FSM_sequential_butter_ph_reg[2]_i_63_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_33/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    12.694 r  FSM_sequential_butter_ph_reg[2]_i_33/CO[3]
+                         net (fo=1, unplaced)         0.000    12.694    FSM_sequential_butter_ph_reg[2]_i_33_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_19/CI
+                         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.179    12.873 r  FSM_sequential_butter_ph_reg[2]_i_19/CO[1]
+                         net (fo=14, unplaced)        0.576    13.449    FSM_sequential_butter_ph_reg[2]_i_19_n_2
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_78/CYINIT
+                         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.803    14.252 r  FSM_sequential_butter_ph_reg[2]_i_78/CO[3]
+                         net (fo=1, unplaced)         0.000    14.252    FSM_sequential_butter_ph_reg[2]_i_78_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_41/CI
+                         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.337    14.589 r  FSM_sequential_butter_ph_reg[2]_i_41/O[1]
+                         net (fo=2, unplaced)         0.622    15.211    FSM_sequential_butter_ph_reg[2]_i_41_n_6
+                                                                      r  FSM_sequential_butter_ph[2]_i_76/I2
+                         LUT3 (Prop_lut3_I2_O)        0.306    15.517 r  FSM_sequential_butter_ph[2]_i_76/O
+                         net (fo=1, unplaced)         0.000    15.517    FSM_sequential_butter_ph[2]_i_76_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_39/S[1]
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533    16.050 r  FSM_sequential_butter_ph_reg[2]_i_39/CO[3]
+                         net (fo=1, unplaced)         0.000    16.050    FSM_sequential_butter_ph_reg[2]_i_39_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_21/CI
+                         CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.281    16.331 r  FSM_sequential_butter_ph_reg[2]_i_21/CO[0]
+                         net (fo=2, unplaced)         0.322    16.653    FSM_sequential_butter_ph_reg[2]_i_21_n_3
+                                                                      r  FSM_sequential_butter_ph[2]_i_9/I0
+                         LUT4 (Prop_lut4_I0_O)        0.359    17.012 r  FSM_sequential_butter_ph[2]_i_9/O
+                         net (fo=1, unplaced)         0.000    17.012    FSM_sequential_butter_ph[2]_i_9_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_5/DI[0]
+                         CARRY4 (Prop_carry4_DI[0]_CO[3])
+                                                      0.576    17.588 r  FSM_sequential_butter_ph_reg[2]_i_5/CO[3]
+                         net (fo=15, unplaced)        0.801    18.389    FSM_sequential_butter_ph_reg[2]_i_5_n_0
+                                                                      r  j_cnt[7]_i_3/I5
+                         LUT6 (Prop_lut6_I5_O)        0.124    18.513 r  j_cnt[7]_i_3/O
+                         net (fo=1, unplaced)         0.449    18.962    j_cnt[7]_i_3_n_0
+                                                                      r  j_cnt[7]_i_1/I0
+                         LUT6 (Prop_lut6_I0_O)        0.124    19.086 r  j_cnt[7]_i_1/O
+                         net (fo=8, unplaced)         0.511    19.597    j_cnt[0]
+                         FDCE                                         r  j_cnt_reg[2]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.000    10.000 r  <hidden>
+                                                      0.000    10.000 r  clk
+                         net (fo=0)                   0.000    10.000    clk
+                                                                      r  clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.838    10.838 r  clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.763    11.600    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.091    11.691 r  clk_IBUF_BUFG_inst/O
+                         net (fo=4411, unplaced)      0.439    12.130    clk_IBUF_BUFG
+                         FDCE                                         r  j_cnt_reg[2]/C
+                         clock pessimism              0.179    12.309    <hidden>
+                         clock uncertainty           -0.261    12.048    <hidden>
+                         FDCE (Setup_fdce_C_CE)      -0.202    11.846    j_cnt_reg[2]
+  -------------------------------------------------------------------
+                         required time                         11.846    <hidden>
+                         arrival time                         -19.597    <hidden>
+  -------------------------------------------------------------------
+                         slack                                 -7.751    <hidden>
+
+Slack (VIOLATED) :        -7.751ns  (required time - arrival time)
+  Source:                 len_reg[5]/C
+                            (rising edge-triggered cell FDCE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            j_cnt_reg[3]/CE
+                            (rising edge-triggered cell FDCE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
+  Data Path Delay:        17.143ns  (logic 9.778ns (57.038%)  route 7.365ns (42.962%))
+  Logic Levels:           27  (CARRY4=19 LUT2=2 LUT3=1 LUT4=1 LUT6=4)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.130ns = ( 12.130 - 10.000 ) 
+    Source Clock Delay      (SCD):    2.454ns
+    Clock Pessimism Removal (CPR):    0.179ns
+  Clock Uncertainty:      0.261ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.100ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.200ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=0)                   0.000     0.000    clk
+                                                                      r  clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.971     0.971 r  clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.803     1.774    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.096     1.870 r  clk_IBUF_BUFG_inst/O
+                         net (fo=4411, unplaced)      0.584     2.454    clk_IBUF_BUFG
+                         FDCE                                         r  len_reg[5]/C
+  -------------------------------------------------------------------    -------------------
+                         FDCE (Prop_fdce_C_Q)         0.478     2.932 f  len_reg[5]/Q
+                         net (fo=16, unplaced)        1.019     3.951    p_0_in[6]
+                                                                      f  FSM_sequential_butter_ph[2]_i_26/I0
+                         LUT6 (Prop_lut6_I0_O)        0.295     4.246 r  FSM_sequential_butter_ph[2]_i_26/O
+                         net (fo=15, unplaced)        0.502     4.748    FSM_sequential_butter_ph[2]_i_26_n_0
+                                                                      r  FSM_sequential_butter_ph[2]_i_15/I0
+                         LUT2 (Prop_lut2_I0_O)        0.124     4.872 r  FSM_sequential_butter_ph[2]_i_15/O
+                         net (fo=4, unplaced)         0.473     5.345    FSM_sequential_butter_ph[2]_i_15_n_0
+                                                                      r  FSM_sequential_butter_ph[2]_i_51/I0
+                         LUT6 (Prop_lut6_I0_O)        0.124     5.469 r  FSM_sequential_butter_ph[2]_i_51/O
+                         net (fo=1, unplaced)         0.000     5.469    FSM_sequential_butter_ph[2]_i_51_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_23/S[1]
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533     6.002 r  FSM_sequential_butter_ph_reg[2]_i_23/CO[3]
+                         net (fo=1, unplaced)         0.000     6.002    FSM_sequential_butter_ph_reg[2]_i_23_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_14/CI
+                         CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.281     6.283 r  FSM_sequential_butter_ph_reg[2]_i_14/CO[0]
+                         net (fo=14, unplaced)        0.362     6.645    FSM_sequential_butter_ph_reg[2]_i_14_n_3
+                                                                      r  FSM_sequential_butter_ph[2]_i_96/I1
+                         LUT2 (Prop_lut2_I1_O)        0.360     7.005 r  FSM_sequential_butter_ph[2]_i_96/O
+                         net (fo=1, unplaced)         0.000     7.005    FSM_sequential_butter_ph[2]_i_96_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_54/DI[1]
+                         CARRY4 (Prop_carry4_DI[1]_CO[3])
+                                                      0.547     7.552 r  FSM_sequential_butter_ph_reg[2]_i_54/CO[3]
+                         net (fo=1, unplaced)         0.000     7.552    FSM_sequential_butter_ph_reg[2]_i_54_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_28/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     7.669 r  FSM_sequential_butter_ph_reg[2]_i_28/CO[3]
+                         net (fo=1, unplaced)         0.000     7.669    FSM_sequential_butter_ph_reg[2]_i_28_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_18/CI
+                         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.179     7.848 r  FSM_sequential_butter_ph_reg[2]_i_18/CO[1]
+                         net (fo=14, unplaced)        0.576     8.424    FSM_sequential_butter_ph_reg[2]_i_18_n_2
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_53/CYINIT
+                         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.803     9.227 r  FSM_sequential_butter_ph_reg[2]_i_53/CO[3]
+                         net (fo=1, unplaced)         0.000     9.227    FSM_sequential_butter_ph_reg[2]_i_53_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_27/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.344 r  FSM_sequential_butter_ph_reg[2]_i_27/CO[3]
+                         net (fo=1, unplaced)         0.000     9.344    FSM_sequential_butter_ph_reg[2]_i_27_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_16/CI
+                         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.179     9.523 r  FSM_sequential_butter_ph_reg[2]_i_16/CO[1]
+                         net (fo=14, unplaced)        0.576    10.099    FSM_sequential_butter_ph_reg[2]_i_16_n_2
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_64/CYINIT
+                         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.803    10.902 r  FSM_sequential_butter_ph_reg[2]_i_64/CO[3]
+                         net (fo=1, unplaced)         0.000    10.902    FSM_sequential_butter_ph_reg[2]_i_64_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_34/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    11.019 r  FSM_sequential_butter_ph_reg[2]_i_34/CO[3]
+                         net (fo=1, unplaced)         0.000    11.019    FSM_sequential_butter_ph_reg[2]_i_34_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_20/CI
+                         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.179    11.198 r  FSM_sequential_butter_ph_reg[2]_i_20/CO[1]
+                         net (fo=14, unplaced)        0.576    11.774    FSM_sequential_butter_ph_reg[2]_i_20_n_2
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_63/CYINIT
+                         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.803    12.577 r  FSM_sequential_butter_ph_reg[2]_i_63/CO[3]
+                         net (fo=1, unplaced)         0.000    12.577    FSM_sequential_butter_ph_reg[2]_i_63_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_33/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    12.694 r  FSM_sequential_butter_ph_reg[2]_i_33/CO[3]
+                         net (fo=1, unplaced)         0.000    12.694    FSM_sequential_butter_ph_reg[2]_i_33_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_19/CI
+                         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.179    12.873 r  FSM_sequential_butter_ph_reg[2]_i_19/CO[1]
+                         net (fo=14, unplaced)        0.576    13.449    FSM_sequential_butter_ph_reg[2]_i_19_n_2
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_78/CYINIT
+                         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.803    14.252 r  FSM_sequential_butter_ph_reg[2]_i_78/CO[3]
+                         net (fo=1, unplaced)         0.000    14.252    FSM_sequential_butter_ph_reg[2]_i_78_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_41/CI
+                         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.337    14.589 r  FSM_sequential_butter_ph_reg[2]_i_41/O[1]
+                         net (fo=2, unplaced)         0.622    15.211    FSM_sequential_butter_ph_reg[2]_i_41_n_6
+                                                                      r  FSM_sequential_butter_ph[2]_i_76/I2
+                         LUT3 (Prop_lut3_I2_O)        0.306    15.517 r  FSM_sequential_butter_ph[2]_i_76/O
+                         net (fo=1, unplaced)         0.000    15.517    FSM_sequential_butter_ph[2]_i_76_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_39/S[1]
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533    16.050 r  FSM_sequential_butter_ph_reg[2]_i_39/CO[3]
+                         net (fo=1, unplaced)         0.000    16.050    FSM_sequential_butter_ph_reg[2]_i_39_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_21/CI
+                         CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.281    16.331 r  FSM_sequential_butter_ph_reg[2]_i_21/CO[0]
+                         net (fo=2, unplaced)         0.322    16.653    FSM_sequential_butter_ph_reg[2]_i_21_n_3
+                                                                      r  FSM_sequential_butter_ph[2]_i_9/I0
+                         LUT4 (Prop_lut4_I0_O)        0.359    17.012 r  FSM_sequential_butter_ph[2]_i_9/O
+                         net (fo=1, unplaced)         0.000    17.012    FSM_sequential_butter_ph[2]_i_9_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_5/DI[0]
+                         CARRY4 (Prop_carry4_DI[0]_CO[3])
+                                                      0.576    17.588 r  FSM_sequential_butter_ph_reg[2]_i_5/CO[3]
+                         net (fo=15, unplaced)        0.801    18.389    FSM_sequential_butter_ph_reg[2]_i_5_n_0
+                                                                      r  j_cnt[7]_i_3/I5
+                         LUT6 (Prop_lut6_I5_O)        0.124    18.513 r  j_cnt[7]_i_3/O
+                         net (fo=1, unplaced)         0.449    18.962    j_cnt[7]_i_3_n_0
+                                                                      r  j_cnt[7]_i_1/I0
+                         LUT6 (Prop_lut6_I0_O)        0.124    19.086 r  j_cnt[7]_i_1/O
+                         net (fo=8, unplaced)         0.511    19.597    j_cnt[0]
+                         FDCE                                         r  j_cnt_reg[3]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.000    10.000 r  <hidden>
+                                                      0.000    10.000 r  clk
+                         net (fo=0)                   0.000    10.000    clk
+                                                                      r  clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.838    10.838 r  clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.763    11.600    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.091    11.691 r  clk_IBUF_BUFG_inst/O
+                         net (fo=4411, unplaced)      0.439    12.130    clk_IBUF_BUFG
+                         FDCE                                         r  j_cnt_reg[3]/C
+                         clock pessimism              0.179    12.309    <hidden>
+                         clock uncertainty           -0.261    12.048    <hidden>
+                         FDCE (Setup_fdce_C_CE)      -0.202    11.846    j_cnt_reg[3]
+  -------------------------------------------------------------------
+                         required time                         11.846    <hidden>
+                         arrival time                         -19.597    <hidden>
+  -------------------------------------------------------------------
+                         slack                                 -7.751    <hidden>
+
+Slack (VIOLATED) :        -7.751ns  (required time - arrival time)
+  Source:                 len_reg[5]/C
+                            (rising edge-triggered cell FDCE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            j_cnt_reg[4]/CE
+                            (rising edge-triggered cell FDCE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
+  Data Path Delay:        17.143ns  (logic 9.778ns (57.038%)  route 7.365ns (42.962%))
+  Logic Levels:           27  (CARRY4=19 LUT2=2 LUT3=1 LUT4=1 LUT6=4)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.130ns = ( 12.130 - 10.000 ) 
+    Source Clock Delay      (SCD):    2.454ns
+    Clock Pessimism Removal (CPR):    0.179ns
+  Clock Uncertainty:      0.261ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.100ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.200ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=0)                   0.000     0.000    clk
+                                                                      r  clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.971     0.971 r  clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.803     1.774    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.096     1.870 r  clk_IBUF_BUFG_inst/O
+                         net (fo=4411, unplaced)      0.584     2.454    clk_IBUF_BUFG
+                         FDCE                                         r  len_reg[5]/C
+  -------------------------------------------------------------------    -------------------
+                         FDCE (Prop_fdce_C_Q)         0.478     2.932 f  len_reg[5]/Q
+                         net (fo=16, unplaced)        1.019     3.951    p_0_in[6]
+                                                                      f  FSM_sequential_butter_ph[2]_i_26/I0
+                         LUT6 (Prop_lut6_I0_O)        0.295     4.246 r  FSM_sequential_butter_ph[2]_i_26/O
+                         net (fo=15, unplaced)        0.502     4.748    FSM_sequential_butter_ph[2]_i_26_n_0
+                                                                      r  FSM_sequential_butter_ph[2]_i_15/I0
+                         LUT2 (Prop_lut2_I0_O)        0.124     4.872 r  FSM_sequential_butter_ph[2]_i_15/O
+                         net (fo=4, unplaced)         0.473     5.345    FSM_sequential_butter_ph[2]_i_15_n_0
+                                                                      r  FSM_sequential_butter_ph[2]_i_51/I0
+                         LUT6 (Prop_lut6_I0_O)        0.124     5.469 r  FSM_sequential_butter_ph[2]_i_51/O
+                         net (fo=1, unplaced)         0.000     5.469    FSM_sequential_butter_ph[2]_i_51_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_23/S[1]
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533     6.002 r  FSM_sequential_butter_ph_reg[2]_i_23/CO[3]
+                         net (fo=1, unplaced)         0.000     6.002    FSM_sequential_butter_ph_reg[2]_i_23_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_14/CI
+                         CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.281     6.283 r  FSM_sequential_butter_ph_reg[2]_i_14/CO[0]
+                         net (fo=14, unplaced)        0.362     6.645    FSM_sequential_butter_ph_reg[2]_i_14_n_3
+                                                                      r  FSM_sequential_butter_ph[2]_i_96/I1
+                         LUT2 (Prop_lut2_I1_O)        0.360     7.005 r  FSM_sequential_butter_ph[2]_i_96/O
+                         net (fo=1, unplaced)         0.000     7.005    FSM_sequential_butter_ph[2]_i_96_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_54/DI[1]
+                         CARRY4 (Prop_carry4_DI[1]_CO[3])
+                                                      0.547     7.552 r  FSM_sequential_butter_ph_reg[2]_i_54/CO[3]
+                         net (fo=1, unplaced)         0.000     7.552    FSM_sequential_butter_ph_reg[2]_i_54_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_28/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     7.669 r  FSM_sequential_butter_ph_reg[2]_i_28/CO[3]
+                         net (fo=1, unplaced)         0.000     7.669    FSM_sequential_butter_ph_reg[2]_i_28_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_18/CI
+                         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.179     7.848 r  FSM_sequential_butter_ph_reg[2]_i_18/CO[1]
+                         net (fo=14, unplaced)        0.576     8.424    FSM_sequential_butter_ph_reg[2]_i_18_n_2
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_53/CYINIT
+                         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.803     9.227 r  FSM_sequential_butter_ph_reg[2]_i_53/CO[3]
+                         net (fo=1, unplaced)         0.000     9.227    FSM_sequential_butter_ph_reg[2]_i_53_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_27/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.344 r  FSM_sequential_butter_ph_reg[2]_i_27/CO[3]
+                         net (fo=1, unplaced)         0.000     9.344    FSM_sequential_butter_ph_reg[2]_i_27_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_16/CI
+                         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.179     9.523 r  FSM_sequential_butter_ph_reg[2]_i_16/CO[1]
+                         net (fo=14, unplaced)        0.576    10.099    FSM_sequential_butter_ph_reg[2]_i_16_n_2
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_64/CYINIT
+                         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.803    10.902 r  FSM_sequential_butter_ph_reg[2]_i_64/CO[3]
+                         net (fo=1, unplaced)         0.000    10.902    FSM_sequential_butter_ph_reg[2]_i_64_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_34/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    11.019 r  FSM_sequential_butter_ph_reg[2]_i_34/CO[3]
+                         net (fo=1, unplaced)         0.000    11.019    FSM_sequential_butter_ph_reg[2]_i_34_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_20/CI
+                         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.179    11.198 r  FSM_sequential_butter_ph_reg[2]_i_20/CO[1]
+                         net (fo=14, unplaced)        0.576    11.774    FSM_sequential_butter_ph_reg[2]_i_20_n_2
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_63/CYINIT
+                         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.803    12.577 r  FSM_sequential_butter_ph_reg[2]_i_63/CO[3]
+                         net (fo=1, unplaced)         0.000    12.577    FSM_sequential_butter_ph_reg[2]_i_63_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_33/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    12.694 r  FSM_sequential_butter_ph_reg[2]_i_33/CO[3]
+                         net (fo=1, unplaced)         0.000    12.694    FSM_sequential_butter_ph_reg[2]_i_33_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_19/CI
+                         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.179    12.873 r  FSM_sequential_butter_ph_reg[2]_i_19/CO[1]
+                         net (fo=14, unplaced)        0.576    13.449    FSM_sequential_butter_ph_reg[2]_i_19_n_2
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_78/CYINIT
+                         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.803    14.252 r  FSM_sequential_butter_ph_reg[2]_i_78/CO[3]
+                         net (fo=1, unplaced)         0.000    14.252    FSM_sequential_butter_ph_reg[2]_i_78_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_41/CI
+                         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.337    14.589 r  FSM_sequential_butter_ph_reg[2]_i_41/O[1]
+                         net (fo=2, unplaced)         0.622    15.211    FSM_sequential_butter_ph_reg[2]_i_41_n_6
+                                                                      r  FSM_sequential_butter_ph[2]_i_76/I2
+                         LUT3 (Prop_lut3_I2_O)        0.306    15.517 r  FSM_sequential_butter_ph[2]_i_76/O
+                         net (fo=1, unplaced)         0.000    15.517    FSM_sequential_butter_ph[2]_i_76_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_39/S[1]
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533    16.050 r  FSM_sequential_butter_ph_reg[2]_i_39/CO[3]
+                         net (fo=1, unplaced)         0.000    16.050    FSM_sequential_butter_ph_reg[2]_i_39_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_21/CI
+                         CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.281    16.331 r  FSM_sequential_butter_ph_reg[2]_i_21/CO[0]
+                         net (fo=2, unplaced)         0.322    16.653    FSM_sequential_butter_ph_reg[2]_i_21_n_3
+                                                                      r  FSM_sequential_butter_ph[2]_i_9/I0
+                         LUT4 (Prop_lut4_I0_O)        0.359    17.012 r  FSM_sequential_butter_ph[2]_i_9/O
+                         net (fo=1, unplaced)         0.000    17.012    FSM_sequential_butter_ph[2]_i_9_n_0
+                                                                      r  FSM_sequential_butter_ph_reg[2]_i_5/DI[0]
+                         CARRY4 (Prop_carry4_DI[0]_CO[3])
+                                                      0.576    17.588 r  FSM_sequential_butter_ph_reg[2]_i_5/CO[3]
+                         net (fo=15, unplaced)        0.801    18.389    FSM_sequential_butter_ph_reg[2]_i_5_n_0
+                                                                      r  j_cnt[7]_i_3/I5
+                         LUT6 (Prop_lut6_I5_O)        0.124    18.513 r  j_cnt[7]_i_3/O
+                         net (fo=1, unplaced)         0.449    18.962    j_cnt[7]_i_3_n_0
+                                                                      r  j_cnt[7]_i_1/I0
+                         LUT6 (Prop_lut6_I0_O)        0.124    19.086 r  j_cnt[7]_i_1/O
+                         net (fo=8, unplaced)         0.511    19.597    j_cnt[0]
+                         FDCE                                         r  j_cnt_reg[4]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.000    10.000 r  <hidden>
+                                                      0.000    10.000 r  clk
+                         net (fo=0)                   0.000    10.000    clk
+                                                                      r  clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.838    10.838 r  clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.763    11.600    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.091    11.691 r  clk_IBUF_BUFG_inst/O
+                         net (fo=4411, unplaced)      0.439    12.130    clk_IBUF_BUFG
+                         FDCE                                         r  j_cnt_reg[4]/C
+                         clock pessimism              0.179    12.309    <hidden>
+                         clock uncertainty           -0.261    12.048    <hidden>
+                         FDCE (Setup_fdce_C_CE)      -0.202    11.846    j_cnt_reg[4]
+  -------------------------------------------------------------------
+                         required time                         11.846    <hidden>
+                         arrival time                         -19.597    <hidden>
+  -------------------------------------------------------------------
+                         slack                                 -7.751    <hidden>
+
+
+
+

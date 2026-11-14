@@ -1,0 +1,52 @@
+PART xc7a200tfbg484-1  pkg=fbg484 speed=-1 iobs=285
+PART xc7a200tfbg484-2  pkg=fbg484 speed=-2 iobs=285
+PART xc7a200tfbg484-2L  pkg=fbg484 speed=-2L iobs=285
+PART xc7a200tfbg484-3  pkg=fbg484 speed=-3 iobs=285
+PART xc7a200tfbg676-1  pkg=fbg676 speed=-1 iobs=400
+PART xc7a200tfbg676-2  pkg=fbg676 speed=-2 iobs=400
+PART xc7a200tfbg676-2L  pkg=fbg676 speed=-2L iobs=400
+PART xc7a200tfbg676-3  pkg=fbg676 speed=-3 iobs=400
+PART xc7a200tfbv484-1  pkg=fbv484 speed=-1 iobs=285
+PART xc7a200tfbv484-2  pkg=fbv484 speed=-2 iobs=285
+PART xc7a200tfbv484-2L  pkg=fbv484 speed=-2L iobs=285
+PART xc7a200tfbv484-3  pkg=fbv484 speed=-3 iobs=285
+PART xc7a200tfbv676-1  pkg=fbv676 speed=-1 iobs=400
+PART xc7a200tfbv676-2  pkg=fbv676 speed=-2 iobs=400
+PART xc7a200tfbv676-2L  pkg=fbv676 speed=-2L iobs=400
+PART xc7a200tfbv676-3  pkg=fbv676 speed=-3 iobs=400
+PART xc7a200tffg1156-1  pkg=ffg1156 speed=-1 iobs=500
+PART xc7a200tffg1156-2  pkg=ffg1156 speed=-2 iobs=500
+PART xc7a200tffg1156-2L  pkg=ffg1156 speed=-2L iobs=500
+PART xc7a200tffg1156-3  pkg=ffg1156 speed=-3 iobs=500
+PART xc7a200tffv1156-1  pkg=ffv1156 speed=-1 iobs=500
+PART xc7a200tffv1156-2  pkg=ffv1156 speed=-2 iobs=500
+PART xc7a200tffv1156-2L  pkg=ffv1156 speed=-2L iobs=500
+PART xc7a200tffv1156-3  pkg=ffv1156 speed=-3 iobs=500
+PART xc7a200tsbg484-1  pkg=sbg484 speed=-1 iobs=285
+PART xc7a200tsbg484-2  pkg=sbg484 speed=-2 iobs=285
+PART xc7a200tsbg484-2L  pkg=sbg484 speed=-2L iobs=285
+PART xc7a200tsbg484-3  pkg=sbg484 speed=-3 iobs=285
+PART xc7a200tsbv484-1  pkg=sbv484 speed=-1 iobs=285
+PART xc7a200tsbv484-2  pkg=sbv484 speed=-2 iobs=285
+PART xc7a200tsbv484-2L  pkg=sbv484 speed=-2L iobs=285
+PART xc7a200tsbv484-3  pkg=sbv484 speed=-3 iobs=285
+SAMPLE xc7a200tfbg484-1 slices=33650 lut=134600 ff=269200 bram=365 dsp=740
+SAMPLE xc7a200tfbg484-2 slices=33650 lut=134600 ff=269200 bram=365 dsp=740
+SAMPLE xc7a200tfbg484-2L slices=33650 lut=134600 ff=269200 bram=365 dsp=740
+SAMPLE xc7a200tfbg484-3 slices=33650 lut=134600 ff=269200 bram=365 dsp=740
+SAMPLE xc7a200tfbg676-1 slices=33650 lut=134600 ff=269200 bram=365 dsp=740
+SAMPLE xc7a200tfbg676-2 slices=33650 lut=134600 ff=269200 bram=365 dsp=740
+SAMPLE xc7a200tfbg676-2L slices=33650 lut=134600 ff=269200 bram=365 dsp=740
+SAMPLE xc7a200tfbg676-3 slices=33650 lut=134600 ff=269200 bram=365 dsp=740
+SAMPLE xc7a200tfbv484-1 slices=33650 lut=134600 ff=269200 bram=365 dsp=740
+SAMPLE xc7a200tfbv484-2 slices=33650 lut=134600 ff=269200 bram=365 dsp=740
+SAMPLE xc7a200tfbv484-2L slices=33650 lut=134600 ff=269200 bram=365 dsp=740
+SAMPLE xc7a200tfbv484-3 slices=33650 lut=134600 ff=269200 bram=365 dsp=740
+SAMPLE xc7a200tffg1156-1 slices=33650 lut=134600 ff=269200 bram=365 dsp=740
+SAMPLE xc7a200tffg1156-2 slices=33650 lut=134600 ff=269200 bram=365 dsp=740
+SAMPLE xc7a200tffg1156-2L slices=33650 lut=134600 ff=269200 bram=365 dsp=740
+SAMPLE xc7a200tffg1156-3 slices=33650 lut=134600 ff=269200 bram=365 dsp=740
+SAMPLE xc7a200tsbg484-1 slices=33650 lut=134600 ff=269200 bram=365 dsp=740
+SAMPLE xc7a200tsbg484-2 slices=33650 lut=134600 ff=269200 bram=365 dsp=740
+SAMPLE xc7a200tsbg484-2L slices=33650 lut=134600 ff=269200 bram=365 dsp=740
+SAMPLE xc7a200tsbg484-3 slices=33650 lut=134600 ff=269200 bram=365 dsp=740

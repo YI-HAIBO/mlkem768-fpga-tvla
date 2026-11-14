@@ -1,0 +1,33 @@
+---- impl board : ipx_aoi_sec_board_top (synth=default place=Explore) ----
+  cwd: C:\tmp_impl_board_t75d_20261025_095610
+  [   11s] vivado started         00_start.txt
+  [   16s] project + sources + xdc loaded 10_project.txt
+  [  561s] synth_design finished  20_synth_done.txt
+  [  576s] opt_design finished    25_opt_done.txt
+  [  906s] place_design finished  30_place_done.txt
+  [  926s] pre-route timing reported 35_pre_route_timing.txt
+  rc=1  time=1026s  markers=6/11
+  ---- log tail (last 15 of 1859 lines) ----
+   | | Launch Setup Clock | Launch Hold Clock | Pin                                        |
+   | +====================+===================+============================================+
+   | | clk                | clk               | u_kem/e2_poly_reg_0_255_1_1/RAMS64E_B/ADR0 |
+   | | clk                | clk               | u_kem/e2_poly_reg_0_255_1_1/RAMS64E_A/ADR0 |
+   | | clk                | clk               | u_kem/e2_poly_reg_0_255_0_0/RAMS64E_B/ADR0 |
+   | | clk                | clk               | u_kem/e2_poly_reg_0_255_0_0/RAMS64E_A/ADR0 |
+   | | clk                | clk               | u_kem/e2_poly_reg_0_255_1_1/RAMS64E_C/ADR0 |
+   | +--------------------+-------------------+--------------------------------------------+
+   | 
+   | File with complete list of pins: tight_setup_hold_pins.txt
+   | 
+   | 
+   | Phase 5 Rip-up And Reroute
+   | 
+   | Phase 5.1 Global Iteration 0
+  reports: ['pre_route_timing.rpt']
+---- board summary ----
+  synth_fmax_mhz               22.29853275654462
+  synth_hold_fails             22
+  synth_setup_fails            20346
+  synth_tns                    -280517.794
+  synth_whs                    -0.071
+  synth_wns                    -34.846

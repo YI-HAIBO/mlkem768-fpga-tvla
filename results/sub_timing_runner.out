@@ -1,0 +1,30 @@
+
+==== keccak_perm (timeout 2400s) ====
+  rc=0 time=68.8s timed_out=False timing={}
+
+==== shake (timeout 2400s) ====
+  rc=0 time=142.0s timed_out=False timing={}
+
+==== kyber_sampler (timeout 2400s) ====
+  rc=0 time=72.4s timed_out=False timing={}
+
+==== kyber_ntt (timeout 2400s) ====
+  rc=4294967295 time=506.3s timed_out=False timing={}
+
+==== kyber_poly (timeout 2400s) ====
+  rc=1 time=278.7s timed_out=False timing={}
+
+===== SUMMARY =====
+Sub-module timing report, part=xc7a100tcsg324-1, directive=RuntimeOptimized
+
+module             rc   time(s) timeout        LUT        FF       DSP       WNS      Fmax
+keccak_perm         0      68.8 -                -         -         -         -         -
+shake               0     142.0 -                -         -         -         -         -
+kyber_sampler       0      72.4 -                -         -         -         -         -
+kyber_ntt      4294967295     506.3 -                -         -         -         -         -
+kyber_poly          1     278.7 -                -         -         -         -         -
+
+Note: rc=1 with a produced .rpt is normal for Vivado 2026.1 batch here
+(a stray non-zero exit after reports are written).
+
+Summary -> C:\Users\Yi\WorkBuddy\2026-10-05-09-29-14\调研FPGA大模型安全\研发\ipx_aoi_fpga_prototype\results\sub_timing_summary.txt

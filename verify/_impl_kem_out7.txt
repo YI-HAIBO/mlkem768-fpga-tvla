@@ -1,0 +1,5 @@
+---- impl kem : unified_ntt_kem ----
+  cmd: D:\FPGA\2026.1\Vivado\bin\vivado.bat -mode batch -nojournal
+  cwd: C:\tmp_impl_unified_ntt_kem_t73g_20261024_204719
+  [   10s] vivado started           00_start.txt
+  [   15s] project + sources + xdc loaded 10_project.txt

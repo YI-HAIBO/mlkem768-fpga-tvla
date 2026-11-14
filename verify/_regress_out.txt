@@ -1,0 +1,87 @@
+golden_sign_ntt.log      1020 B  PASS=6   FAIL=0  mojibake=10  rc=0  OK
+------------------------------------------------------------------------
+==============================================================================
+COMPILE: sim\tb_unified_ntt_sign.v
+==============================================================================
+
+RUN: tb_unified_ntt_sign.v
+=== Loading Dilithium zeta ROM (256 entries) ===
+  Zeta ROM loaded OK
+
+=== Test 1: Forward NTT bit-exact vs golden ===
+  PASS: forward NTT bit-exact (256/256)
+  PASS: all coeffs in [-q/2,q/2]
+
+=== Test 3: NTT/INTT round-trip (5 polys) ===
+  PASS: invntt(ntt(f))==f*R mod q (5/5 polys)
+
+=== Test 4: INTT(0) ===
+  PASS: invntt(ntt(0)) == 0
+
+=== Test 5: INTT(gold_ntt) == f1*R (isolated inverse) ===
+  PASS: INTT(gold_ntt) == f1*R (256/256)
+
+=== Test 6: poly_mul == schoolbook negacyclic conv * R ===
+  PASS: poly_mul == schoolbook conv * R (256/256)
+
+=== SIGN-mode tests done ===
+C:\Users\Yi\WorkBuddy\2026-10-05-09-29-14\????FPGA??ģ?Ͱ?ȫ\?з?\ipx_aoi_fpga_prototype\sim/tb_unified_ntt_sign.v:2799: $finish called at 1808785000 (1ps)
+
+vvp rc=0
+
+ALL OK
+
+========================================================================
+golden_kem_ntt.log        948 B  PASS=4   FAIL=0  mojibake=10  rc=0  OK
+------------------------------------------------------------------------
+==============================================================================
+COMPILE: sim\tb_unified_ntt.v
+==============================================================================
+
+RUN: tb_unified_ntt.v
+=== Loading Kyber zeta ROM (128 entries) ===
+  Zeta ROM loaded OK
+
+=== Test 1: Forward NTT range check ===
+  PASS: All coefficients in [-q/2, q/2] after poly_reduce
+
+=== Test 2: NTT/INTT Round-Trip ===
+  PASS: invntt(ntt(f)) == f * R mod q  (R=2285)
+
+=== Test 3: INTT(0) ===
+  PASS: invntt(ntt(0)) == 0
+
+=== Test 4: Forward NTT known vector (f[i]=i+1) ===
+  Forward NTT first 8 coeffs: -484 -68 795 1165 1356 847 31 -562
+  PASS: NTT produces non-trivial output (256 non-zero coeffs)
+
+=== unified_ntt KEM mode tests completed ===
+C:\Users\Yi\WorkBuddy\2026-10-05-09-29-14\????FPGA??ģ?Ͱ?ȫ\?з?\ipx_aoi_fpga_prototype\sim/tb_unified_ntt.v:419: $finish called at 559845000 (1ps)
+
+vvp rc=0
+
+ALL OK
+
+========================================================================
+golden_sign_model.log     677 B  PASS=1   FAIL=0  mojibake=0  rc=0  OK
+------------------------------------------------------------------------
+Dilithium SIGN-mode NTT model check
+  q=8380417  BW=27  layers=8  R=2^27 mod q=131056
+  SCALE_K=49145  BARRETT_M=33587228  BARRETT_SH=48
+
+raw round-trip factor C = 256   (off-diagonal non-zero: 0)
+SCALE_K implied by C = 49145   (RTL uses 49145)  -> MATCH
+
+ 1. invntt(ntt(f)) == f*R                : 60/60
+ 2. invntt_raw(ntt(a)*ntt(b)) == (a*b)*C : 60/60
+ 3. invntt(ntt(a)*ntt(b)) == (a*b)*R     : 60/60   <- gold standard
+ 4. invntt(fqmul(ntt(a),ntt(b))) == (a*b)  : 60/60  <- real hardware path
+
+  peak |intermediate| over 200 random forwards : 30315562  (signed-26 max = 67108863) -> FITS
+  overflow events : 0
+  bad barrett     : 0
+
+MODEL VERDICT: ALL PASS
+
+========================================================================
+OVERALL: ALL PASS

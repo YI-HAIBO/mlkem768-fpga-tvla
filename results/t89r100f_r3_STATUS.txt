@@ -1,0 +1,32 @@
+t89r100f_r3 route monitor
+state: DEAD
+time : 2026-11-04 19:53:54
+pid  : 21576
+marks: ['00_start.txt', '10_open_dcp.txt']
+route.log tail:
+ elapsed = 00:02:40 . Memory (MB): peak = 2761.766 ; gain = 664.926
+  | Phase 3 Global Routing
+  | Phase 3 Global Routing | Checksum: fca78320
+  | Time (s): cpu = 00:02:34 ; elapsed = 00:02:40 . Memory (MB): peak = 2761.766 ; gain = 664.926
+  | Phase 4 Initial Routing
+  | Phase 4.1 Initial Net Routing Pass
+  | Phase 4.1 Initial Net Routing Pass | Checksum: 1e9c45630
+  | Time (s): cpu = 00:03:18 ; elapsed = 00:03:25 . Memory (MB): peak = 2761.766 ; gain = 664.926
+  | Phase 4 Initial Routing | Checksum: 1e9c45630
+  | Time (s): cpu = 00:03:18 ; elapsed = 00:03:25 . Memory (MB): peak = 2761.766 ; gain = 664.926
+  | Phase 5 Rip-up And Reroute
+  | Phase 5.1 Global Iteration 0
+  | Number of Nodes with overlaps = 77773
+  | Number of Nodes with overlaps = 35704
+  | Number of Nodes with overlaps = 21590
+  | INFO: [Route 35-416] Intermediate Timing Summary | WNS=-0.312 | TNS=-0.526 | WHS=N/A    | THS=N/A    |
+  | WARNING: [Route 35-447] Congestion is preventing the router from routing all nets. The router will prioritize the successful completion of routing all
+  | Phase 5.1 Global Iteration 0 | Checksum: 3050bd6e4
+  | Time (s): cpu = 00:18:26 ; elapsed = 00:19:32 . Memory (MB): peak = 2791.781 ; gain = 694.941
+  | Phase 5.2 Global Iteration 1
+  | Number of Nodes with overlaps = 51130
+  | Number of Nodes with overlaps = 22735
+  | Number of Nodes with overlaps = 9317
+  | Number of Nodes with overlaps = 5432
+  | Number of Nodes with overlaps = 3841
+  | Number of Nodes with overlaps = 3103

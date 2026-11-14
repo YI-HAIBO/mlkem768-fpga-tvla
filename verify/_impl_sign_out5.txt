@@ -1,0 +1,28 @@
+---- impl sign : unified_ntt_sign ----
+  cmd: D:\FPGA\2026.1\Vivado\bin\vivado.bat -mode batch -nojournal
+  cwd: C:\tmp_impl_unified_ntt_sign_t73e_20261024_194912
+  [   10s] vivado started           00_start.txt
+  [   20s] project + sources + xdc loaded 10_project.txt
+  [  430s] synth_design finished    20_synth_done.txt
+  [  440s] opt_design finished      25_opt_done.txt
+  [  725s] place_design finished    30_place_done.txt
+  rc=1  time=730s  markers=5/11
+  ---- log tail (last 15 of 965 lines) ----
+   | 
+   | Time (s): cpu = 00:05:39 ; elapsed = 00:04:39 . Memory (MB): peak = 3054.863 ; gain = 0.000
+   | Phase 4 Post Placement Optimization and Clean-Up | Checksum: 1e50177af
+   | 
+   | Time (s): cpu = 00:05:39 ; elapsed = 00:04:39 . Memory (MB): peak = 3054.863 ; gain = 0.000
+   | Ending Placer Task | Checksum: 1919bb6b7
+   | 
+   | Time (s): cpu = 00:05:39 ; elapsed = 00:04:39 . Memory (MB): peak = 3054.863 ; gain = 0.000
+   | 45 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+   | place_design completed successfully
+   | place_design: Time (s): cpu = 00:05:43 ; elapsed = 00:04:44 . Memory (MB): peak = 3054.863 ; gain = 0.000
+   | # mk 30_place_done
+   | # report_timing_summary -file "$RPT/pre_route_timing.rpt" -delay_type min_max -max_paths 5
+   | INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+   | INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+  reports: NONE
+---- sign summary ----
+  (no timing data extracted)

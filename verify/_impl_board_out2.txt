@@ -1,0 +1,33 @@
+---- impl board : ipx_aoi_sec_board_top (synth=default place=Explore) ----
+  cwd: C:\tmp_impl_board_t75e_20261025_102415
+  [    6s] vivado started         00_start.txt
+  [   16s] project + sources + xdc loaded 10_project.txt
+  [  351s] synth_design finished  20_synth_done.txt
+  [  366s] opt_design finished    25_opt_done.txt
+  [  486s] place_design finished  30_place_done.txt
+  [  506s] pre-route timing reported 35_pre_route_timing.txt
+  rc=1  time=866s  markers=6/11
+  ---- log tail (last 15 of 1819 lines) ----
+   | Phase 4.1 Initial Net Routing Pass
+   | Phase 4.1 Initial Net Routing Pass | Checksum: 25e191366
+   | 
+   | Time (s): cpu = 00:01:27 ; elapsed = 00:01:29 . Memory (MB): peak = 3219.109 ; gain = 108.066
+   | Phase 4 Initial Routing | Checksum: 25e191366
+   | 
+   | Time (s): cpu = 00:01:27 ; elapsed = 00:01:29 . Memory (MB): peak = 3219.109 ; gain = 108.066
+   | 
+   | Phase 5 Rip-up And Reroute
+   | 
+   | Phase 5.1 Global Iteration 0
+   |  Number of Nodes with overlaps = 27898
+   |  Number of Nodes with overlaps = 3428
+   |  Number of Nodes with overlaps = 976
+   |  Number of Nodes with overlaps = 451
+  reports: ['pre_route_timing.rpt']
+---- board summary ----
+  synth_fmax_mhz               252.01612903225808
+  synth_hold_fails             0
+  synth_setup_fails            0
+  synth_tns                    0.0
+  synth_whs                    0.193
+  synth_wns                    6.032

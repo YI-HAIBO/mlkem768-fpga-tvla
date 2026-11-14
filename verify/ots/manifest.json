@@ -1,0 +1,347 @@
+{
+  "created_utc": "2026-10-27T00:15:31Z",
+  "scheme": "OpenTimestamps (Bitcoin calendar aggregation)",
+  "library": "python-opentimestamps 0.4.5",
+  "note": "Receipts are serialized OTS Timestamp objects whose attested message is the 32-byte link root.  The message is not stored in the receipt (zero-knowledge design); verification = Timestamp.deserialize(ctx, root), which this manifest records per receipt.",
+  "digests": [
+    {
+      "epoch": 0,
+      "records": 0,
+      "root": "9cb2622b72d36b38ee6cf518b08997f76e5b130ee121699457bda733ce938666",
+      "calendars": [
+        {
+          "url": "https://alice.btc.calendar.opentimestamps.org",
+          "http_status": 200,
+          "file": "ots/alice__9cb2622b72d36b38.ots",
+          "bytes": 242,
+          "structural_verify": "PASS",
+          "sha256_receipt": "b5526cfd9e612768235d5cad78bd54f099741554babda42a95fd0c8ee60bdb2a",
+          "op_names": [
+            "OpAppend",
+            "OpSHA256",
+            "OpPrepend",
+            "OpSHA256",
+            "OpAppend",
+            "OpSHA256",
+            "OpAppend",
+            "OpSHA256",
+            "OpPrepend",
+            "OpSHA256",
+            "OpAppend",
+            "OpSHA256",
+            "OpPrepend",
+            "OpAppend"
+          ],
+          "n_sha256": 6,
+          "n_append": 5,
+          "n_prepend": 3,
+          "n_other": 0,
+          "has_attestation": false,
+          "upgraded": {
+            "status": "COMPLETE",
+            "height": 973423,
+            "merkle_root": "585a9f6411812ce9ba12d3d3c52d2184f9f5d380ee36e83c808db96f01385a2c",
+            "chain_verified": true,
+            "file": "alice__9cb2622b72d36b38_upgraded.ots"
+          }
+        },
+        {
+          "url": "https://bob.btc.calendar.opentimestamps.org",
+          "http_status": 200,
+          "file": "ots/bob__9cb2622b72d36b38.ots",
+          "bytes": 205,
+          "structural_verify": "PASS",
+          "sha256_receipt": "c5db75af650f8a060d5438ef77ff72e8cdad083d2e287581c0368f1091afa1ee",
+          "op_names": [
+            "OpAppend",
+            "OpSHA256",
+            "OpAppend",
+            "OpSHA256",
+            "OpPrepend",
+            "OpSHA256",
+            "OpPrepend",
+            "OpSHA256",
+            "OpAppend",
+            "OpSHA256",
+            "OpPrepend",
+            "OpAppend"
+          ],
+          "n_sha256": 5,
+          "n_append": 4,
+          "n_prepend": 3,
+          "n_other": 0,
+          "has_attestation": false,
+          "upgraded": {
+            "status": "COMPLETE",
+            "height": 973320,
+            "merkle_root": "ca8517c491e5b58aec5a1a1a000b42252bd8ac3630e804a73944c530df209c66",
+            "chain_verified": true,
+            "file": "bob__9cb2622b72d36b38_upgraded.ots"
+          }
+        },
+        {
+          "url": "https://a.pool.opentimestamps.org",
+          "http_status": 200,
+          "file": "ots/a__9cb2622b72d36b38.ots",
+          "bytes": 207,
+          "structural_verify": "PASS",
+          "sha256_receipt": "4f54327cba4d6bf451b1efd71f2b4beed0751b6bd2c99862b6f457a0193874b6",
+          "op_names": [
+            "OpAppend",
+            "OpSHA256",
+            "OpPrepend",
+            "OpSHA256",
+            "OpAppend",
+            "OpSHA256",
+            "OpAppend",
+            "OpSHA256",
+            "OpPrepend",
+            "OpSHA256",
+            "OpPrepend",
+            "OpAppend"
+          ],
+          "n_sha256": 5,
+          "n_append": 4,
+          "n_prepend": 3,
+          "n_other": 0,
+          "has_attestation": false,
+          "upgraded": {
+            "status": "COMPLETE",
+            "height": 973423,
+            "merkle_root": "585a9f6411812ce9ba12d3d3c52d2184f9f5d380ee36e83c808db96f01385a2c",
+            "chain_verified": true,
+            "file": "a__9cb2622b72d36b38_upgraded.ots"
+          }
+        }
+      ]
+    },
+    {
+      "epoch": 1,
+      "records": 4,
+      "root": "a14ac6c86d23c46505272db4aa44a893e1a84275de01207f8c8321eab41bd86a",
+      "calendars": [
+        {
+          "url": "https://alice.btc.calendar.opentimestamps.org",
+          "http_status": 200,
+          "file": "ots/alice__a14ac6c86d23c465.ots",
+          "bytes": 242,
+          "structural_verify": "PASS",
+          "sha256_receipt": "cf18838074cbeaf50294a0c075a16d91a550804991adc007fbed735fb196f711",
+          "op_names": [
+            "OpAppend",
+            "OpSHA256",
+            "OpPrepend",
+            "OpSHA256",
+            "OpAppend",
+            "OpSHA256",
+            "OpAppend",
+            "OpSHA256",
+            "OpAppend",
+            "OpSHA256",
+            "OpPrepend",
+            "OpSHA256",
+            "OpPrepend",
+            "OpAppend"
+          ],
+          "n_sha256": 6,
+          "n_append": 5,
+          "n_prepend": 3,
+          "n_other": 0,
+          "has_attestation": false,
+          "upgraded": {
+            "status": "COMPLETE",
+            "height": 973423,
+            "merkle_root": "585a9f6411812ce9ba12d3d3c52d2184f9f5d380ee36e83c808db96f01385a2c",
+            "chain_verified": true,
+            "file": "alice__a14ac6c86d23c465_upgraded.ots"
+          }
+        },
+        {
+          "url": "https://bob.btc.calendar.opentimestamps.org",
+          "http_status": 200,
+          "file": "ots/bob__a14ac6c86d23c465.ots",
+          "bytes": 275,
+          "structural_verify": "PASS",
+          "sha256_receipt": "ca044f3f5c83614e6aca927cb0d008785bb287e7347a3dc633099ab7cbb45d04",
+          "op_names": [
+            "OpAppend",
+            "OpSHA256",
+            "OpAppend",
+            "OpSHA256",
+            "OpAppend",
+            "OpSHA256",
+            "OpAppend",
+            "OpSHA256",
+            "OpAppend",
+            "OpSHA256",
+            "OpPrepend",
+            "OpSHA256",
+            "OpAppend",
+            "OpSHA256",
+            "OpPrepend",
+            "OpAppend"
+          ],
+          "n_sha256": 7,
+          "n_append": 7,
+          "n_prepend": 2,
+          "n_other": 0,
+          "has_attestation": false,
+          "upgraded": {
+            "status": "COMPLETE",
+            "height": 973320,
+            "merkle_root": "ca8517c491e5b58aec5a1a1a000b42252bd8ac3630e804a73944c530df209c66",
+            "chain_verified": true,
+            "file": "bob__a14ac6c86d23c465_upgraded.ots"
+          }
+        },
+        {
+          "url": "https://a.pool.opentimestamps.org",
+          "http_status": 200,
+          "file": "ots/a__a14ac6c86d23c465.ots",
+          "bytes": 207,
+          "structural_verify": "PASS",
+          "sha256_receipt": "7f921188311978d327c66a0ceba4f293ce3058d17a637d76a57f8b1a72aa7163",
+          "op_names": [
+            "OpAppend",
+            "OpSHA256",
+            "OpAppend",
+            "OpSHA256",
+            "OpPrepend",
+            "OpSHA256",
+            "OpPrepend",
+            "OpSHA256",
+            "OpAppend",
+            "OpSHA256",
+            "OpPrepend",
+            "OpAppend"
+          ],
+          "n_sha256": 5,
+          "n_append": 4,
+          "n_prepend": 3,
+          "n_other": 0,
+          "has_attestation": false,
+          "upgraded": {
+            "status": "COMPLETE",
+            "height": 973423,
+            "merkle_root": "585a9f6411812ce9ba12d3d3c52d2184f9f5d380ee36e83c808db96f01385a2c",
+            "chain_verified": true,
+            "file": "a__a14ac6c86d23c465_upgraded.ots"
+          }
+        }
+      ]
+    },
+    {
+      "epoch": 2,
+      "records": 8,
+      "root": "e2f696ff02c1d893384d44bc0be8fb217a1d1fc6fff8800c2bc84a98e60fce4a",
+      "calendars": [
+        {
+          "url": "https://alice.btc.calendar.opentimestamps.org",
+          "http_status": 200,
+          "file": "ots/alice__e2f696ff02c1d893.ots",
+          "bytes": 172,
+          "structural_verify": "PASS",
+          "sha256_receipt": "7c3bb05fd85c7a41b100d8dc40b59d72f6c021a91a5a1cae6dbe03824d21508e",
+          "op_names": [
+            "OpAppend",
+            "OpSHA256",
+            "OpAppend",
+            "OpSHA256",
+            "OpAppend",
+            "OpSHA256",
+            "OpPrepend",
+            "OpSHA256",
+            "OpPrepend",
+            "OpAppend"
+          ],
+          "n_sha256": 4,
+          "n_append": 4,
+          "n_prepend": 2,
+          "n_other": 0,
+          "has_attestation": false,
+          "upgraded": {
+            "status": "COMPLETE",
+            "height": 973423,
+            "merkle_root": "585a9f6411812ce9ba12d3d3c52d2184f9f5d380ee36e83c808db96f01385a2c",
+            "chain_verified": true,
+            "file": "alice__e2f696ff02c1d893_upgraded.ots"
+          }
+        },
+        {
+          "url": "https://bob.btc.calendar.opentimestamps.org",
+          "http_status": 200,
+          "file": "ots/bob__e2f696ff02c1d893.ots",
+          "bytes": 310,
+          "structural_verify": "PASS",
+          "sha256_receipt": "acae1bcd548f8e75904914263728c8c5cf96938cd324468f6c3f3c89ab97d6c5",
+          "op_names": [
+            "OpAppend",
+            "OpSHA256",
+            "OpAppend",
+            "OpSHA256",
+            "OpPrepend",
+            "OpSHA256",
+            "OpAppend",
+            "OpSHA256",
+            "OpAppend",
+            "OpSHA256",
+            "OpPrepend",
+            "OpSHA256",
+            "OpAppend",
+            "OpSHA256",
+            "OpAppend",
+            "OpSHA256",
+            "OpPrepend",
+            "OpAppend"
+          ],
+          "n_sha256": 8,
+          "n_append": 7,
+          "n_prepend": 3,
+          "n_other": 0,
+          "has_attestation": false,
+          "upgraded": {
+            "status": "COMPLETE",
+            "height": 973320,
+            "merkle_root": "ca8517c491e5b58aec5a1a1a000b42252bd8ac3630e804a73944c530df209c66",
+            "chain_verified": true,
+            "file": "bob__e2f696ff02c1d893_upgraded.ots"
+          }
+        },
+        {
+          "url": "https://a.pool.opentimestamps.org",
+          "http_status": 200,
+          "file": "ots/a__e2f696ff02c1d893.ots",
+          "bytes": 207,
+          "structural_verify": "PASS",
+          "sha256_receipt": "088ea934245350038198344727e30b20e1b68480166aa9d4d73494b2ca0d5bc9",
+          "op_names": [
+            "OpAppend",
+            "OpSHA256",
+            "OpAppend",
+            "OpSHA256",
+            "OpAppend",
+            "OpSHA256",
+            "OpAppend",
+            "OpSHA256",
+            "OpAppend",
+            "OpSHA256",
+            "OpPrepend",
+            "OpAppend"
+          ],
+          "n_sha256": 5,
+          "n_append": 6,
+          "n_prepend": 1,
+          "n_other": 0,
+          "has_attestation": false,
+          "upgraded": {
+            "status": "COMPLETE",
+            "height": 973423,
+            "merkle_root": "585a9f6411812ce9ba12d3d3c52d2184f9f5d380ee36e83c808db96f01385a2c",
+            "chain_verified": true,
+            "file": "a__e2f696ff02c1d893_upgraded.ots"
+          }
+        }
+      ]
+    }
+  ]
+}

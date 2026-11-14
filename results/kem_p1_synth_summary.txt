@@ -1,0 +1,49 @@
+kyber_kem full-top synth AFTER P1 flattening (Problem B fix)
+part=xc7a100tcsg324-1  directive=RuntimeOptimized  rc=0  elapsed=332.1s
+
+--- PRIMARY OBJECTIVE: BRAM inference (Problem B) ---
+  Synth 8-7186 ram_style ignored / not inferred as ram base=101  now=0     -> CLOSED
+  Synth 8-4767 RAM implemented in registers         base=1    now=1     -> STILL OPEN
+  'is not inferred as ram' object lines    = 0 (base 101)
+
+--- REGRESSION GUARD: Problem A must stay closed ---
+  Synth 8-6090 blocking/non-blocking on the same variable     = 0
+  Synth 8-327  inferred latch                                 = 0
+  'inferring latch for variable' lines             = 0
+  'multi_driven' lines                             = 0
+
+--- Other log diagnostics ---
+ERROR: lines              = 0
+RAM dissolved-to-register = 0
+
+--- Netlist primitive footprint (PRIM_COUNT from log) ---
+  FDRE              0
+  FDCE              0
+  FDPE              0
+  LD                0
+  LUT6              0
+  LUT5              0
+  LUT4              0
+  MUXF7             0
+  MUXF8             0
+  RAMB36            0
+  RAMB18            0
+  DSP48E1           0
+  ------------------------
+  FF total          0
+  LUT total         0
+  BRAM total         0
+
+  xc7a100t budget check
+    FF           0 / 65200  -> fits
+    LUT          0 / 32600  -> fits
+    BRAM         0 / 270  -> fits
+
+--- Utilization ---
+(no util.rpt - report_utilization may have hung)
+
+--- Timing ---
+(no timing.rpt)
+
+--- tmp dir (kept for inspection) ---
+C:/tmp_kem_p1_1791803259

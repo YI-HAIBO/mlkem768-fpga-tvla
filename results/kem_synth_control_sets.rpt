@@ -1,0 +1,93 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
+| Date         : Sun Nov  8 13:16:33 2026
+| Host         : Yi running 64-bit major release  (build 9200)
+| Command      : report_control_sets -hierarchical -file C:/tmp_kem_synth_1794114421/proj/reports/control_sets.rpt
+| Design       : kyber_kem
+| Device       : xc7a100t
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Control Sets by Hierarchy
+4. Flip-Flop Distribution
+
+1. Summary
+----------
+
++---------------------------------------------------+-------+
+|                       Status                      | Count |
++---------------------------------------------------+-------+
+| Total control sets                                |  2268 |
+|    Minimum number of control sets                 |  2268 |
+|    Addition due to synthesis replication          |     0 |
+|    Addition due to physical synthesis replication |     0 |
++---------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |  2268 |
+| >= 0 to < 4        |     3 |
+| >= 4 to < 6        |   205 |
+| >= 6 to < 8        |     2 |
+| >= 8 to < 10       |   941 |
+| >= 10 to < 12      |     3 |
+| >= 12 to < 14      |    12 |
+| >= 14 to < 16      |     3 |
+| >= 16              |  1099 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Control Sets by Hierarchy
+----------------------------
+
++-----------------+-----------------------+--------------------+---------------------+-------+-------------------------------+----------------+----------------+----------------+-----------------+------------------+------------------+------------------+----------+
+|     Instance    |         Module        | Total Control Sets | Total number of FFs | Ratio | Loads with no Control Signals | FO >= 0 to < 4 | FO >= 4 to < 6 | FO >= 6 to < 8 | FO >= 8 to < 10 | FO >= 10 to < 12 | FO >= 12 to < 14 | FO >= 14 to < 16 | FO >= 16 |
++-----------------+-----------------------+--------------------+---------------------+-------+-------------------------------+----------------+----------------+----------------+-----------------+------------------+------------------+------------------+----------+
+| kyber_kem       | (top)                 |               2268 |               39544 |  1:17 |                             0 |              3 |            205 |              2 |             941 |                3 |               12 |                3 |     1099 |
+|   (kyber_kem)   | (top)                 |                476 |                5939 |  1:12 |                             1 |              2 |              0 |              1 |              40 |                3 |               12 |                1 |      417 |
+|   u_basemul     | kyber_basemul         |                667 |               12498 |  1:19 |                             0 |              1 |              0 |              0 |               0 |                0 |                0 |                1 |      665 |
+|     (u_basemul) | kyber_basemul         |                667 |               12498 |  1:19 |                             0 |              1 |              0 |              0 |               0 |                0 |                0 |                1 |      665 |
+|   u_ntt         | kyber_ntt             |                 12 |                 122 |  1:10 |                             0 |              0 |              1 |              1 |               3 |                0 |                0 |                1 |        6 |
+|     (u_ntt)     | kyber_ntt             |                 12 |                 122 |  1:10 |                             0 |              0 |              1 |              1 |               3 |                0 |                0 |                1 |        6 |
+|   u_sampler     | kyber_sampler         |                129 |                1817 |  1:14 |                             0 |              0 |              0 |              0 |             128 |                0 |                0 |                0 |        1 |
+|     (u_sampler) | kyber_sampler         |                129 |                1817 |  1:14 |                             0 |              0 |              0 |              0 |             128 |                0 |                0 |                0 |        1 |
+|   u_xof128      | shake                 |                492 |                9577 |  1:19 |                             0 |              0 |            102 |              0 |             385 |                0 |                0 |                0 |        5 |
+|     (u_xof128)  | shake                 |                487 |                4767 |  1:10 |                             0 |              0 |            100 |              0 |             385 |                0 |                0 |                0 |        2 |
+|     u_perm      | keccak_perm_0         |                  5 |                4810 | 1:962 |                             0 |              0 |              2 |              0 |               0 |                0 |                0 |                0 |        3 |
+|       (u_perm)  | keccak_perm_0         |                  5 |                4810 | 1:962 |                             0 |              0 |              2 |              0 |               0 |                0 |                0 |                0 |        3 |
+|   u_xof256      | shake__parameterized0 |                492 |                9591 |  1:19 |                             0 |              0 |            102 |              0 |             385 |                0 |                0 |                0 |        5 |
+|     (u_xof256)  | shake__parameterized0 |                487 |                4781 |  1:10 |                             0 |              0 |            100 |              0 |             385 |                0 |                0 |                0 |        2 |
+|     u_perm      | keccak_perm           |                  5 |                4810 | 1:962 |                             0 |              0 |              2 |              0 |               0 |                0 |                0 |                0 |        3 |
+|       (u_perm)  | keccak_perm           |                  5 |                4810 | 1:962 |                             0 |              0 |              2 |              0 |               0 |                0 |                0 |                0 |        3 |
++-----------------+-----------------------+--------------------+---------------------+-------+-------------------------------+----------------+----------------+----------------+-----------------+------------------+------------------+------------------+----------+
+
+
+4. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              46 |            0 |
+| No           | No                    | Yes                    |            3038 |            0 |
+| No           | Yes                   | No                     |               4 |            0 |
+| Yes          | No                    | No                     |            7883 |            0 |
+| Yes          | No                    | Yes                    |           20666 |            0 |
+| Yes          | Yes                   | No                     |            7907 |            0 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+

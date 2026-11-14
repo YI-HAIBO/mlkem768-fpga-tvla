@@ -1,0 +1,424 @@
+INFO: [Common 17-3922] A valid Vivado Design Suite BASIC license has been detected. Your current license is active and will expire on 26-sep-2027.
+#-----------------------------------------------------------
+# Vivado v2026.1 (64-bit)
+# SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+# IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+# SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+# Start of session at: Fri Oct 16 19:19:11 2026
+# Process ID         : 37072
+# Current directory  : C:/tmp_nttvar_1792149297/V2
+# Command line       : vivado.exe -mode batch -nojournal -log C:/tmp_nttvar_1792149297\V2\run.log -source C:/tmp_nttvar_1792149297\V2\run.tcl
+# Log file           : C:/tmp_nttvar_1792149297/V2/run.log
+# Journal file       : 
+# Running On         : Yi
+# Platform           : Windows 11
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Core(TM) i5-14600KF
+# CPU Frequency      : 3494 MHz
+# CPU Physical cores : 14
+# CPU Logical cores  : 20
+# Host memory        : 68541 MB
+# Swap memory        : 4294 MB
+# Total Virtual      : 72836 MB
+# Available Virtual  : 30658 MB
+#-----------------------------------------------------------
+source {C:/tmp_nttvar_1792149297\V2\run.tcl}
+# set TAG "V2"
+# set TAGD "C:/tmp_nttvar_1792149297/V2"
+# set VFILE "C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v"
+# set XDC  "C:/Users/Yi/WorkBuddy/2026-10-05-09-29-14/调研FPGA大模型安兡�/研发/ipx_aoi_fpga_prototype/constrains/kem.xdc"
+# set PART "xc7a100tcsg324-1"
+# set TOP  "kyber_ntt"
+# set RPT  "$TAGD/reports"
+# set PD   "$TAGD/proj"
+# puts "=== V2 : dist_ram ==="
+=== V2 : dist_ram ===
+# if {[file exists $PD]} { file delete -force $PD }
+# file mkdir $RPT
+# create_project -force V2 "$PD" -part $PART
+create_project: Time (s): cpu = 00:00:12 ; elapsed = 00:00:07 . Memory (MB): peak = 756.703 ; gain = 269.105
+# add_files "$VFILE"
+# catch { read_xdc "$XDC" }
+# synth_design -top $TOP -part $PART -directive RuntimeOptimized
+Command: synth_design -top kyber_ntt -part xc7a100tcsg324-1 -directive RuntimeOptimized
+INFO: [Vivado_Tcl 97-128] Directive used for synth_design is: runtimeoptimized
+Starting synth_design
+Attempting to get a license for feature 'Vivado_Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Vivado_Synthesis' and/or device 'xc7a100t'
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 22152
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1337.340 ; gain = 573.652
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'kyber_ntt' [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:47]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[0]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[1]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[2]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[3]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[4]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[5]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[6]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[7]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[8]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[9]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[10]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[11]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[12]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[13]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[14]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[15]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[16]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[17]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[18]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[19]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[20]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[21]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[22]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[23]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[24]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[25]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[26]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[27]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[28]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[29]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[30]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[31]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[32]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[33]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[34]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[35]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[36]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[37]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[38]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[39]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[40]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[41]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[42]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[43]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[44]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[45]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[46]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[47]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[48]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[49]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[50]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[51]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[52]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[53]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[54]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[55]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[56]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[57]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[58]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[59]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[60]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[61]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[62]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[63]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[64]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[65]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[66]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[67]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[68]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[69]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[70]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[71]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[72]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[73]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[74]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[75]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[76]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[77]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[78]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[79]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[80]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[81]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[82]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[83]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[84]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[85]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[86]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[87]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[88]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[89]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[90]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[91]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[92]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[93]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[94]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[95]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[96]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[97]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[98]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'coeff[99]' is not inferred as ram due to incorrect usage [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:74]
+INFO: [Common 17-14] Message 'Synth 8-7186' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-226] default block is never used [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:354]
+INFO: [Synth 8-226] default block is never used [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:86]
+INFO: [Synth 8-6155] done synthesizing module 'kyber_ntt' (0#1) [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:47]
+WARNING: [Synth 8-6014] Unused sequential element aj_tmp_reg was removed.  [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:390]
+WARNING: [Synth 8-6014] Unused sequential element ajl_tmp_reg was removed.  [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:391]
+WARNING: [Synth 8-6014] Unused sequential element zv_tmp_reg was removed.  [C:/tmp_nttvar_1792149297/v/V2_kyber_ntt.v:392]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1637.352 ; gain = 873.664
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1637.352 ; gain = 873.664
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1637.352 ; gain = 873.664
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'kyber_ntt'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  S_IDLE |                              000 |                              000
+           S_LAYER_SETUP |                              001 |                              001
+                S_BUTTER |                              010 |                              010
+            S_NEXT_BLOCK |                              011 |                              011
+            S_NEXT_LAYER |                              100 |                              100
+                 S_SCALE |                              101 |                              110
+                S_REDUCE |                              110 |                              101
+                  S_DONE |                              111 |                              111
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'kyber_ntt'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:39 ; elapsed = 00:00:40 . Memory (MB): peak = 1859.406 ; gain = 1095.719
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   16 Bit       Adders := 2     
+	   3 Input   16 Bit       Adders := 4     
+	   2 Input    9 Bit       Adders := 1     
+	   2 Input    8 Bit       Adders := 4     
+	   2 Input    7 Bit       Adders := 1     
+	   2 Input    3 Bit       Adders := 1     
++---Registers : 
+	               16 Bit    Registers := 256   
+	                8 Bit    Registers := 3     
+	                7 Bit    Registers := 2     
+	                3 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Multipliers : 
+	              12x32  Multipliers := 3     
+	                8x8  Multipliers := 1     
++---Muxes : 
+	   8 Input   16 Bit        Muxes := 256   
+	   2 Input   16 Bit        Muxes := 2048  
+	   8 Input    9 Bit        Muxes := 1     
+	   8 Input    8 Bit        Muxes := 3     
+	   2 Input    8 Bit        Muxes := 2     
+	   8 Input    7 Bit        Muxes := 1     
+	   8 Input    3 Bit        Muxes := 2     
+	   2 Input    3 Bit        Muxes := 4     
+	   8 Input    1 Bit        Muxes := 266   
+	   2 Input    1 Bit        Muxes := 1024  
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3886] merging instance 'zeta_cnt_reg_rep[5]' (FDCE) to 'zeta_cnt_reg[5]'
+INFO: [Synth 8-3886] merging instance 'zeta_cnt_reg_rep[4]' (FDCE) to 'zeta_cnt_reg[4]'
+INFO: [Synth 8-3886] merging instance 'zeta_cnt_reg_rep[3]' (FDCE) to 'zeta_cnt_reg[3]'
+INFO: [Synth 8-3886] merging instance 'zeta_cnt_reg_rep[2]' (FDCE) to 'zeta_cnt_reg[2]'
+INFO: [Synth 8-3886] merging instance 'zeta_cnt_reg_rep[1]' (FDCE) to 'zeta_cnt_reg[1]'
+INFO: [Synth 8-3886] merging instance 'zeta_cnt_reg_rep[0]' (FDCE) to 'zeta_cnt_reg[0]'
+INFO: [Synth 8-3886] merging instance 'zeta_cnt_reg_rep[6]' (FDCE) to 'zeta_cnt_reg[6]'
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:13 ; elapsed = 00:01:42 . Memory (MB): peak = 1859.406 ; gain = 1095.719
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+ROM: Preliminary Mapping Report
++------------+------------+---------------+----------------+
+|Module Name | RTL Object | Depth x Width | Implemented As | 
++------------+------------+---------------+----------------+
+|kyber_ntt   | get_zeta   | 128x14        | LUT            | 
++------------+------------+---------------+----------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:01:22 ; elapsed = 00:02:04 . Memory (MB): peak = 1859.406 ; gain = 1095.719
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:28 ; elapsed = 00:02:11 . Memory (MB): peak = 2061.402 ; gain = 1297.715
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:28 ; elapsed = 00:02:11 . Memory (MB): peak = 2061.402 ; gain = 1297.715
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:29 ; elapsed = 00:02:11 . Memory (MB): peak = 2061.402 ; gain = 1297.715
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:29 ; elapsed = 00:02:11 . Memory (MB): peak = 2061.402 ; gain = 1297.715
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:29 ; elapsed = 00:02:11 . Memory (MB): peak = 2061.402 ; gain = 1297.715
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:29 ; elapsed = 00:02:12 . Memory (MB): peak = 2061.402 ; gain = 1297.715
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+DSP Final Report (the ' indicates corresponding REG is set)
++------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping  | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|kyber_ntt   | A*B          | 30     | 18     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|kyber_ntt   | A*B          | 16     | 16     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|kyber_ntt   | not(C)+A*B+1 | 30     | 18     | 32     | -      | 32     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
+|kyber_ntt   | C+A*B        | 30     | 15     | 26     | -      | 31     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
+|kyber_ntt   | A*B          | 30     | 12     | -      | -      | 30     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|kyber_ntt   | A*B          | 30     | 18     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|kyber_ntt   | A*B          | 16     | 16     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|kyber_ntt   | not(C)+A*B+1 | 30     | 18     | 32     | -      | 32     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
+|kyber_ntt   | not(C)+A*B+1 | 30     | 11     | 32     | -      | 32     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
+|kyber_ntt   | A*B          | 16     | 16     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|kyber_ntt   | A*B          | 30     | 11     | -      | -      | 29     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|kyber_ntt   | A*B          | 30     | 12     | -      | -      | 30     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|kyber_ntt   | C+A*B        | 30     | 15     | 26     | -      | 31     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
++------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+--------+------+
+|      |Cell    |Count |
++------+--------+------+
+|1     |BUFG    |     1|
+|2     |CARRY4  |    92|
+|3     |DSP48E1 |    13|
+|4     |LUT1    |    23|
+|5     |LUT2    |   483|
+|6     |LUT3    |  2647|
+|7     |LUT4    |  1108|
+|8     |LUT5    |  3773|
+|9     |LUT6    | 22429|
+|10    |MUXF7   |  2188|
+|11    |MUXF8   |  1088|
+|12    |FDCE    |  4227|
+|13    |IBUF    |    37|
+|14    |OBUF    |    18|
++------+--------+------+
+
+Report Instance Areas: 
++------+---------+-------+------+
+|      |Instance |Module |Cells |
++------+---------+-------+------+
+|1     |top      |       | 38127|
++------+---------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:29 ; elapsed = 00:02:12 . Memory (MB): peak = 2061.402 ; gain = 1297.715
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 259 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:29 ; elapsed = 00:02:12 . Memory (MB): peak = 2061.402 ; gain = 1297.715
+Synthesis Optimization Complete : Time (s): cpu = 00:01:29 ; elapsed = 00:02:12 . Memory (MB): peak = 2071.324 ; gain = 1297.715
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.209 . Memory (MB): peak = 2105.613 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 3381 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+WARNING: [Netlist 29-101] Netlist 'kyber_ntt' is not ideal for floorplanning, since the cellview 'kyber_ntt' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.025 . Memory (MB): peak = 2229.648 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete | Checksum: 4437f335
+INFO: [Common 17-83] Releasing license: Vivado_Synthesis
+27 Infos, 104 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:38 ; elapsed = 00:02:24 . Memory (MB): peak = 2229.961 ; gain = 1473.258
+# catch { report_utilization -file "$RPT/util.rpt" -hierarchical }
+# catch { report_common_property -of_objects [current_design]
+#         -property {NUM_LUTS NUM_LOGIC_LUTS NUM_LUT_FLOPS NUM_LUTRAM
+#                     NUM_SLICE_LUTS NUM_FLOPS NUM_DSP NUM_BRAM}
+#         -file "$RPT/common.rpt" }
+# set d [current_design]
+# foreach pr {NUM_LUTS NUM_LOGIC_LUTS NUM_LUT_FLOPS NUM_LUTRAM NUM_FLOPS
+#             NUM_DSP NUM_BRAM NUM_SLICE_LUTS NUM_SLICES} {
+#     catch { set v 0 }
+#     catch { set v [get_property $pr $d] }
+#     puts "SUMMARY V2 $pr=$v"
+# }
+SUMMARY V2 NUM_LUTS=
+SUMMARY V2 NUM_LOGIC_LUTS=
+SUMMARY V2 NUM_LUT_FLOPS=
+SUMMARY V2 NUM_LUTRAM=
+SUMMARY V2 NUM_FLOPS=
+SUMMARY V2 NUM_DSP=
+SUMMARY V2 NUM_BRAM=
+SUMMARY V2 NUM_SLICE_LUTS=
+SUMMARY V2 NUM_SLICES=
+# catch { write_verilog -force -nolib "$RPT/netlist.v" }
+# catch { write_xst -force "$RPT/netlist.xst" }
+# puts "V2 DONE"
+V2 DONE
+# exit
+INFO: [Common 17-206] Exiting Vivado at Fri Oct 16 19:22:09 2026...

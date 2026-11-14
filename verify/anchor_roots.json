@@ -1,0 +1,17 @@
+[
+  {
+    "epoch": 0,
+    "records": 0,
+    "root": "9cb2622b72d36b38ee6cf518b08997f76e5b130ee121699457bda733ce938666"
+  },
+  {
+    "epoch": 1,
+    "records": 4,
+    "root": "a14ac6c86d23c46505272db4aa44a893e1a84275de01207f8c8321eab41bd86a"
+  },
+  {
+    "epoch": 2,
+    "records": 8,
+    "root": "e2f696ff02c1d893384d44bc0be8fb217a1d1fc6fff8800c2bc84a98e60fce4a"
+  }
+]

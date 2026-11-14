@@ -1,0 +1,24 @@
+=== tmp dir C:/tmp_kem_bram_1791685141 exists: True ===
+         89  C:/tmp_kem_bram_1791685141\.Xil\Vivado-6684-Yi\realtime\dupFiles.rpt
+
+=== Full netlist primitive table (from log) ===
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|    16393|Failed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+
+=== BRAM primitive search in log ===
+   # puts "=== Vivado synth kyber_kem (ML-KEM-768) BRAM-annotated ==="
+   === Vivado synth kyber_kem (ML-KEM-768) BRAM-annotated ===
+   WARNING: [Synth 8-4767] Trying to implement RAM 'round.B_reg' in registers. Block RAM or DRAM implementation is not possible; see log for reasons. [C:/tmp_kem_bram_1791685141/core/keccak_per
+   WARNING: [Synth 8-4767] Trying to implement RAM 'sigma_buf_reg' in registers. Block RAM or DRAM implementation is not possible; see log for reasons. [C:/tmp_kem_bram_1791685141/core/kyber_ke
+   WARNING: [Synth 8-4767] Trying to implement RAM 'A_mat_reg' in registers. Block RAM or DRAM implementation is not possible; see log for reasons. [C:/tmp_kem_bram_1791685141/core/kyber_kem.v:
+   WARNING: [Synth 8-4767] Trying to implement RAM 'rho_buf_reg' in registers. Block RAM or DRAM implementation is not possible; see log for reasons. [C:/tmp_kem_bram_1791685141/core/kyber_kem.
+   BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+
+=== copying recovered reports ===
+  MISSING util.rpt
+  MISSING timing.rpt
+  MISSING control_sets.rpt

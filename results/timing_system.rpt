@@ -1,0 +1,118 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
+| Date         : Wed Oct  7 08:07:04 2026
+| Host         : Yi running 64-bit major release  (build 9200)
+| Command      : report_timing -file C:/tmp_ipx_synth/results/timing_system.rpt
+| Design       : ipx_aoi_sec_fpga_top
+| Device       : 7k70t-fbg484
+| Speed File   : -1  PRODUCTION 1.12 2017-02-17
+| Design State : Synthesized
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (MET) :             1.648ns  (required time - arrival time)
+  Source:                 u_m3/op_id_r_reg[0]/C
+                            (rising edge-triggered cell FDCE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            u_m3/u_jitter/target_reg[0]/D
+                            (rising edge-triggered cell FDCE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
+  Data Path Delay:        7.909ns  (logic 3.965ns (50.133%)  route 3.944ns (49.867%))
+  Logic Levels:           18  (CARRY4=11 LUT2=2 LUT3=2 LUT5=1 LUT6=2)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.637ns = ( 12.637 - 10.000 ) 
+    Source Clock Delay      (SCD):    2.960ns
+    Clock Pessimism Removal (CPR):    0.178ns
+  Clock Uncertainty:      0.335ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.300ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=0)                   0.000     0.000    clk
+                         IBUF (Prop_ibuf_I_O)         1.672     1.672 r  clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.584     2.256    clk_IBUF
+                         BUFG (Prop_bufg_I_O)         0.120     2.376 r  clk_IBUF_BUFG_inst/O
+                         net (fo=1029, unplaced)      0.584     2.960    u_m3/clk_IBUF_BUFG
+                         FDCE                                         r  u_m3/op_id_r_reg[0]/C
+  -------------------------------------------------------------------    -------------------
+                         FDCE (Prop_fdce_C_Q)         0.269     3.229 r  u_m3/op_id_r_reg[0]/Q
+                         net (fo=3, unplaced)         0.474     3.703    u_m3/u_jitter/op_id_r[0]
+                         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.450     4.153 r  u_m3/u_jitter/raw0_inferred__0/i__carry/CO[3]
+                         net (fo=1, unplaced)         0.000     4.153    u_m3/u_jitter/raw0_inferred__0/i__carry_n_0
+                         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.220     4.373 r  u_m3/u_jitter/raw0_inferred__0/i__carry__0/O[1]
+                         net (fo=2, unplaced)         0.463     4.836    u_m3/u_jitter/C[5]
+                         LUT2 (Prop_lut2_I0_O)        0.155     4.991 r  u_m3/u_jitter/modv_carry__0_i_8/O
+                         net (fo=1, unplaced)         0.000     4.991    u_m3/u_jitter/modv_carry__0_i_8_n_0
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.310     5.301 r  u_m3/u_jitter/modv_carry__0_i_1/CO[3]
+                         net (fo=1, unplaced)         0.000     5.301    u_m3/u_jitter/modv_carry__0_i_1_n_0
+                         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.220     5.521 r  u_m3/u_jitter/modv_carry__1_i_1/O[1]
+                         net (fo=16, unplaced)        0.294     5.815    u_m3/u_jitter/raw[9]
+                         LUT3 (Prop_lut3_I2_O)        0.155     5.970 r  u_m3/u_jitter/modv__57_carry__0_i_3/O
+                         net (fo=1, unplaced)         0.363     6.333    u_m3/u_jitter/modv__57_carry__0_i_3_n_0
+                         CARRY4 (Prop_carry4_DI[1]_CO[3])
+                                                      0.307     6.640 r  u_m3/u_jitter/modv__57_carry__0/CO[3]
+                         net (fo=1, unplaced)         0.000     6.640    u_m3/u_jitter/modv__57_carry__0_n_0
+                         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.220     6.860 r  u_m3/u_jitter/modv__57_carry__1/O[1]
+                         net (fo=3, unplaced)         0.470     7.330    u_m3/u_jitter/modv__57_carry__1_n_6
+                         LUT3 (Prop_lut3_I1_O)        0.155     7.485 f  u_m3/u_jitter/modv__98_carry__2_i_9/O
+                         net (fo=2, unplaced)         0.351     7.836    u_m3/u_jitter/modv__98_carry__2_i_9_n_0
+                         LUT5 (Prop_lut5_I0_O)        0.053     7.889 r  u_m3/u_jitter/modv__98_carry__2_i_1/O
+                         net (fo=2, unplaced)         0.351     8.240    u_m3/u_jitter/modv__98_carry__2_i_1_n_0
+                         LUT6 (Prop_lut6_I0_O)        0.053     8.293 r  u_m3/u_jitter/modv__98_carry__2_i_5/O
+                         net (fo=1, unplaced)         0.000     8.293    u_m3/u_jitter/modv__98_carry__2_i_5_n_0
+                         CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.216     8.509 r  u_m3/u_jitter/modv__98_carry__2/CO[3]
+                         net (fo=1, unplaced)         0.000     8.509    u_m3/u_jitter/modv__98_carry__2_n_0
+                         CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.142     8.651 r  u_m3/u_jitter/modv__98_carry__3/O[0]
+                         net (fo=1, unplaced)         0.456     9.107    u_m3/u_jitter/modv__98_carry__3_n_7
+                         CARRY4 (Prop_carry4_S[0]_O[0])
+                                                      0.296     9.403 r  u_m3/u_jitter/modv__140_carry/O[0]
+                         net (fo=1, unplaced)         0.242     9.645    u_m3/u_jitter/modv__140_carry_n_7
+                         LUT2 (Prop_lut2_I1_O)        0.153     9.798 r  u_m3/u_jitter/modv__146_carry_i_1/O
+                         net (fo=1, unplaced)         0.000     9.798    u_m3/u_jitter/modv__146_carry_i_1_n_0
+                         CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.216    10.014 r  u_m3/u_jitter/modv__146_carry/CO[3]
+                         net (fo=1, unplaced)         0.000    10.014    u_m3/u_jitter/modv__146_carry_n_0
+                         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.220    10.234 r  u_m3/u_jitter/modv__146_carry__0/O[1]
+                         net (fo=5, unplaced)         0.480    10.714    u_m3/u_jitter/modv__146_carry__0_n_6
+                         LUT6 (Prop_lut6_I0_O)        0.155    10.869 r  u_m3/u_jitter/target[0]_i_1/O
+                         net (fo=1, unplaced)         0.000    10.869    u_m3/u_jitter/modv[0]
+                         FDCE                                         r  u_m3/u_jitter/target_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.000    10.000 r  <hidden>
+                                                      0.000    10.000 r  clk
+                         net (fo=0)                   0.000    10.000    clk
+                         IBUF (Prop_ibuf_I_O)         1.530    11.530 r  clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.554    12.085    clk_IBUF
+                         BUFG (Prop_bufg_I_O)         0.113    12.198 r  clk_IBUF_BUFG_inst/O
+                         net (fo=1029, unplaced)      0.439    12.637    u_m3/u_jitter/clk_IBUF_BUFG
+                         FDCE                                         r  u_m3/u_jitter/target_reg[0]/C
+                         clock pessimism              0.178    12.815    <hidden>
+                         clock uncertainty           -0.335    12.479    <hidden>
+                         FDCE (Setup_fdce_C_D)        0.037    12.516    u_m3/u_jitter/target_reg[0]
+  -------------------------------------------------------------------
+                         required time                         12.516    <hidden>
+                         arrival time                         -10.869    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  1.648    <hidden>
+
+
+
+

@@ -1,0 +1,17 @@
+impl_board_top_t89r100f_a3_STATUS.txt supervisor
+state: DONE
+time : 2026-11-07 13:32:21
+marks: ['00_start', '10_open_dcp', '20_physopt_done', '40_route_done', '50_post_timing', '55_post_util', '60_drc', '70_bitstream']
+detail: route+timing complete
+post-route timing snippet:
+--------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------------------
+From Clock:  clk
+  To Clock:  clk
+
+Setup :         4079  Failing Endpoints,  Worst Slack       -2.052ns,  Total Violation    -1803.398ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.050ns,  Total Violation        0.000ns
+PW    :            0  Failing Endpoints,  Worst Slack        3.750ns,  Total Violation        0.000ns
+----------------------------------------------------------------------------------------------

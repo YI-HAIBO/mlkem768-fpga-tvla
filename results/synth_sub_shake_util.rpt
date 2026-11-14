@@ -1,0 +1,30 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
+| Date         : Sun Oct 11 09:08:28 2026
+| Host         : Yi running 64-bit major release  (build 9200)
+| Command      : report_utilization -file C:/tmp_kem_sub_1791680673/proj/reports/util.rpt -hierarchical
+| Design       : shake
+| Device       : xc7a100tcsg324-1
+| Speed File   : -1
+| Design State : Synthesized
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++-----------+-------------+------------+------------+---------+------+-------+--------+--------+------------+
+|  Instance |    Module   | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs  | RAMB36 | RAMB18 | DSP Blocks |
++-----------+-------------+------------+------------+---------+------+-------+--------+--------+------------+
+| shake     |       (top) |      10414 |      10414 |       0 |    0 | 11069 |      0 |      0 |          2 |
+|   (shake) |       (top) |       2683 |       2683 |       0 |    0 |  7828 |      0 |      0 |          2 |
+|   u_perm  | keccak_perm |       7731 |       7731 |       0 |    0 |  3241 |      0 |      0 |          0 |
++-----------+-------------+------------+------------+---------+------+-------+--------+--------+------------+
+
+

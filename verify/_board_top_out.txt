@@ -1,0 +1,22 @@
+==============================================================================
+COMPILE: board_top + kyber_kem RTL + tb_ipx_aoi_sec_board_top.v
+==============================================================================
+  src: rtl\core\kyber_kem.v rtl\core\kyber_poly.v rtl\core\kyber_ntt.v rtl\core\kyber_sampler.v rtl\core\shake.v rtl\core\keccak_perm.v rtl\ipx_aoi_sec_board_top.v
+COMPILE OK in 0.5s
+
+RUN: tb_ipx_aoi_sec_board_top.v
+========================================================
+ Board POST finished after 291355 cycles
+ LED = 4401
+ RTL  post_pass=1  post_fail=0  error_seen=0
+ ss_enc = 44 19 b1 c8 6b 63 90 10 f5 79 e0 31 ae 56 fa 7c 19 21 65 7a ea 52 64 2b d0 ca de 7d 3f 71 5a 71
+ ss_dec = 44 19 b1 c8 6b 63 90 10 f5 79 e0 31 ae 56 fa 7c 19 21 65 7a ea 52 64 2b d0 ca de 7d 3f 71 5a 71
+RESULT: BOARD_POST PASS  (Encaps.ss == Decaps.ss, 32/32)
+========================================================
+ After BTN0 re-run: post_pass=1 post_fail=0 led=4401
+RESULT: BOARD_POST RERUN PASS
+C:\Users\Yi\WorkBuddy\2026-10-05-09-29-14\����FPGA��ģ�Ͱ�ȫ\�з�\ipx_aoi_fpga_prototype\sim\tb_ipx_aoi_sec_board_top.v:115: $finish called at 5827170000 (1ps)
+
+vvp rc=0 in 7.7s
+
+ALL OK

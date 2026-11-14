@@ -1,0 +1,345 @@
+diff lines 344
+--- 
++++ 
+@@ -5,13 +5,27 @@
+ //
+ // Design goal: a SINGLE synthesizable NTT core that can be configured at
+-// compile-time (parameter) or runtime (zeta ROM load) for different lattice
+-// algorithms, sharing the exact same 8-phase butterfly pipeline, 5-phase
+-// reduce pipeline and 6-phase scale pipeline.  (The butterfly grew one phase
+-// relative to kyber_ntt.v pipe7 to register the Montgomery multiply before
+-// the subtract; see the timing note below.)
+-//
+-// Configurations supported (set via parameters; zeta ROM loaded at runtime):
+-//   MODE="KEM"  (default): q=3329,    7 layers, BW=16, W_WIDTH=32, SCALE_K=1441
+-//   MODE="SIGN"           : q=8380417, 8 layers, BW=27, W_WIDTH=54, SCALE_K=49145
++// compile-time (parameters, reset defaults) or RUNTIME (Task 76: cfg_* ports
++// + zeta ROM reload) for different lattice algorithms, sharing the exact same
++// 8-phase butterfly pipeline, 5-phase reduce pipeline and 6-phase scale
++// pipeline.
++//
++// Configurations supported:
++//   KEM  : q=3329,    7 layers, BW=16 native  (SCALE_K=1441, QINV=62209)
++//   SIGN : q=8380417, 8 layers, BW=27         (SCALE_K=49145, QINV=58728449)
++//
++// Runtime dual-mode switching (Task 76)
++// --------------------------------------
++// A single physical instance fixed to the widest datapath (BW=27, N_LAYERS=8)
++// can run BOTH algorithms: the cfg_* port pair loads Q / QINV / SCALE_K /
++// BARRETT_M / BARRETT_SH / N_LAYERS into registers (write while idle), and the
++// zeta ROM is reloaded via the existing zeta_load interface.  KEM constants
++// must be re-derived for the 2^27 Montgomery radix (see verify/kem27_model.py):
++//   QINV27=61403905, SCALE_K27=2811, R=2^27 mod 3329 = 2435,
++//   zeta27[i] = zeta16[i] * 2^11 mod 3329.
++// Reset values of the config registers equal the compile-time parameters, so
++// wrappers that tie cfg_load low behave EXACTLY like the original
++// parameter-only core (dilithium_ntt.v and both legacy TBs rely on this).
++//   cfg_addr encoding: 0=Q 1=QINV 2=SCALE_K 3=BARRETT_M
++//                      4=BARRETT_SH (low 6b) 5=N_LAYERS (low 4b, 1..8)
+ //
+ // Architecture:
+@@ -20,24 +34,28 @@
+ //   6-phase scale     : READ -> M0  -> M1  -> M2a1 -> M2a2 -> M2b+WRITE
+ //
+-// Timing note: the original single-phase Montgomery reduction
+-//     mont_diff_r <= prod - sign_ext(t_low) * Q
+-// carried 14 logic levels (DSP48E1x2 + CARRY4x11) on the SIGN configuration
+-// (W_WIDTH=54) and missed 100 MHz by 1.101 ns.  Splitting the multiply and the
+-// subtract into adjacent phases (M2a1 registers tq_prod = sign_ext(t_low)*Q,
+-// M2a2 registers mont_diff_r = prod - tq_prod) breaks that path into two
+-// sub-paths of <= 7 levels each.  KEM (BW=16) keeps timing comfortably; it
+-// pays one extra butterfly cycle per butterfly op but the butterfly was already
+-// +1.875 ns of slack.
++// Timing notes:
++//   * The original single-phase Montgomery reduction carried 14 logic levels
++//     on the SIGN configuration; splitting multiply/subtract into M2a1/M2a2
++//     (Task 58 follow-up) fixed the synthesis-level path.
++//   * Post-route (Task 73) the remaining -0.338 ns / 285-endpoint path ran
++//     state[2] (fanout 954) -> LUT2 -> DSP48E1 cascade -> shared `prod`.
++//     The butterfly M0 product and the INTT-scale M0 product now land in
++//     SEPARATE registers (prod_bf / prod_sc); every DSP48E1 input is driven
++//     straight from a flop, and the only state-dependent select left on the
++//     datapath is the low-fanout (state==S_SCALE) 54-bit output mux
++//     `prod_sel`.  fsm state bits now only drive register enables.
+ //
+ // Bit-width policy: the modular-multiplication product and all wide
+ // intermediate arithmetic are carried on W_WIDTH = 2*BW bits.  For KEM (BW=16)
+-// that is 32 bits (unchanged from the original); for SIGN (BW=27) it is 54 bits,
+-// which is the minimum needed to hold BOTH the 27x27 Montgomery product and the
+-// Barrett term M*a (M = floor(2^48/q) ~ 2^25, a up to 2^26 -> product ~ 2^52).
++// that is 32 bits (unchanged from the original); for SIGN (BW=27) it is 54
++// bits, which holds the 27x27 Montgomery product and the Barrett term
++// M*a (M = floor(2^48/q) ~ 2^25, a up to 2^26 -> product ~ 2^52).  The runtime
++// KEM configuration keeps M=20159/SH=26: M*a <= 2^26*2^14 << 2^53.
+ //
+ // Zeta ROM: (1 << N_LAYERS) entries, loaded via zeta_load/zeta_addr/zeta_data
+-// ports.  Depth is parameterised (128 for KEM, 256 for SIGN) and address width
+-// is N_LAYERS bits, so a single RTL file serves both modes.  The ROM must be
+-// loaded before the first start; for runtime switching, reload it while idle.
++// ports.  Depth is parameterised (128 for a 7-layer KEM instance, 256 for the
++// dual-mode / SIGN instance) and address width is N_LAYERS bits.  The ROM must
++// be loaded before the first start; for runtime switching, reload it while
++// idle.
+ //
+ // Verified:
+@@ -45,6 +63,13 @@
+ //   - SIGN mode (Dilithium/ML-DSA params): bit-exact round-trip + poly_mul
+ //     against the pq-crystals reference (see verify/ and tb_unified_ntt_sign.v)
++//   - Dual mode (tb_unified_ntt_dual.v): one BW=27 instance runs KEM
++//     (cfg-loaded 2^27-radix constants) and SIGN back-to-back
+ //   - Round-trip: INTT(NTT(x)) = x * R mod q for both forward and inverse
+ //   - Zero polynomial: NTT(0) = 0, INTT(0) = 0
++//
++// NOTE: montgomery_reduce / fqmul / barrett_reduce below are reference
++// implementations kept for documentation; the pipelined datapath implements
++// the same arithmetic with the split M2a1/M2a2 registers and with the runtime
++// configuration registers (they are NOT called by the FSM).
+ // =============================================================================
+ 
+@@ -83,6 +108,12 @@
+     // Zeta ROM load interface (idle phase only)
+     input  wire                  zeta_load,
+-    input  wire [N_LAYERS-1:0]    zeta_addr,
+-    input  wire [BW-1:0]         zeta_data
++    input  wire [N_LAYERS-1:0]   zeta_addr,
++    input  wire [BW-1:0]         zeta_data,
++
++    // Runtime configuration interface (Task 76, write while idle).
++    // Reset values = the compile-time parameters above.
++    input  wire                  cfg_load,
++    input  wire [2:0]            cfg_addr,
++    input  wire [BW-1:0]         cfg_data
+ );
+ 
+@@ -90,12 +121,12 @@
+     // Derived parameters
+     // -------------------------------------------------------------------------
+-    localparam integer LAST_LAYER   = N_LAYERS - 1;
+-    localparam integer W_WIDTH      = 2 * BW;                  // product / wide-ARITH width
+     localparam integer LOGN         = $clog2(N);               // = 8 for N=256
+     localparam integer ZETA_DEPTH   = 1 << N_LAYERS;           // 128 (KEM) / 256 (SIGN)
+-    localparam integer INV_LEN0     = N >> N_LAYERS;           // forward-last len / inv-first len
+-    localparam integer INV_NBLK0    = (N >> 1) >> (LOGN - N_LAYERS); // inv first nblk
+-    localparam integer ZETA_LAST    = (1 << N_LAYERS) - 1;     // max zeta index
+-    localparam signed [W_WIDTH-1:0] BARRETT_ADD = 1 << (BARRETT_SH - 1); // 2^(SH-1)
++    localparam integer W_WIDTH      = 2 * BW;                  // product / wide-ARITH width
++    localparam integer SH_W         = 6;                       // BARRETT_SH reg width (<=48)
++    localparam integer NL_W         = 4;                       // N_LAYERS reg width (<=8)
++    // Reference-only Barrett rounding constant for the barrett_reduce()
++    // function below (the pipelined datapath uses the runtime bar_add wire).
++    localparam signed [W_WIDTH-1:0] BARRETT_ADD = 1 << (BARRETT_SH - 1);
+ 
+     // -------------------------------------------------------------------------
+@@ -117,5 +148,48 @@
+ 
+     // -------------------------------------------------------------------------
+-    // Parameterized modular arithmetic functions
++    // Runtime configuration registers (reset = compile-time parameter).
++    // Every arithmetic constant below is taken from these registers, so a
++    // dual-mode board can switch KEM<->SIGN without resynthesis.  Wrappers
++    // that tie cfg_load low see the parameter-only behaviour of the
++    // historical core.
++    // -------------------------------------------------------------------------
++    reg [BW-1:0]   q_r, qinv_r, scale_k_r, bm_r;
++    reg [SH_W-1:0] sh_r;
++    reg [NL_W-1:0] nl_r;
++
++    always @(posedge clk or negedge rst_n) begin
++        if (!rst_n) begin
++            q_r       <= Q[BW-1:0];
++            qinv_r    <= QINV[BW-1:0];
++            scale_k_r <= SCALE_K[BW-1:0];
++            bm_r      <= BARRETT_M[BW-1:0];
++            sh_r      <= BARRETT_SH[SH_W-1:0];
++            nl_r      <= N_LAYERS[NL_W-1:0];
++        end else if (cfg_load) begin
++            case (cfg_addr)
++                3'd0: q_r       <= cfg_data;
++                3'd1: qinv_r    <= cfg_data;
++                3'd2: scale_k_r <= cfg_data;
++                3'd3: bm_r      <= cfg_data;
++                3'd4: sh_r      <= cfg_data[SH_W-1:0];
++                3'd5: nl_r      <= cfg_data[NL_W-1:0];
++                default: ;
++            endcase
++        end
++    end
++
++    // Signed (positive) 54-bit views of the runtime constants.  Zero-extension
++    // is correct because every constant is positive and < 2^BW; casting the
++    // unsigned regs straight into a signed multiply would otherwise reinterpret
++    // the MSB as a sign bit.
++    wire signed [W_WIDTH-1:0] q_se  = {{(W_WIDTH-BW){1'b0}}, q_r};
++    wire signed [W_WIDTH-1:0] sk_se = {{(W_WIDTH-BW){1'b0}}, scale_k_r};
++    wire signed [W_WIDTH-1:0] bm_se = {{(W_WIDTH-BW){1'b0}}, bm_r};
++    // BARRETT_ADD = 2^(SH-1); 54-bit one shifted left by the runtime shift
++    wire signed [W_WIDTH-1:0] bar_add = {{(W_WIDTH-1){1'b0}}, 1'b1} << (sh_r - 6'd1);
++
++    // -------------------------------------------------------------------------
++    // Parameterized modular arithmetic: reference functions (not used by the
++    // pipelined datapath; see header note).
+     // -------------------------------------------------------------------------
+ 
+@@ -194,6 +268,12 @@
+     reg          last_butter;
+ 
+-    // Shared arithmetic pipeline registers
+-    reg [W_WIDTH-1:0]       prod;
++    // Shared arithmetic pipeline registers.
++    // prod_bf: butterfly M0 product (S_BUTTER ph3)
++    // prod_sc: INTT-scale M0 product (S_SCALE ph1)
++    // Split (Task 73) so both DSP48E1 cascaces have flop-only inputs; the FSM
++    // state bits drive register enables, not DSP data selects.
++    reg signed [W_WIDTH-1:0] prod_bf;
++    reg signed [W_WIDTH-1:0] prod_sc;
++    wire signed [W_WIDTH-1:0] prod_sel = (state == S_SCALE) ? prod_sc : prod_bf;
+     reg [BW-1:0]            t_low;
+     reg [BW-1:0]            s_reg;
+@@ -217,14 +297,15 @@
+ 
+     // -------------------------------------------------------------------------
+-    // Pipelined arithmetic wires (parameterized)
++    // Pipelined arithmetic wires (runtime-configured)
+     // -------------------------------------------------------------------------
+     wire signed [W_WIDTH-1:0] bf_zv_e     = {{(W_WIDTH-BW){zv_reg[BW-1]}}, zv_reg};
+     wire signed [W_WIDTH-1:0] bf_operand  = inv_mode ? {{(W_WIDTH-BW){xd_reg[BW-1]}}, xd_reg}
+                                               : {{(W_WIDTH-BW){pb[BW-1]}}, pb};
+-    wire signed [W_WIDTH-1:0] bf_m0       = bf_zv_e * bf_operand;           // M0
+-    wire        [BW-1:0]      m1_w        = prod[0 +: BW] * QINV;           // M1 (montgomery)
+-
+-    wire signed [W_WIDTH-1:0] bf_va       = BARRETT_M * $signed({{(W_WIDTH-BW){sum_reg[BW-1]}}, sum_reg});
+-    wire signed [W_WIDTH-1:0] rd_va       = BARRETT_M * $signed({{(W_WIDTH-BW){rin[BW-1]}}, rin});
++    (* use_dsp = "yes" *) wire signed [W_WIDTH-1:0] bf_m0
++                                      = bf_zv_e * bf_operand;           // M0
++    wire        [BW-1:0]      m1_w        = prod_sel[0 +: BW] * qinv_r;  // M1 (montgomery)
++
++    wire signed [W_WIDTH-1:0] bf_va       = bm_se * $signed({{(W_WIDTH-BW){sum_reg[BW-1]}}, sum_reg});
++    wire signed [W_WIDTH-1:0] rd_va       = bm_se * $signed({{(W_WIDTH-BW){rin[BW-1]}}, rin});
+ 
+     // Montgomery reduction, split into two phases to break the 14-level
+@@ -232,6 +313,6 @@
+     //   M2a1 : tq_prod <= tq_mul                      (DSP-bound)
+     //   M2a2 : mont_diff_r <= mont_diff = prod - tq_prod   (CARRY4-bound)
+-    wire signed [W_WIDTH-1:0] tq_mul      = $signed({{(W_WIDTH-BW){t_low[BW-1]}}, t_low}) * Q;
+-    wire signed [W_WIDTH-1:0] mont_diff   = $signed(prod) - tq_prod;
++    wire signed [W_WIDTH-1:0] tq_mul      = $signed({{(W_WIDTH-BW){t_low[BW-1]}}, t_low}) * q_se;
++    wire signed [W_WIDTH-1:0] mont_diff   = prod_sel - tq_prod;
+     wire signed [W_WIDTH-1:0] mont_sh     = mont_diff_r >>> BW;
+     wire        [BW-1:0]      mont_res    = mont_sh[0 +: BW];
+@@ -243,5 +324,6 @@
+     wire        [BW-1:0]      fwd_b       = pa - mont_res;
+ 
+-    wire signed [W_WIDTH-1:0] sc_m0w      = {{(W_WIDTH-BW){rin[BW-1]}}, rin} * SCALE_K;
++    (* use_dsp = "yes" *) wire signed [W_WIDTH-1:0] sc_m0w
++                                      = {{(W_WIDTH-BW){rin[BW-1]}}, rin} * sk_se;
+ 
+     // -------------------------------------------------------------------------
+@@ -258,18 +340,19 @@
+             j_cnt      <= 8'd0;
+             len        <= 8'd0;
+-            nblk       <= 7'd0;
+-            zeta_cnt   <= 7'd0;
++            nblk       <= {N_LAYERS{1'b0}};
++            zeta_cnt   <= {N_LAYERS{1'b0}};
+             cnt        <= 9'd0;
+             inv_mode   <= 1'b0;
+             butter_ph  <= 4'd0;
+             rph        <= 3'd0;
+-            prod       <= 32'd0;
+-            t_low      <= 16'd0;
+-            s_reg      <= 16'd0;
+-            v_a        <= 32'sd0;
++            prod_bf    <= {W_WIDTH{1'b0}};
++            prod_sc    <= {W_WIDTH{1'b0}};
++            t_low      <= {BW{1'b0}};
++            s_reg      <= {BW{1'b0}};
++            v_a        <= {W_WIDTH{1'b0}};
+             bar_t_reg  <= 8'sd0;
+-            mont_diff_r<= 32'sd0;
+-            bar_mul_r  <= 32'sd0;
+-            tq_prod    <= 32'sd0;
++            mont_diff_r<= {W_WIDTH{1'b0}};
++            bar_mul_r  <= {W_WIDTH{1'b0}};
++            tq_prod    <= {W_WIDTH{1'b0}};
+             pa         <= {BW{1'b0}};
+             pb         <= {BW{1'b0}};
+@@ -294,9 +377,12 @@
+                         busy     <= 1'b1;
+                         inv_mode <= inverse;
++                        // Layer schedule is derived from the RUNTIME layer
++                        // count nl_r so a single BW=27/N_LAYERS=8 instance can
++                        // also run the 7-layer KEM transform.
+                         if (inverse) begin
+-                            zeta_cnt  <= ZETA_LAST;
++                            zeta_cnt  <= (1 << nl_r) - 1;
+                             layer_idx <= 3'd0;
+-                            len       <= INV_LEN0[7:0];
+-                            nblk      <= INV_NBLK0[N_LAYERS-1:0];
++                            len       <= (N >> nl_r);
++                            nblk      <= ((N >> 1) >> (LOGN - nl_r));
+                         end else begin
+                             zeta_cnt  <= {{(N_LAYERS-1){1'b0}}, 1'b1};
+@@ -321,5 +407,5 @@
+ 
+                 // -------------------------------------------------------------
+-                // 7-phase butterfly: one multiply per tick
++                // 8-phase butterfly: one multiply per tick
+                 S_BUTTER: begin
+                     case (butter_ph)
+@@ -342,6 +428,6 @@
+                             butter_ph <= 4'd3;
+                         end
+-                        4'd3: begin // M0
+-                            prod <= bf_m0;
++                        4'd3: begin // M0 (butterfly product)
++                            prod_bf <= bf_m0;
+                             if (inv_mode) begin
+                                 s_reg <= sum_reg;
+@@ -352,10 +438,10 @@
+                         4'd4: begin // M1
+                             t_low     <= m1_w;
+-                            bar_t_reg <= (v_a + BARRETT_ADD) >>> BARRETT_SH;
++                            bar_t_reg <= (v_a + bar_add) >>> sh_r;
+                             butter_ph <= 4'd5;
+                         end
+                         4'd5: begin // M2a1: register the multiply (DSP-bound)
+                             tq_prod   <= tq_mul;
+-                            bar_mul_r <= bar_t_reg * Q;
++                            bar_mul_r <= bar_t_reg * q_se;
+                             butter_ph <= 4'd6;
+                         end
+@@ -403,5 +489,5 @@
+                 S_NEXT_LAYER: begin
+                     if (inv_mode) begin
+-                        if (layer_idx < LAST_LAYER) begin
++                        if (layer_idx < (nl_r - 4'd1)) begin
+                             layer_idx <= layer_idx + 3'd1;
+                             len       <= len << 1;
+@@ -417,5 +503,5 @@
+                         end
+                     end else begin
+-                        if (layer_idx < LAST_LAYER) begin
++                        if (layer_idx < (nl_r - 4'd1)) begin
+                             layer_idx <= layer_idx + 3'd1;
+                             len       <= len >> 1;
+@@ -451,9 +537,9 @@
+                         end
+                         3'd2: begin // M2a
+-                            bar_t_reg <= (v_a + BARRETT_ADD) >>> BARRETT_SH;
++                            bar_t_reg <= (v_a + bar_add) >>> sh_r;
+                             rph       <= 3'd3;
+                         end
+                         3'd3: begin // M2b
+-                            bar_mul_r <= bar_t_reg * Q;
++                            bar_mul_r <= bar_t_reg * q_se;
+                             rph       <= 3'd4;
+                         end
+@@ -485,6 +571,6 @@
+                             end
+                         end
+-                        3'd1: begin // M0
+-                            prod <= sc_m0w;
++                        3'd1: begin // M0 (scale product)
++                            prod_sc <= sc_m0w;
+                             rph  <= 3'd2;
+                         end

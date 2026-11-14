@@ -1,0 +1,49 @@
+Wrote C:/tmp_kem_p2b_1792064399\synth.tcl (rtl copied to C:/tmp_kem_p2b_1792064399\core)
+Running project-less synth on xc7a200tfbg484-1 (timeout 1800s)...
+rc=1  time=638.6s
+log saved (78043 bytes)
+
+kyber_kem full-top synth, P2b project-less: xc7a200tfbg484-1
+part=xc7a200tfbg484-1  directive=RuntimeOptimized  rc=1  elapsed=638.6s
+
+Verdict: Synthesis finished with 0 errors, 0 critical warnings and 47 warnings.
+
+  Synth 8-7186 ram_style ignored (base 101)       = 0
+  Synth 8-4767 RAM in registers                   = 1
+  Synth 8-2914 multi-port RAM mapping             = 0
+  Synth 8-6090 blocking/non-blocking same var     = 0
+  Synth 8-327  inferred latch                     = 0
+
+--- Report Cell Usage (pre-opt) ---
+  BUFG             1
+  CARRY4         988
+  DSP48E1         61
+  FDCE         27859
+  FDPE             2
+  FDRE         11887
+  IBUF            49
+  LUT1           331
+  LUT2          5906
+  LUT3          4070
+  LUT4          9925
+  LUT5         14748
+  LUT6         31824
+  MUXF7         6295
+  MUXF8         2946
+  OBUF            78
+  RAM128X1D      192
+  RAM256X1S      400
+  RAM32M           4
+  RAM32X1D        16
+  RAM32X1S         8
+  RAM64M         460
+  RAM64X1D        92
+  FF = 39748   LUT = 66804   MUXF = 9241   LUT+MUX = 76045   DSP = 61
+
+--- Identical pre-opt cell usage vs P2a (100T-equivalent run)? YES (counts equal) ---
+(no util.rpt)
+(no timing.rpt)
+
+tmp dir: C:/tmp_kem_p2b_1792064399
+
+Summary -> C:\Users\Yi\WorkBuddy\2026-10-05-09-29-14\调研FPGA大模型安全\研发\ipx_aoi_fpga_prototype\results\kem_p2b_synth_summary.txt

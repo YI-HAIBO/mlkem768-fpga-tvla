@@ -1,0 +1,5 @@
+impl_board_top_t89r100f_q1_STATUS.txt supervisor
+state: DEAD
+time : 2026-11-05 20:10:40
+marks: ['00_start', '10_open_dcp']
+detail: all attempts exhausted

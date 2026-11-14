@@ -1,0 +1,38 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
+| Date         : Mon Oct 12 19:12:36 2026
+| Host         : Yi running 64-bit major release  (build 9200)
+| Command      : report_utilization -file C:/tmp_kem_p1_1791803259/proj/reports/util.rpt -hierarchical
+| Design       : kyber_kem
+| Device       : xc7a100tcsg324-1
+| Speed File   : -1
+| Design State : Synthesized
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++----------------+-----------------------+------------+------------+---------+------+-------+--------+--------+------------+
+|    Instance    |         Module        | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs  | RAMB36 | RAMB18 | DSP Blocks |
++----------------+-----------------------+------------+------------+---------+------+-------+--------+--------+------------+
+| kyber_kem      |                 (top) |      58852 |      54404 |    4448 |    0 | 39738 |      0 |      0 |         61 |
+|   (kyber_kem)  |                 (top) |       7919 |       3471 |    4448 |    0 |  5359 |      0 |      0 |         14 |
+|   u_basemul    |         kyber_basemul |       5797 |       5797 |       0 |    0 | 12344 |      0 |      0 |         30 |
+|   u_ntt        |             kyber_ntt |      28565 |      28565 |       0 |    0 |  4198 |      0 |      0 |         13 |
+|   u_sampler    |         kyber_sampler |       1595 |       1595 |       0 |    0 |  1818 |      0 |      0 |          0 |
+|   u_xof128     |                 shake |       7481 |       7481 |       0 |    0 |  8003 |      0 |      0 |          2 |
+|     (u_xof128) |                 shake |       2404 |       2404 |       0 |    0 |  4781 |      0 |      0 |          2 |
+|     u_perm     |         keccak_perm_0 |       5077 |       5077 |       0 |    0 |  3222 |      0 |      0 |          0 |
+|   u_xof256     | shake__parameterized0 |       7495 |       7495 |       0 |    0 |  8016 |      0 |      0 |          2 |
+|     (u_xof256) | shake__parameterized0 |       2405 |       2405 |       0 |    0 |  4781 |      0 |      0 |          2 |
+|     u_perm     |           keccak_perm |       5090 |       5090 |       0 |    0 |  3235 |      0 |      0 |          0 |
++----------------+-----------------------+------------+------------+---------+------+-------+--------+--------+------------+
+
+

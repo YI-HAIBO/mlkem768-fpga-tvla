@@ -1,0 +1,181 @@
+kyber_kem.v — ML-KEM-768 changelog (final)
+===========================================
+Parameters: K=3, N=256, Q=3329, BW=16, ETA=2, DU=10, DV=4, R_MOD=2285,
+SEED_B=32, MSG_B=32, SS_B=32  (FIPS 203).
+
+Final state: KEYGEN 800 + ENCAPS 1056 + DECAPS 64 + DECAPS #2 0 + REPEAT 0
+= 1920 checks, 0 errors — verified against TWO independent golden-vector sets
+(seed 20261007 = A-set, seed 20261009 = B-set).
+
+--------------------------------------------------------------------------------
+Fix 6  — Testbench fscanf width specifiers (compact hex file format)
+--------------------------------------------------------------------------------
+`$fscanf(fd, "%h", byte_or_word_var)` on Icarus Verilog reads the ENTIRE
+remaining hex stream as one number and truncates to the variable width.
+On compact hex files (no spaces/newlines, which gen_kem_golden.py emits)
+only the FIRST element of each array was ever populated; the rest stayed
+X. This silently produced a KEYGEN mismatch at index 0 of every poly
+and a 4-error abort.
+
+    - n = $fscanf(fd, "%h", gold_d_bytes[i]);   // byte array
+    + n = $fscanf(fd, "%2h", gold_d_bytes[i]);  // 2 hex chars = 1 byte
+
+    - n = $fscanf(fd, "%h", gold_t0[i]);        // 16-bit word array
+    + n = $fscanf(fd, "%4h", gold_t0[i]);       // 4 hex chars = 1 word
+
+Applied to all 11 fscanf sites (4 byte arrays, 7 word arrays). Space- or
+newline-separated hex files work with either width, but the generator
+emits compact hex, so the width specifiers are mandatory.
+
+--------------------------------------------------------------------------------
+Fix 1  — Encaps V phase 10 message byte-index truncation  (S_ENC_V)
+--------------------------------------------------------------------------------
+S_ENC_V phase 10 packs 8 message bits per byte into cv. The byte index was
+computed as `coeff_cnt[6:3]` (4 bits, covers bytes 0..15) but a 32-byte
+message needs 5 bits. Bytes 16..31 of m were never written.
+
+    - if ((msg_buf[coeff_cnt[6:3]] >> coeff_cnt[2:0]) & 8'd1)
+    + if ((msg_buf[coeff_cnt[7:3]] >> coeff_cnt[2:0]) & 8'd1)
+
+--------------------------------------------------------------------------------
+Fix 2  — Decaps decode byte-index truncation  (S_DEC_DECODE)
+--------------------------------------------------------------------------------
+Same `[6:3]`-vs-`[7:3]` pattern when packing decoded bits into m_prime_buf.
+
+    - m_prime_buf[byte_cnt[6:3]] <= m_prime_buf[byte_cnt[6:3]] | ...
+    + m_prime_buf[byte_cnt[7:3]] <= m_prime_buf[byte_cnt[7:3]] | ...
+
+--------------------------------------------------------------------------------
+Fix 3  — S_DEC_SNTT must reset coeff_cnt before entering S_DEC_UNTT
+--------------------------------------------------------------------------------
+S_DEC_UNTT phase 0 does NOT reset coeff_cnt itself; it expects to start
+fresh at 0. But S_DEC_SNTT's exit state (phase 4'd4, else branch) left
+coeff_cnt = 255. The first iteration of S_DEC_UNTT therefore loaded only
+u_poly[0][255] and left u_ntt_poly[0][0..254] with stale NTT values,
+corrupting u_ntt_poly[0] as a whole (only poly 0 was affected because
+i_idx restarts at 0).
+
+    4'd4: begin
+        if (i_idx < K-1) begin
+            i_idx <= i_idx + 7'd1; coeff_cnt <= 0; phase <= 4'd0;
+        end else begin
+            i_idx <= 0; j_idx <= 0;
+            coeff_cnt <= 0;     // <-- added
+            phase <= 4'd0; st <= S_DEC_UNTT;
+        end
+    end
+
+--------------------------------------------------------------------------------
+Fix 4  — S_DEC_DECOMP hardening (removes implicit dependency on start pulse)
+--------------------------------------------------------------------------------
+After the final coeff is written (out_cnt == 1023), coeff_cnt was left at
+whatever the decompress datapath left it at (typically 255). The start
+pulse of Decaps happened to reset coeff_cnt, but this made the FSM
+fragile: any external signal sequence that skipped start would silently
+carry a stale value.
+
+    if (out_cnt == 16'd1023) begin
+        i_idx <= 0;
+        coeff_cnt <= 0;         // <-- added
+        phase <= 0; st <= S_DEC_SNTT;
+    end
+
+--------------------------------------------------------------------------------
+Fix 5  — New external ct_load datapath  (real receiver scenario)
+--------------------------------------------------------------------------------
+Previously the only way to load ciphertext was for this same instance to
+produce it via its own Encaps. A real receiver loads ct from the wire
+and needs an independent datapath. Added 3 ports and one always-block.
+
+    input wire       ct_load,
+    input wire [15:0] ct_in_addr,   // 0..1023 = word offset in ct
+    input wire [15:0] ct_data_in,
+
+Load logic (case-select by address high bits, not if/else-if with subtraction):
+
+    always @(posedge clk or negedge rst_n) begin
+        if (!rst_n) begin
+            ... zero cu_poly[0..K-1][0..N-1] and cv_poly[0..N-1] ...
+        end else if (ct_load && !busy) begin
+            case (ct_in_addr[9:8])
+                2'd0: cu_poly[0][ct_in_addr[7:0]] <= ct_data_in;
+                2'd1: cu_poly[1][ct_in_addr[7:0]] <= ct_data_in;
+                2'd2: cu_poly[2][ct_in_addr[7:0]] <= ct_data_in;
+                2'd3: cv_poly[ct_in_addr[7:0]]    <= ct_data_in;
+            endcase
+        end
+    end
+
+Note on route choice: the original if/else-if version using
+`ct_in_addr < 256 / 512 / 768 / 1024` with index
+`ct_in_addr - 16'd256` etc. silently mis-routed cu0/cu1 loads to the cu2
+slot (249 word misplaces in first verification). The `case`+`[7:0]`
+form routes each address to exactly one storage bank without arithmetic.
+
+--------------------------------------------------------------------------------
+Testbench updates  (verify/tb_kyber_kem.v)
+--------------------------------------------------------------------------------
+- Added Decaps #1 test (consumes self-produced cu_poly/cv_poly).
+- Added Decaps #2 test (loads external ct via ct_load datapath, then
+  runs Decaps). Landing verified by reading back dut.cu_poly / cv_poly.
+- Added REPEAT STABILITY test: after Decaps #2, re-runs the full
+  KeyGen -> Encaps -> Decaps chain without reset and verifies results
+  still match the golden vectors. Catches hidden state-leak between
+  consecutive operations.
+- Removed all PROBE $display calls and both DEBUG DUMP blocks
+  (Encaps + Decaps internal polynomial dumps) after full verification.
+- Fixed fscanf width specifiers (%h -> %2h / %4h) so compact hex golden
+  files parse correctly (see Fix 6 above).
+- Added gen_kem_golden_b.py (independent seed 20261009) and
+  run_kem_multi_sim.py (orchestrator that runs both A-set and B-set
+  scenarios back-to-back, verifies both pass, restores A-set as the
+  default state).
+
+--------------------------------------------------------------------------------
+Regression / verification summary
+--------------------------------------------------------------------------------
+Both A-set (seed 20261007) and B-set (seed 20261009) pass identically:
+
+    === KEYGEN:  ALL 800 CHECKS PASSED ===
+    === ENCAPS:  ALL 1056 CHECKS PASSED ===
+    === DECAPS:  ALL 64 CHECKS PASSED ===       (self-produced ct)
+    === ct_load datapath: 768 words landed OK ===
+    === DECAPS #2 (external ct): 0 ERRORS ===   (real receiver case)
+    === REPEAT STABILITY: PASS (2 consecutive runs agree) ===
+    === TOTAL: 0 ERRORS ===
+
+Cumulative: 1920 checks x 2 independent seeds = 3840 check-verifications,
+0 errors. Repeat-stability additionally runs the full flow a 3rd time
+on the same seed and confirms the result is unchanged.
+
+--------------------------------------------------------------------------------
+Not yet integrated
+--------------------------------------------------------------------------------
+- kyber_kem is NOT yet instantiated in any of the SoC top files
+  (ipx_aoi_sec_top.v, ipx_aoi_sec_fpga_top.v, ipx_aoi_sec_nexys_top.v).
+  Those files do not reference KEM and are unrelated SoC tops.
+- Vivado full synthesis / place & route / timing closure have not been run.
+  A read_verilog compile check was run (see below); Vivado full synth needs
+  a minimal wrapper top + xdc with clock constraint.
+
+--------------------------------------------------------------------------------
+Toolchain compatibility check  (Vivado read_verilog)
+--------------------------------------------------------------------------------
+Vivado 2026.1 (BASIC license, D:\FPGA\2026.1) read_verilog on all 6 RTL
+files that make up the kyber_kem closure:
+
+    shake.v, keccak_perm.v, kyber_ntt.v, kyber_poly.v (also defines
+    kyber_basemul), kyber_sampler.v, kyber_kem.v
+
+Result: 0 errors, 0 warnings, rc=0. All 6 files parse cleanly in Vivado.
+
+Script:  scripts/run_kem_vivado_compile.py
+Log:     results/kem_vivado_compile.log
+
+Pitfalls encountered:
+- xvlog.exe (unwrapped) crashes with 0xC0000005; must use
+  vivado.bat -mode batch -source <tcl> to get the launcher's license env.
+- Tcl interprets \t as tab, so Windows backslash paths corrupt. Use forward
+  slashes inside the tcl.
+- Chinese path 调研FPGA大模型安全 gets mangled through vivado.bat -> cmd.exe.
+  The script copies .v files to an ASCII temp dir first.

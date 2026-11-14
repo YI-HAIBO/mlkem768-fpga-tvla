@@ -1,0 +1,67 @@
+{
+  "n_bits": 10000000,
+  "model": "jittered ring oscillator (N_inv=7, sigma_j=0.050, div=3)",
+  "bin_path": "C:/Users/Yi/WorkBuddy/2026-10-05-09-29-14/\u8c03\u7814FPGA\u5927\u6a21\u578b\u5b89\u5168/\u7814\u53d1/ipx_aoi_fpga_prototype\\results\\trng_long_100mbit.bin",
+  "passed": 9,
+  "failed": 6,
+  "total": 15,
+  "all_pass": false,
+  "results": {
+    "1. Frequency (Monobit)": {
+      "p_value": 0.1739,
+      "status": "PASS"
+    },
+    "2. Block Frequency (m=128)": {
+      "p_value": 0.0,
+      "status": "FAIL"
+    },
+    "3. Runs": {
+      "p_value": 0.0,
+      "status": "FAIL"
+    },
+    "4. Longest Run of Ones": {
+      "p_value": 1.0,
+      "status": "PASS"
+    },
+    "5. Binary Matrix Rank (32x32)": {
+      "p_value": 1.0,
+      "status": "PASS"
+    },
+    "6. Discrete Fourier Transform": {
+      "p_value": 0.0,
+      "status": "FAIL"
+    },
+    "7. Non-overlapping Template": {
+      "p_value": 1.0,
+      "status": "PASS"
+    },
+    "8. Overlapping Template": {
+      "p_value": 1.0,
+      "status": "PASS"
+    },
+    "9. Maurer's Universal": {
+      "p_value": 0.0,
+      "status": "FAIL"
+    },
+    "10. Linear Complexity": {
+      "p_value": 1.0,
+      "status": "PASS"
+    },
+    "11. Serial (m=16)": {
+      "p_value": 1.0,
+      "status": "PASS"
+    },
+    "12. Approximate Entropy (m=10)": {
+      "p_value": 1.0,
+      "status": "PASS"
+    },
+    "13. Cumulative Sums": {
+      "p_value": 0.102668,
+      "status": "PASS"
+    },
+    "14. Random Excursions": {
+      "p_value": 0.0,
+      "status": "FAIL"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+---- impl kem : unified_ntt_kem ----
+  cmd: D:\FPGA\2026.1\Vivado\bin\vivado.bat -mode batch -nojournal
+  cwd: C:\tmp_impl_unified_ntt_kem_t73l_20261025_081912
+  [    5s] vivado started           00_start.txt
+  [   10s] project + sources + xdc loaded 10_project.txt
+  rc=7  time=120s  markers=2/11
+  ---- log tail (last 15 of 296 lines) ----
+   | |unified_ntt__GB6 | A*B            | 18     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+   | |unified_ntt__GB6 | (PCIN>>17)+A*B | 17     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+   | |unified_ntt      | A*B            | 17     | 8      | -      | -      | 25     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+   | |unified_ntt__GB6 | A*B            | 18     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+   | |unified_ntt__GB6 | (PCIN>>17)+A*B | 17     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+   | |unified_ntt      | A*B            | 16     | 16     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+   | |unified_ntt      | A*B            | 16     | 16     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+   | |unified_ntt      | A*B            | 17     | 16     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+   | |unified_ntt      | C+(A*B)'       | 9      | 8      | 8      | -      | 9      | 0    | 0    | 0    | -    | -     | 1    | 0    | 
+   | +-----------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+   | 
+   | Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives
+   | ---------------------------------------------------------------------------------
+   | Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+   | ---------------------------------------------------------------------------------
+  reports: NONE
+---- kem summary ----
+  (no timing data extracted)

@@ -1,0 +1,564 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
+| Date         : Sun Oct 18 08:35:49 2026
+| Host         : Yi running 64-bit major release  (build 9200)
+| Command      : report_timing -file C:/tmp_one_kyber_ntt-pipe3_1792283571/proj/reports/path.rpt -delay_type max -max_paths 5 -input_pins -sort_by group
+| Design       : kyber_ntt
+| Device       : 7a100t-csg324
+| Speed File   : -1  PRODUCTION 1.23 2018-06-13
+| Design State : Synthesized
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (VIOLATED) :        -3.465ns  (required time - arrival time)
+  Source:                 v_a/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            coeff_reg[182][13]/D
+                            (rising edge-triggered cell FDCE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
+  Data Path Delay:        13.103ns  (logic 7.642ns (58.324%)  route 5.461ns (41.676%))
+  Logic Levels:           15  (CARRY4=6 DSP48E1=1 LUT2=2 LUT3=1 LUT4=1 LUT5=2 LUT6=2)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.130ns = ( 12.130 - 10.000 ) 
+    Source Clock Delay      (SCD):    2.454ns
+    Clock Pessimism Removal (CPR):    0.179ns
+  Clock Uncertainty:      0.261ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.100ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.200ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=0)                   0.000     0.000    clk
+                                                                      r  clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.971     0.971 r  clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.803     1.774    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.096     1.870 r  clk_IBUF_BUFG_inst/O
+                         net (fo=4420, unplaced)      0.584     2.454    clk_IBUF_BUFG
+                         DSP48E1                                      r  v_a/CLK
+  -------------------------------------------------------------------    -------------------
+                         DSP48E1 (Prop_dsp48e1_CLK_P[25])
+                                                      0.434     2.888 r  v_a/P[25]
+                         net (fo=2, unplaced)         0.803     3.691    v_a_n_80
+                                                                      r  unamedDSP_i_7/I0
+                         LUT2 (Prop_lut2_I0_O)        0.150     3.841 r  unamedDSP_i_7/O
+                         net (fo=1, unplaced)         0.000     3.841    unamedDSP_i_7_n_0
+                                                                      r  unamedDSP_i_2/DI[1]
+                         CARRY4 (Prop_carry4_DI[1]_CO[3])
+                                                      0.547     4.388 r  unamedDSP_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     4.388    unamedDSP_i_2_n_0
+                                                                      r  unamedDSP_i_1/CI
+                         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.337     4.725 r  unamedDSP_i_1/O[1]
+                         net (fo=1, unplaced)         0.803     5.528    unamedDSP_i_1_n_6
+                                                                      r  unamedDSP/A[3]
+                         DSP48E1 (Prop_dsp48e1_A[3]_P[1])
+                                                      4.020     9.548 r  unamedDSP/P[1]
+                         net (fo=1, unplaced)         0.803    10.351    unamedDSP_n_104
+                                                                      r  coeff[170][3]_i_6/I1
+                         LUT2 (Prop_lut2_I1_O)        0.124    10.475 r  coeff[170][3]_i_6/O
+                         net (fo=1, unplaced)         0.000    10.475    coeff[170][3]_i_6_n_0
+                                                                      r  coeff_reg[170][3]_i_2/S[1]
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533    11.008 r  coeff_reg[170][3]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000    11.008    coeff_reg[170][3]_i_2_n_0
+                                                                      r  coeff_reg[170][7]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    11.125 r  coeff_reg[170][7]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000    11.125    coeff_reg[170][7]_i_2_n_0
+                                                                      r  coeff_reg[170][11]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    11.242 r  coeff_reg[170][11]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000    11.242    coeff_reg[170][11]_i_2_n_0
+                                                                      r  coeff_reg[170][15]_i_11/CI
+                         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.337    11.579 r  coeff_reg[170][15]_i_11/O[1]
+                         net (fo=215, unplaced)       0.730    12.309    bar_sub[13]
+                                                                      r  coeff[232][13]_i_7/I0
+                         LUT3 (Prop_lut3_I0_O)        0.306    12.615 r  coeff[232][13]_i_7/O
+                         net (fo=132, unplaced)       0.526    13.141    coeff[232][13]_i_7_n_0
+                                                                      r  coeff[182][13]_i_8/I2
+                         LUT5 (Prop_lut5_I2_O)        0.124    13.265 r  coeff[182][13]_i_8/O
+                         net (fo=1, unplaced)         0.449    13.714    coeff[182][13]_i_8_n_0
+                                                                      r  coeff[182][13]_i_7/I3
+                         LUT4 (Prop_lut4_I3_O)        0.124    13.838 r  coeff[182][13]_i_7/O
+                         net (fo=1, unplaced)         0.449    14.287    coeff[182][13]_i_7_n_0
+                                                                      r  coeff[182][13]_i_6/I5
+                         LUT6 (Prop_lut6_I5_O)        0.124    14.411 r  coeff[182][13]_i_6/O
+                         net (fo=1, unplaced)         0.449    14.860    coeff[182][13]_i_6_n_0
+                                                                      r  coeff[182][13]_i_5/I0
+                         LUT5 (Prop_lut5_I0_O)        0.124    14.984 r  coeff[182][13]_i_5/O
+                         net (fo=1, unplaced)         0.449    15.433    coeff[182][13]_i_5_n_0
+                                                                      r  coeff[182][13]_i_1/I5
+                         LUT6 (Prop_lut6_I5_O)        0.124    15.557 r  coeff[182][13]_i_1/O
+                         net (fo=1, unplaced)         0.000    15.557    coeff[182][13]_i_1_n_0
+                         FDCE                                         r  coeff_reg[182][13]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.000    10.000 r  <hidden>
+                                                      0.000    10.000 r  clk
+                         net (fo=0)                   0.000    10.000    clk
+                                                                      r  clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.838    10.838 r  clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.763    11.600    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.091    11.691 r  clk_IBUF_BUFG_inst/O
+                         net (fo=4420, unplaced)      0.439    12.130    clk_IBUF_BUFG
+                         FDCE                                         r  coeff_reg[182][13]/C
+                         clock pessimism              0.179    12.309    <hidden>
+                         clock uncertainty           -0.261    12.048    <hidden>
+                         FDCE (Setup_fdce_C_D)        0.044    12.092    coeff_reg[182][13]
+  -------------------------------------------------------------------
+                         required time                         12.092    <hidden>
+                         arrival time                         -15.557    <hidden>
+  -------------------------------------------------------------------
+                         slack                                 -3.465    <hidden>
+
+Slack (VIOLATED) :        -3.465ns  (required time - arrival time)
+  Source:                 v_a/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            coeff_reg[185][13]/D
+                            (rising edge-triggered cell FDCE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
+  Data Path Delay:        13.103ns  (logic 7.642ns (58.324%)  route 5.461ns (41.676%))
+  Logic Levels:           15  (CARRY4=6 DSP48E1=1 LUT2=2 LUT3=1 LUT4=1 LUT5=2 LUT6=2)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.130ns = ( 12.130 - 10.000 ) 
+    Source Clock Delay      (SCD):    2.454ns
+    Clock Pessimism Removal (CPR):    0.179ns
+  Clock Uncertainty:      0.261ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.100ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.200ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=0)                   0.000     0.000    clk
+                                                                      r  clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.971     0.971 r  clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.803     1.774    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.096     1.870 r  clk_IBUF_BUFG_inst/O
+                         net (fo=4420, unplaced)      0.584     2.454    clk_IBUF_BUFG
+                         DSP48E1                                      r  v_a/CLK
+  -------------------------------------------------------------------    -------------------
+                         DSP48E1 (Prop_dsp48e1_CLK_P[25])
+                                                      0.434     2.888 r  v_a/P[25]
+                         net (fo=2, unplaced)         0.803     3.691    v_a_n_80
+                                                                      r  unamedDSP_i_7/I0
+                         LUT2 (Prop_lut2_I0_O)        0.150     3.841 r  unamedDSP_i_7/O
+                         net (fo=1, unplaced)         0.000     3.841    unamedDSP_i_7_n_0
+                                                                      r  unamedDSP_i_2/DI[1]
+                         CARRY4 (Prop_carry4_DI[1]_CO[3])
+                                                      0.547     4.388 r  unamedDSP_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     4.388    unamedDSP_i_2_n_0
+                                                                      r  unamedDSP_i_1/CI
+                         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.337     4.725 r  unamedDSP_i_1/O[1]
+                         net (fo=1, unplaced)         0.803     5.528    unamedDSP_i_1_n_6
+                                                                      r  unamedDSP/A[3]
+                         DSP48E1 (Prop_dsp48e1_A[3]_P[1])
+                                                      4.020     9.548 r  unamedDSP/P[1]
+                         net (fo=1, unplaced)         0.803    10.351    unamedDSP_n_104
+                                                                      r  coeff[170][3]_i_6/I1
+                         LUT2 (Prop_lut2_I1_O)        0.124    10.475 r  coeff[170][3]_i_6/O
+                         net (fo=1, unplaced)         0.000    10.475    coeff[170][3]_i_6_n_0
+                                                                      r  coeff_reg[170][3]_i_2/S[1]
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533    11.008 r  coeff_reg[170][3]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000    11.008    coeff_reg[170][3]_i_2_n_0
+                                                                      r  coeff_reg[170][7]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    11.125 r  coeff_reg[170][7]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000    11.125    coeff_reg[170][7]_i_2_n_0
+                                                                      r  coeff_reg[170][11]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    11.242 r  coeff_reg[170][11]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000    11.242    coeff_reg[170][11]_i_2_n_0
+                                                                      r  coeff_reg[170][15]_i_11/CI
+                         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.337    11.579 r  coeff_reg[170][15]_i_11/O[1]
+                         net (fo=215, unplaced)       0.730    12.309    bar_sub[13]
+                                                                      r  coeff[232][13]_i_7/I0
+                         LUT3 (Prop_lut3_I0_O)        0.306    12.615 r  coeff[232][13]_i_7/O
+                         net (fo=132, unplaced)       0.526    13.141    coeff[232][13]_i_7_n_0
+                                                                      r  coeff[185][13]_i_8/I2
+                         LUT5 (Prop_lut5_I2_O)        0.124    13.265 r  coeff[185][13]_i_8/O
+                         net (fo=1, unplaced)         0.449    13.714    coeff[185][13]_i_8_n_0
+                                                                      r  coeff[185][13]_i_7/I3
+                         LUT4 (Prop_lut4_I3_O)        0.124    13.838 r  coeff[185][13]_i_7/O
+                         net (fo=1, unplaced)         0.449    14.287    coeff[185][13]_i_7_n_0
+                                                                      r  coeff[185][13]_i_6/I5
+                         LUT6 (Prop_lut6_I5_O)        0.124    14.411 r  coeff[185][13]_i_6/O
+                         net (fo=1, unplaced)         0.449    14.860    coeff[185][13]_i_6_n_0
+                                                                      r  coeff[185][13]_i_5/I0
+                         LUT5 (Prop_lut5_I0_O)        0.124    14.984 r  coeff[185][13]_i_5/O
+                         net (fo=1, unplaced)         0.449    15.433    coeff[185][13]_i_5_n_0
+                                                                      r  coeff[185][13]_i_1/I5
+                         LUT6 (Prop_lut6_I5_O)        0.124    15.557 r  coeff[185][13]_i_1/O
+                         net (fo=1, unplaced)         0.000    15.557    coeff[185][13]_i_1_n_0
+                         FDCE                                         r  coeff_reg[185][13]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.000    10.000 r  <hidden>
+                                                      0.000    10.000 r  clk
+                         net (fo=0)                   0.000    10.000    clk
+                                                                      r  clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.838    10.838 r  clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.763    11.600    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.091    11.691 r  clk_IBUF_BUFG_inst/O
+                         net (fo=4420, unplaced)      0.439    12.130    clk_IBUF_BUFG
+                         FDCE                                         r  coeff_reg[185][13]/C
+                         clock pessimism              0.179    12.309    <hidden>
+                         clock uncertainty           -0.261    12.048    <hidden>
+                         FDCE (Setup_fdce_C_D)        0.044    12.092    coeff_reg[185][13]
+  -------------------------------------------------------------------
+                         required time                         12.092    <hidden>
+                         arrival time                         -15.557    <hidden>
+  -------------------------------------------------------------------
+                         slack                                 -3.465    <hidden>
+
+Slack (VIOLATED) :        -3.465ns  (required time - arrival time)
+  Source:                 v_a/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            coeff_reg[210][13]/D
+                            (rising edge-triggered cell FDCE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
+  Data Path Delay:        13.103ns  (logic 7.642ns (58.324%)  route 5.461ns (41.676%))
+  Logic Levels:           15  (CARRY4=6 DSP48E1=1 LUT2=2 LUT3=1 LUT4=1 LUT5=2 LUT6=2)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.130ns = ( 12.130 - 10.000 ) 
+    Source Clock Delay      (SCD):    2.454ns
+    Clock Pessimism Removal (CPR):    0.179ns
+  Clock Uncertainty:      0.261ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.100ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.200ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=0)                   0.000     0.000    clk
+                                                                      r  clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.971     0.971 r  clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.803     1.774    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.096     1.870 r  clk_IBUF_BUFG_inst/O
+                         net (fo=4420, unplaced)      0.584     2.454    clk_IBUF_BUFG
+                         DSP48E1                                      r  v_a/CLK
+  -------------------------------------------------------------------    -------------------
+                         DSP48E1 (Prop_dsp48e1_CLK_P[25])
+                                                      0.434     2.888 r  v_a/P[25]
+                         net (fo=2, unplaced)         0.803     3.691    v_a_n_80
+                                                                      r  unamedDSP_i_7/I0
+                         LUT2 (Prop_lut2_I0_O)        0.150     3.841 r  unamedDSP_i_7/O
+                         net (fo=1, unplaced)         0.000     3.841    unamedDSP_i_7_n_0
+                                                                      r  unamedDSP_i_2/DI[1]
+                         CARRY4 (Prop_carry4_DI[1]_CO[3])
+                                                      0.547     4.388 r  unamedDSP_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     4.388    unamedDSP_i_2_n_0
+                                                                      r  unamedDSP_i_1/CI
+                         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.337     4.725 r  unamedDSP_i_1/O[1]
+                         net (fo=1, unplaced)         0.803     5.528    unamedDSP_i_1_n_6
+                                                                      r  unamedDSP/A[3]
+                         DSP48E1 (Prop_dsp48e1_A[3]_P[1])
+                                                      4.020     9.548 r  unamedDSP/P[1]
+                         net (fo=1, unplaced)         0.803    10.351    unamedDSP_n_104
+                                                                      r  coeff[170][3]_i_6/I1
+                         LUT2 (Prop_lut2_I1_O)        0.124    10.475 r  coeff[170][3]_i_6/O
+                         net (fo=1, unplaced)         0.000    10.475    coeff[170][3]_i_6_n_0
+                                                                      r  coeff_reg[170][3]_i_2/S[1]
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533    11.008 r  coeff_reg[170][3]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000    11.008    coeff_reg[170][3]_i_2_n_0
+                                                                      r  coeff_reg[170][7]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    11.125 r  coeff_reg[170][7]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000    11.125    coeff_reg[170][7]_i_2_n_0
+                                                                      r  coeff_reg[170][11]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    11.242 r  coeff_reg[170][11]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000    11.242    coeff_reg[170][11]_i_2_n_0
+                                                                      r  coeff_reg[170][15]_i_11/CI
+                         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.337    11.579 r  coeff_reg[170][15]_i_11/O[1]
+                         net (fo=215, unplaced)       0.730    12.309    bar_sub[13]
+                                                                      r  coeff[232][13]_i_7/I0
+                         LUT3 (Prop_lut3_I0_O)        0.306    12.615 r  coeff[232][13]_i_7/O
+                         net (fo=132, unplaced)       0.526    13.141    coeff[232][13]_i_7_n_0
+                                                                      r  coeff[210][13]_i_5/I2
+                         LUT5 (Prop_lut5_I2_O)        0.124    13.265 r  coeff[210][13]_i_5/O
+                         net (fo=1, unplaced)         0.449    13.714    coeff[210][13]_i_5_n_0
+                                                                      r  coeff[210][13]_i_4/I3
+                         LUT4 (Prop_lut4_I3_O)        0.124    13.838 r  coeff[210][13]_i_4/O
+                         net (fo=1, unplaced)         0.449    14.287    coeff[210][13]_i_4_n_0
+                                                                      r  coeff[210][13]_i_3/I5
+                         LUT6 (Prop_lut6_I5_O)        0.124    14.411 r  coeff[210][13]_i_3/O
+                         net (fo=1, unplaced)         0.449    14.860    coeff[210][13]_i_3_n_0
+                                                                      r  coeff[210][13]_i_2/I5
+                         LUT6 (Prop_lut6_I5_O)        0.124    14.984 r  coeff[210][13]_i_2/O
+                         net (fo=1, unplaced)         0.449    15.433    coeff[210][13]_i_2_n_0
+                                                                      r  coeff[210][13]_i_1/I4
+                         LUT5 (Prop_lut5_I4_O)        0.124    15.557 r  coeff[210][13]_i_1/O
+                         net (fo=1, unplaced)         0.000    15.557    coeff[210][13]_i_1_n_0
+                         FDCE                                         r  coeff_reg[210][13]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.000    10.000 r  <hidden>
+                                                      0.000    10.000 r  clk
+                         net (fo=0)                   0.000    10.000    clk
+                                                                      r  clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.838    10.838 r  clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.763    11.600    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.091    11.691 r  clk_IBUF_BUFG_inst/O
+                         net (fo=4420, unplaced)      0.439    12.130    clk_IBUF_BUFG
+                         FDCE                                         r  coeff_reg[210][13]/C
+                         clock pessimism              0.179    12.309    <hidden>
+                         clock uncertainty           -0.261    12.048    <hidden>
+                         FDCE (Setup_fdce_C_D)        0.044    12.092    coeff_reg[210][13]
+  -------------------------------------------------------------------
+                         required time                         12.092    <hidden>
+                         arrival time                         -15.557    <hidden>
+  -------------------------------------------------------------------
+                         slack                                 -3.465    <hidden>
+
+Slack (VIOLATED) :        -3.378ns  (required time - arrival time)
+  Source:                 v_a/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            coeff_reg[152][9]/D
+                            (rising edge-triggered cell FDCE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
+  Data Path Delay:        13.016ns  (logic 7.525ns (57.815%)  route 5.491ns (42.185%))
+  Logic Levels:           14  (CARRY4=5 DSP48E1=1 LUT2=2 LUT3=1 LUT4=1 LUT5=2 LUT6=2)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.130ns = ( 12.130 - 10.000 ) 
+    Source Clock Delay      (SCD):    2.454ns
+    Clock Pessimism Removal (CPR):    0.179ns
+  Clock Uncertainty:      0.261ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.100ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.200ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=0)                   0.000     0.000    clk
+                                                                      r  clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.971     0.971 r  clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.803     1.774    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.096     1.870 r  clk_IBUF_BUFG_inst/O
+                         net (fo=4420, unplaced)      0.584     2.454    clk_IBUF_BUFG
+                         DSP48E1                                      r  v_a/CLK
+  -------------------------------------------------------------------    -------------------
+                         DSP48E1 (Prop_dsp48e1_CLK_P[25])
+                                                      0.434     2.888 r  v_a/P[25]
+                         net (fo=2, unplaced)         0.803     3.691    v_a_n_80
+                                                                      r  unamedDSP_i_7/I0
+                         LUT2 (Prop_lut2_I0_O)        0.150     3.841 r  unamedDSP_i_7/O
+                         net (fo=1, unplaced)         0.000     3.841    unamedDSP_i_7_n_0
+                                                                      r  unamedDSP_i_2/DI[1]
+                         CARRY4 (Prop_carry4_DI[1]_CO[3])
+                                                      0.547     4.388 r  unamedDSP_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     4.388    unamedDSP_i_2_n_0
+                                                                      r  unamedDSP_i_1/CI
+                         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.337     4.725 r  unamedDSP_i_1/O[1]
+                         net (fo=1, unplaced)         0.803     5.528    unamedDSP_i_1_n_6
+                                                                      r  unamedDSP/A[3]
+                         DSP48E1 (Prop_dsp48e1_A[3]_P[1])
+                                                      4.020     9.548 r  unamedDSP/P[1]
+                         net (fo=1, unplaced)         0.803    10.351    unamedDSP_n_104
+                                                                      r  coeff[170][3]_i_6/I1
+                         LUT2 (Prop_lut2_I1_O)        0.124    10.475 r  coeff[170][3]_i_6/O
+                         net (fo=1, unplaced)         0.000    10.475    coeff[170][3]_i_6_n_0
+                                                                      r  coeff_reg[170][3]_i_2/S[1]
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533    11.008 r  coeff_reg[170][3]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000    11.008    coeff_reg[170][3]_i_2_n_0
+                                                                      r  coeff_reg[170][7]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    11.125 r  coeff_reg[170][7]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000    11.125    coeff_reg[170][7]_i_2_n_0
+                                                                      r  coeff_reg[170][11]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.337    11.462 r  coeff_reg[170][11]_i_2/O[1]
+                         net (fo=215, unplaced)       0.730    12.192    bar_sub[9]
+                                                                      r  coeff[232][9]_i_9/I0
+                         LUT3 (Prop_lut3_I0_O)        0.306    12.498 r  coeff[232][9]_i_9/O
+                         net (fo=132, unplaced)       0.556    13.054    coeff[232][9]_i_9_n_0
+                                                                      r  coeff[152][9]_i_5/I4
+                         LUT5 (Prop_lut5_I4_O)        0.124    13.178 r  coeff[152][9]_i_5/O
+                         net (fo=1, unplaced)         0.449    13.627    coeff[152][9]_i_5_n_0
+                                                                      r  coeff[152][9]_i_4/I3
+                         LUT4 (Prop_lut4_I3_O)        0.124    13.751 r  coeff[152][9]_i_4/O
+                         net (fo=1, unplaced)         0.449    14.200    coeff[152][9]_i_4_n_0
+                                                                      r  coeff[152][9]_i_3/I5
+                         LUT6 (Prop_lut6_I5_O)        0.124    14.324 r  coeff[152][9]_i_3/O
+                         net (fo=1, unplaced)         0.449    14.773    coeff[152][9]_i_3_n_0
+                                                                      r  coeff[152][9]_i_2/I0
+                         LUT5 (Prop_lut5_I0_O)        0.124    14.897 r  coeff[152][9]_i_2/O
+                         net (fo=1, unplaced)         0.449    15.346    coeff[152][9]_i_2_n_0
+                                                                      r  coeff[152][9]_i_1/I5
+                         LUT6 (Prop_lut6_I5_O)        0.124    15.470 r  coeff[152][9]_i_1/O
+                         net (fo=1, unplaced)         0.000    15.470    coeff[152][9]_i_1_n_0
+                         FDCE                                         r  coeff_reg[152][9]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.000    10.000 r  <hidden>
+                                                      0.000    10.000 r  clk
+                         net (fo=0)                   0.000    10.000    clk
+                                                                      r  clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.838    10.838 r  clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.763    11.600    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.091    11.691 r  clk_IBUF_BUFG_inst/O
+                         net (fo=4420, unplaced)      0.439    12.130    clk_IBUF_BUFG
+                         FDCE                                         r  coeff_reg[152][9]/C
+                         clock pessimism              0.179    12.309    <hidden>
+                         clock uncertainty           -0.261    12.048    <hidden>
+                         FDCE (Setup_fdce_C_D)        0.044    12.092    coeff_reg[152][9]
+  -------------------------------------------------------------------
+                         required time                         12.092    <hidden>
+                         arrival time                         -15.470    <hidden>
+  -------------------------------------------------------------------
+                         slack                                 -3.378    <hidden>
+
+Slack (VIOLATED) :        -3.378ns  (required time - arrival time)
+  Source:                 v_a/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            coeff_reg[185][9]/D
+                            (rising edge-triggered cell FDCE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
+  Data Path Delay:        13.016ns  (logic 7.525ns (57.815%)  route 5.491ns (42.185%))
+  Logic Levels:           14  (CARRY4=5 DSP48E1=1 LUT2=2 LUT3=1 LUT4=1 LUT5=2 LUT6=2)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.130ns = ( 12.130 - 10.000 ) 
+    Source Clock Delay      (SCD):    2.454ns
+    Clock Pessimism Removal (CPR):    0.179ns
+  Clock Uncertainty:      0.261ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.100ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.200ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=0)                   0.000     0.000    clk
+                                                                      r  clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.971     0.971 r  clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.803     1.774    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.096     1.870 r  clk_IBUF_BUFG_inst/O
+                         net (fo=4420, unplaced)      0.584     2.454    clk_IBUF_BUFG
+                         DSP48E1                                      r  v_a/CLK
+  -------------------------------------------------------------------    -------------------
+                         DSP48E1 (Prop_dsp48e1_CLK_P[25])
+                                                      0.434     2.888 r  v_a/P[25]
+                         net (fo=2, unplaced)         0.803     3.691    v_a_n_80
+                                                                      r  unamedDSP_i_7/I0
+                         LUT2 (Prop_lut2_I0_O)        0.150     3.841 r  unamedDSP_i_7/O
+                         net (fo=1, unplaced)         0.000     3.841    unamedDSP_i_7_n_0
+                                                                      r  unamedDSP_i_2/DI[1]
+                         CARRY4 (Prop_carry4_DI[1]_CO[3])
+                                                      0.547     4.388 r  unamedDSP_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     4.388    unamedDSP_i_2_n_0
+                                                                      r  unamedDSP_i_1/CI
+                         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.337     4.725 r  unamedDSP_i_1/O[1]
+                         net (fo=1, unplaced)         0.803     5.528    unamedDSP_i_1_n_6
+                                                                      r  unamedDSP/A[3]
+                         DSP48E1 (Prop_dsp48e1_A[3]_P[1])
+                                                      4.020     9.548 r  unamedDSP/P[1]
+                         net (fo=1, unplaced)         0.803    10.351    unamedDSP_n_104
+                                                                      r  coeff[170][3]_i_6/I1
+                         LUT2 (Prop_lut2_I1_O)        0.124    10.475 r  coeff[170][3]_i_6/O
+                         net (fo=1, unplaced)         0.000    10.475    coeff[170][3]_i_6_n_0
+                                                                      r  coeff_reg[170][3]_i_2/S[1]
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533    11.008 r  coeff_reg[170][3]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000    11.008    coeff_reg[170][3]_i_2_n_0
+                                                                      r  coeff_reg[170][7]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    11.125 r  coeff_reg[170][7]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000    11.125    coeff_reg[170][7]_i_2_n_0
+                                                                      r  coeff_reg[170][11]_i_2/CI
+                         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.337    11.462 r  coeff_reg[170][11]_i_2/O[1]
+                         net (fo=215, unplaced)       0.730    12.192    bar_sub[9]
+                                                                      r  coeff[232][9]_i_9/I0
+                         LUT3 (Prop_lut3_I0_O)        0.306    12.498 r  coeff[232][9]_i_9/O
+                         net (fo=132, unplaced)       0.556    13.054    coeff[232][9]_i_9_n_0
+                                                                      r  coeff[185][9]_i_5/I4
+                         LUT5 (Prop_lut5_I4_O)        0.124    13.178 r  coeff[185][9]_i_5/O
+                         net (fo=1, unplaced)         0.449    13.627    coeff[185][9]_i_5_n_0
+                                                                      r  coeff[185][9]_i_4/I3
+                         LUT4 (Prop_lut4_I3_O)        0.124    13.751 r  coeff[185][9]_i_4/O
+                         net (fo=1, unplaced)         0.449    14.200    coeff[185][9]_i_4_n_0
+                                                                      r  coeff[185][9]_i_3/I5
+                         LUT6 (Prop_lut6_I5_O)        0.124    14.324 r  coeff[185][9]_i_3/O
+                         net (fo=1, unplaced)         0.449    14.773    coeff[185][9]_i_3_n_0
+                                                                      r  coeff[185][9]_i_2/I4
+                         LUT5 (Prop_lut5_I4_O)        0.124    14.897 r  coeff[185][9]_i_2/O
+                         net (fo=1, unplaced)         0.449    15.346    coeff[185][9]_i_2_n_0
+                                                                      r  coeff[185][9]_i_1/I5
+                         LUT6 (Prop_lut6_I5_O)        0.124    15.470 r  coeff[185][9]_i_1/O
+                         net (fo=1, unplaced)         0.000    15.470    coeff[185][9]_i_1_n_0
+                         FDCE                                         r  coeff_reg[185][9]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.000    10.000 r  <hidden>
+                                                      0.000    10.000 r  clk
+                         net (fo=0)                   0.000    10.000    clk
+                                                                      r  clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.838    10.838 r  clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.763    11.600    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.091    11.691 r  clk_IBUF_BUFG_inst/O
+                         net (fo=4420, unplaced)      0.439    12.130    clk_IBUF_BUFG
+                         FDCE                                         r  coeff_reg[185][9]/C
+                         clock pessimism              0.179    12.309    <hidden>
+                         clock uncertainty           -0.261    12.048    <hidden>
+                         FDCE (Setup_fdce_C_D)        0.044    12.092    coeff_reg[185][9]
+  -------------------------------------------------------------------
+                         required time                         12.092    <hidden>
+                         arrival time                         -15.470    <hidden>
+  -------------------------------------------------------------------
+                         slack                                 -3.378    <hidden>
+
+
+
+

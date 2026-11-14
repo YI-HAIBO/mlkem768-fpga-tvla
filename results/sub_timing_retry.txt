@@ -1,0 +1,11 @@
+Sub-module timing retry (setup-only), part=xc7a100tcsg324-1, directive=RuntimeOptimized
+Clock: 10.0 ns period (100 MHz)
+
+module            rc    t(s)     LUT        FF       DSP      WNS       WHS  Fmax_MHz
+kyber_ntt          0   251.5         -         -        -   -19.329     4.500      34.1
+kyber_poly         0   413.2         -         -        -    -8.888     4.500      52.9
+
+Derived Fmax_MHz = 1000 / (period_ns - WNS_ns)
+Positive WNS => meets the 100 MHz setup target.
+Negative WHS => hold violations (common on synthetic sub-module-only runs)
+because input/output I/O paths are unconstrained.

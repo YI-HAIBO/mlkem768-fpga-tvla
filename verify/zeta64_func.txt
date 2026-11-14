@@ -1,0 +1,73 @@
+    // Correct basemul twiddles: zetas[64..127] (pq-crystals/kyber ref/ntt.c).
+    // Values are signed int16_t constants; fqmul ignores the sign, but
+    // the INDICES must be 64..127 (the file previously had an offset-16 bug).
+    function [BW-1:0] get_zeta64;
+        input [5:0] zidx;
+        begin
+            6'd0: get_zeta64 = 16'd2226;
+            6'd1: get_zeta64 = 16'd430;
+            6'd2: get_zeta64 = 16'd555;
+            6'd3: get_zeta64 = 16'd843;
+            6'd4: get_zeta64 = 16'd2078;
+            6'd5: get_zeta64 = 16'd871;
+            6'd6: get_zeta64 = 16'd1550;
+            6'd7: get_zeta64 = 16'd105;
+            6'd8: get_zeta64 = 16'd422;
+            6'd9: get_zeta64 = 16'd587;
+            6'd10: get_zeta64 = 16'd177;
+            6'd11: get_zeta64 = 16'd3094;
+            6'd12: get_zeta64 = 16'd3038;
+            6'd13: get_zeta64 = 16'd2869;
+            6'd14: get_zeta64 = 16'd1574;
+            6'd15: get_zeta64 = 16'd1653;
+            6'd16: get_zeta64 = 16'd3083;
+            6'd17: get_zeta64 = 16'd778;
+            6'd18: get_zeta64 = 16'd1159;
+            6'd19: get_zeta64 = 16'd3182;
+            6'd20: get_zeta64 = 16'd2552;
+            6'd21: get_zeta64 = 16'd1483;
+            6'd22: get_zeta64 = 16'd2727;
+            6'd23: get_zeta64 = 16'd1119;
+            6'd24: get_zeta64 = 16'd1739;
+            6'd25: get_zeta64 = 16'd644;
+            6'd26: get_zeta64 = 16'd2457;
+            6'd27: get_zeta64 = 16'd349;
+            6'd28: get_zeta64 = 16'd418;
+            6'd29: get_zeta64 = 16'd329;
+            6'd30: get_zeta64 = 16'd3173;
+            6'd31: get_zeta64 = 16'd3254;
+            6'd32: get_zeta64 = 16'd817;
+            6'd33: get_zeta64 = 16'd1097;
+            6'd34: get_zeta64 = 16'd603;
+            6'd35: get_zeta64 = 16'd610;
+            6'd36: get_zeta64 = 16'd1322;
+            6'd37: get_zeta64 = 16'd2044;
+            6'd38: get_zeta64 = 16'd1864;
+            6'd39: get_zeta64 = 16'd384;
+            6'd40: get_zeta64 = 16'd2114;
+            6'd41: get_zeta64 = 16'd3193;
+            6'd42: get_zeta64 = 16'd1218;
+            6'd43: get_zeta64 = 16'd1994;
+            6'd44: get_zeta64 = 16'd2455;
+            6'd45: get_zeta64 = 16'd220;
+            6'd46: get_zeta64 = 16'd2142;
+            6'd47: get_zeta64 = 16'd1670;
+            6'd48: get_zeta64 = 16'd2144;
+            6'd49: get_zeta64 = 16'd1799;
+            6'd50: get_zeta64 = 16'd2051;
+            6'd51: get_zeta64 = 16'd794;
+            6'd52: get_zeta64 = 16'd1819;
+            6'd53: get_zeta64 = 16'd2475;
+            6'd54: get_zeta64 = 16'd2459;
+            6'd55: get_zeta64 = 16'd478;
+            6'd56: get_zeta64 = 16'd3221;
+            6'd57: get_zeta64 = 16'd3021;
+            6'd58: get_zeta64 = 16'd996;
+            6'd59: get_zeta64 = 16'd991;
+            6'd60: get_zeta64 = 16'd958;
+            6'd61: get_zeta64 = 16'd1869;
+            6'd62: get_zeta64 = 16'd1522;
+            6'd63: get_zeta64 = 16'd1628;
+            default: get_zeta64 = 16'd0;
+        end
+    endfunction

@@ -1,0 +1,14 @@
+==============================================================================
+COMPILE: board_top + kyber_kem RTL + tb_ipx_aoi_sec_board_top.v
+==============================================================================
+  src: rtl\core\kyber_kem.v rtl\core\kyber_poly.v rtl\core\kyber_ntt.v rtl\core\kyber_sampler.v rtl\core\shake.v rtl\core\keccak_perm.v rtl\ipx_aoi_sec_board_top.v
+COMPILE OK in 0.5s
+
+RUN: tb_ipx_aoi_sec_board_top.v
+[TB] TIMEOUT after 5000001 cycles, st=0
+RESULT: BOARD_POST TIMEOUT
+C:\Users\Yi\WorkBuddy\2026-10-05-09-29-14\����FPGA��ģ�Ͱ�ȫ\�з�\ipx_aoi_fpga_prototype\sim\tb_ipx_aoi_sec_board_top.v:39: $finish called at 50000055000 (1ps)
+
+vvp rc=0 in 5.0s
+
+FAILED

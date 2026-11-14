@@ -1,0 +1,72 @@
+==========================================================================
+REFERENCE-FREE RING-HOMOMORPHISM TEST FOR THE KYBER NTT
+==========================================================================
+
+[1] Empirically recovering the zeta of each of the 128 pairs
+    pairs with a single consistent zeta: 128 / 128
+
+[2] The recovered pair zetas
+    first 16 : [17, 3312, 2761, 568, 583, 2746, 2649, 680, 1637, 1692, 723, 2606, 2288, 1041, 1100, 2229]
+    last  8  : [2110, 1219, 2935, 394, 885, 2444, 2154, 1175]
+    all 128 distinct? True
+    == the 128 roots of X^128+1 (odd powers of 17)? True
+    == the 128 roots of X^128-1 (even powers of 17)? False
+    prod_k (X^2 - z_k) == X^256 + 1 ? True  (degree 256)
+
+[2b] FPGA kyber_basemul zeta indexing  vs  recovered pair zetas
+    parsed 64 entries from get_zeta64
+    iterations i where BOTH zetas match: 64 / 64
+    pairs where recovered zeta == plain(-zetas[64+i]) (no R^-1): 0 / 64
+
+[3] Full homomorphism, plain arithmetic:  T(a*b) == pair-mult(T(a),T(b))
+    coordinates matching: 9216 / 9216   (per (a,b) pairs bad: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+[3b] FPGA basemul_task + FPGA get_zeta64 ROM, checked against R^-1*T(a*b)
+    coordinates matching R^-1*T(a*b): 9216 / 9216
+    per (a,b) pair, coefficients wrong: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    CONTROL with PLAIN zetas instead of the ROM: 1152 / 2304 match
+    (the ROM's Montgomery form is what makes the RTL correct)
+
+[3e] DECISIVE: the get_zeta64 ROM holds zetas in MONTGOMERY form
+    (rom[i] == z_k * R  mod q,  proven in [2b]), so the FPGA's
+    double-fqmul reproduces the PLAIN basemul, not R^-1-scaled:
+        fqmul( fqmul(a1,b1), z*R ) = a1*b1*z*R^-1
+        + fqmul(a0,b0)             = a0*b0*R^-1
+        ==>  r0 = R^-1*(a0*b0 + a1*b1*z)  =  R^-1 * T(a*b)[2k]
+    Hence  invntt(basemul(ntt(a),ntt(b)))  must equal  a*b mod q,
+    NOT R*(a*b).  Testing that directly:
+    FPGA kyber_poly.v basemul  ->  a*b mod q :  mismatches     0 / 9216  ->  PASS
+    per (a,b) pair, coefficients wrong: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    CONTROL, zeta ROM reversed               :  mismatches  4606 / 9216  ->  fails as it must
+
+[4] Sanity: injectivity and Montgomery round-trip
+    distinct images: 6 / 6
+    invntt(ntt(x)) == 2285 * x  ;  mismatches: 0 / 1536
+
+[5] Control: same test with a PERMUTED zeta table must fail
+    r[0] mismatches with reversed zeta table: 384 / 384
+    (a vacuous test would report 0 mismatches; 384 here proves the
+     check is discriminating)
+
+==========================================================================
+VERDICT 1  kyber_ntt.v  ->  CORRECT ring isomorphism
+
+    Rq = Zq[X]/(X^256+1)  -->  ( Zq[X]/(X^2 - z_k) )_{k=0..127}
+    with  z_k = 17^(2m+1),  i.e. the 128 roots of X^128+1.
+
+    Because 17 has order 256 mod q (17^128 == -1), X^256+1 has
+    NO roots in Zq, so this transform is NOT a DFT over Zq --
+    the earlier DFT/evaluation oracles tested the wrong object.
+    It IS the correct Kyber NTT: 7 layers, 128 zetas, 896
+    butterflies, and invntt(ntt(x)) == 2285*x (Montgomery).
+
+VERDICT 2  kyber_poly.v basemul  ->  CORRECT end-to-end
+
+    get_zeta64 holds zetas in MONTGOMERY form (z_k * R), so the
+    double-fqmul in basemul_task realises the plain basemul:
+    invntt( basemul( ntt(a), ntt(b) ) ) == a*b  mod q  exactly,
+    over 36 polynomial products x 256 coefficients.
+
+    => kyber_ntt.v + kyber_poly.v together implement CORRECT
+       Kyber polynomial multiplication (no bug found).
+==========================================================================

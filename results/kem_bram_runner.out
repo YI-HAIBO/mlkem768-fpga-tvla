@@ -1,0 +1,44 @@
+=== Copying files -> C:/tmp_kem_bram_1791685141 ===
+  shake.v                7186 bytes
+  keccak_perm.v          7106 bytes
+  kyber_ntt.v           21405 bytes
+  kyber_poly.v          13989 bytes
+  kyber_sampler.v        4959 bytes
+  kyber_kem.v           93956 bytes
+  kem.xdc               425 bytes
+Wrote C:/tmp_kem_bram_1791685141\synth.tcl
+
+=== Running Vivado (timeout 3600s) ===
+TIMEOUT after 3600s
+rc=-999  time=27348.6s
+Log -> C:\Users\Yi\WorkBuddy\2026-10-05-09-29-14\调研FPGA大模型安全\研发\ipx_aoi_fpga_prototype\results\kem_bram_synth.log (169942 bytes)
+
+===== SUMMARY =====
+kyber_kem full-top synth (BRAM-annotated), part=xc7a100tcsg324-1, directive=RuntimeOptimized
+rc=-999  elapsed=27348.6s
+
+--- Utilization ---
+(no util.rpt)
+
+--- Timing ---
+(no timing.rpt)
+
+--- Log diagnostics ---
+ERROR: lines              = 0
+latch inferred            = 1
+RAM dissolved-to-register = 1
+ram-inference warnings    = 12
+   LATCH: WARNING: [Synth 8-327] inferring latch for variable 'coeff_cnt' [C:/tmp_kem_bram_1791685141/core/kyber_kem.v:388]
+   DISSOLVE: WARNING: [Synth 8-13159] Potential Runtime issue for RAM 'A_mat_reg' since this is dissolved into (36864) registers bits. Consider modifying RTL as per supported RAM templates
+
+--- RTL register footprint (from log) ---
+   1600 Bit    Registers := 4
+   64 Bit    Registers := 50
+   16 Bit    Registers := 13079
+   8 Bit    Registers := 1102
+   7 Bit    Registers := 3
+   5 Bit    Registers := 2
+   3 Bit    Registers := 1
+   1 Bit    Registers := 36
+
+Summary -> C:\Users\Yi\WorkBuddy\2026-10-05-09-29-14\调研FPGA大模型安全\研发\ipx_aoi_fpga_prototype\results\kem_bram_synth_summary.txt

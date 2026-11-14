@@ -1,0 +1,158 @@
+INFO: [Common 17-3922] A valid Vivado Design Suite BASIC license has been detected. Your current license is active and will expire on 26-sep-2027.
+#-----------------------------------------------------------
+# Vivado v2026.1 (64-bit)
+# SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+# IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+# SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+# Start of session at: Fri Oct 16 19:57:44 2026
+# Process ID         : 492
+# Current directory  : C:/tmp_nttvar_1792151863/V0
+# Command line       : vivado.exe -mode batch -nojournal -log C:/tmp_nttvar_1792151863\V0\run.log -source C:/tmp_nttvar_1792151863\V0\run.tcl
+# Log file           : C:/tmp_nttvar_1792151863/V0/run.log
+# Journal file       : 
+# Running On         : Yi
+# Platform           : Windows 11
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Core(TM) i5-14600KF
+# CPU Frequency      : 3494 MHz
+# CPU Physical cores : 14
+# CPU Logical cores  : 20
+# Host memory        : 68541 MB
+# Swap memory        : 4294 MB
+# Total Virtual      : 72836 MB
+# Available Virtual  : 36330 MB
+#-----------------------------------------------------------
+source {C:/tmp_nttvar_1792151863\V0\run.tcl}
+# set TAG "V0"
+# set TAGD "C:/tmp_nttvar_1792151863/V0"
+# set VFILE "C:/tmp_nttvar_1792151863/v/V0_kyber_ntt.v"
+# set XDC  "C:/Users/Yi/WorkBuddy/2026-10-05-09-29-14/调研FPGA大模型安兡�/研发/ipx_aoi_fpga_prototype/constrains/kem.xdc"
+# set PART "xc7a100tcsg324-1"
+# set TOP  "kyber_ntt"
+# set RPT  "$TAGD/reports"
+# set PD   "$TAGD/proj"
+# puts "=== V0 : baseline ==="
+=== V0 : baseline ===
+# if {[file exists $PD]} { file delete -force $PD }
+# file mkdir $RPT
+# create_project -force V0 "$PD" -part $PART
+create_project: Time (s): cpu = 00:00:13 ; elapsed = 00:00:08 . Memory (MB): peak = 758.910 ; gain = 270.387
+# add_files "$VFILE"
+# catch { read_xdc "$XDC" }
+# synth_design -top $TOP -part $PART -directive RuntimeOptimized
+Command: synth_design -top kyber_ntt -part xc7a100tcsg324-1 -directive RuntimeOptimized
+INFO: [Vivado_Tcl 97-128] Directive used for synth_design is: runtimeoptimized
+Starting synth_design
+Attempting to get a license for feature 'Vivado_Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Vivado_Synthesis' and/or device 'xc7a100t'
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 42724
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1337.324 ; gain = 571.398
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'kyber_ntt' [C:/tmp_nttvar_1792151863/v/V0_kyber_ntt.v:47]
+INFO: [Synth 8-226] default block is never used [C:/tmp_nttvar_1792151863/v/V0_kyber_ntt.v:353]
+INFO: [Synth 8-226] default block is never used [C:/tmp_nttvar_1792151863/v/V0_kyber_ntt.v:85]
+INFO: [Synth 8-6155] done synthesizing module 'kyber_ntt' (0#1) [C:/tmp_nttvar_1792151863/v/V0_kyber_ntt.v:47]
+WARNING: [Synth 8-6014] Unused sequential element aj_tmp_reg was removed.  [C:/tmp_nttvar_1792151863/v/V0_kyber_ntt.v:389]
+WARNING: [Synth 8-6014] Unused sequential element ajl_tmp_reg was removed.  [C:/tmp_nttvar_1792151863/v/V0_kyber_ntt.v:390]
+WARNING: [Synth 8-6014] Unused sequential element zv_tmp_reg was removed.  [C:/tmp_nttvar_1792151863/v/V0_kyber_ntt.v:391]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1636.973 ; gain = 871.047
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1636.973 ; gain = 871.047
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1636.973 ; gain = 871.047
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'kyber_ntt'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  S_IDLE |                              000 |                              000
+           S_LAYER_SETUP |                              001 |                              001
+                S_BUTTER |                              010 |                              010
+            S_NEXT_BLOCK |                              011 |                              011
+            S_NEXT_LAYER |                              100 |                              100
+                 S_SCALE |                              101 |                              110
+                S_REDUCE |                              110 |                              101
+                  S_DONE |                              111 |                              111
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'kyber_ntt'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1863.676 ; gain = 1097.750
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   16 Bit       Adders := 2     
+	   3 Input   16 Bit       Adders := 4     
+	   2 Input    9 Bit       Adders := 1     
+	   2 Input    8 Bit       Adders := 4     
+	   2 Input    7 Bit       Adders := 1     
+	   2 Input    3 Bit       Adders := 1     
++---Registers : 
+	               16 Bit    Registers := 256   
+	                8 Bit    Registers := 3     
+	                7 Bit    Registers := 2     
+	                3 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Multipliers : 
+	              12x32  Multipliers := 3     
+	                8x8  Multipliers := 1     
++---Muxes : 
+	   8 Input   16 Bit        Muxes := 256   
+	   2 Input   16 Bit        Muxes := 2048  
+	   8 Input    9 Bit        Muxes := 1     
+	   8 Input    8 Bit        Muxes := 3     
+	   2 Input    8 Bit        Muxes := 2     
+	   8 Input    7 Bit        Muxes := 1     
+	   8 Input    3 Bit        Muxes := 2     
+	   2 Input    3 Bit        Muxes := 4     
+	   8 Input    1 Bit        Muxes := 266   
+	   2 Input    1 Bit        Muxes := 1024  
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+xilinx rtfpga
+rt::do_reinfer_area_combined 0
+xilinx rtfpga
+rt::do_reinfer_area_combined 0
+xilinx rtfpga
+rt::do_reinfer_area_combined 0
+xilinx rtfpga
+rt::do_reinfer_area_combined 0
+INFO: [Synth 8-3886] merging instance 'zeta_cnt_reg_rep[5]' (FDCE) to 'zeta_cnt_reg[5]'
+INFO: [Synth 8-3886] merging instance 'zeta_cnt_reg_rep[4]' (FDCE) to 'zeta_cnt_reg[4]'
+INFO: [Synth 8-3886] merging instance 'zeta_cnt_reg_rep[3]' (FDCE) to 'zeta_cnt_reg[3]'
+INFO: [Synth 8-3886] merging instance 'zeta_cnt_reg_rep[2]' (FDCE) to 'zeta_cnt_reg[2]'
+INFO: [Synth 8-3886] merging instance 'zeta_cnt_reg_rep[1]' (FDCE) to 'zeta_cnt_reg[1]'
+INFO: [Synth 8-3886] merging instance 'zeta_cnt_reg_rep[0]' (FDCE) to 'zeta_cnt_reg[0]'
+INFO: [Synth 8-3886] merging instance 'zeta_cnt_reg_rep[6]' (FDCE) to 'zeta_cnt_reg[6]'
+xilinx rtfpga
+rt::do_reinfer_area_combined 0
+xilinx rtfpga
+rt::do_reinfer_area_combined 0

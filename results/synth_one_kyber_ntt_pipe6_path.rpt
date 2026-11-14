@@ -1,0 +1,442 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
+| Date         : Sun Oct 18 09:11:21 2026
+| Host         : Yi running 64-bit major release  (build 9200)
+| Command      : report_timing -file C:/tmp_one_kyber_ntt-pipe6_1792285729/proj/reports/path.rpt -delay_type max -max_paths 5 -input_pins -sort_by group
+| Design       : kyber_ntt
+| Device       : 7a100t-csg324
+| Speed File   : -1  PRODUCTION 1.23 2018-06-13
+| Design State : Synthesized
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (VIOLATED) :        -0.489ns  (required time - arrival time)
+  Source:                 pb_reg[1]/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            unamedDSP/C[0]
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
+  Data Path Delay:        8.382ns  (logic 5.834ns (69.604%)  route 2.548ns (30.396%))
+  Logic Levels:           7  (CARRY4=4 DSP48E1=1 LUT2=1 LUT5=1)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.130ns = ( 12.130 - 10.000 ) 
+    Source Clock Delay      (SCD):    2.454ns
+    Clock Pessimism Removal (CPR):    0.179ns
+  Clock Uncertainty:      0.261ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.100ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.200ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=0)                   0.000     0.000    clk
+                                                                      r  clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.971     0.971 r  clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.803     1.774    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.096     1.870 r  clk_IBUF_BUFG_inst/O
+                         net (fo=4522, unplaced)      0.584     2.454    clk_IBUF_BUFG
+                         FDRE                                         r  pb_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_fdre_C_Q)         0.478     2.932 r  pb_reg[1]/Q
+                         net (fo=4, unplaced)         0.494     3.426    pb_reg_n_0_[1]
+                                                                      r  unamedDSP__0_i_29/I0
+                         LUT2 (Prop_lut2_I0_O)        0.295     3.721 r  unamedDSP__0_i_29/O
+                         net (fo=1, unplaced)         0.000     3.721    unamedDSP__0_i_29_n_0
+                                                                      r  unamedDSP__0_i_18/S[1]
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533     4.254 r  unamedDSP__0_i_18/CO[3]
+                         net (fo=1, unplaced)         0.000     4.254    unamedDSP__0_i_18_n_0
+                                                                      r  unamedDSP__0_i_17/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.371 r  unamedDSP__0_i_17/CO[3]
+                         net (fo=1, unplaced)         0.000     4.371    unamedDSP__0_i_17_n_0
+                                                                      r  unamedDSP__0_i_16/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.488 r  unamedDSP__0_i_16/CO[3]
+                         net (fo=1, unplaced)         0.000     4.488    unamedDSP__0_i_16_n_0
+                                                                      r  unamedDSP_i_18/CI
+                         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.331     4.819 r  unamedDSP_i_18/O[3]
+                         net (fo=1, unplaced)         0.448     5.267    p_1_in[15]
+                                                                      r  unamedDSP_i_2/I2
+                         LUT5 (Prop_lut5_I2_O)        0.307     5.574 r  unamedDSP_i_2/O
+                         net (fo=22, unplaced)        0.803     6.377    unamedDSP_i_2_n_0
+                                                                      r  unamedDSP__0/B[16]
+                         DSP48E1 (Prop_dsp48e1_B[16]_P[17])
+                                                      3.656    10.033 r  unamedDSP__0/P[17]
+                         net (fo=1, unplaced)         0.803    10.836    unamedDSP__0_n_88
+                         DSP48E1                                      r  unamedDSP/C[0]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.000    10.000 r  <hidden>
+                                                      0.000    10.000 r  clk
+                         net (fo=0)                   0.000    10.000    clk
+                                                                      r  clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.838    10.838 r  clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.763    11.600    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.091    11.691 r  clk_IBUF_BUFG_inst/O
+                         net (fo=4522, unplaced)      0.439    12.130    clk_IBUF_BUFG
+                         DSP48E1                                      r  unamedDSP/CLK
+                         clock pessimism              0.179    12.309    <hidden>
+                         clock uncertainty           -0.261    12.048    <hidden>
+                         DSP48E1 (Setup_dsp48e1_CLK_C[0])
+                                                     -1.701    10.347    unamedDSP
+  -------------------------------------------------------------------
+                         required time                         10.347    <hidden>
+                         arrival time                         -10.836    <hidden>
+  -------------------------------------------------------------------
+                         slack                                 -0.489    <hidden>
+
+Slack (VIOLATED) :        -0.489ns  (required time - arrival time)
+  Source:                 pb_reg[1]/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            unamedDSP/C[10]
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
+  Data Path Delay:        8.382ns  (logic 5.834ns (69.604%)  route 2.548ns (30.396%))
+  Logic Levels:           7  (CARRY4=4 DSP48E1=1 LUT2=1 LUT5=1)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.130ns = ( 12.130 - 10.000 ) 
+    Source Clock Delay      (SCD):    2.454ns
+    Clock Pessimism Removal (CPR):    0.179ns
+  Clock Uncertainty:      0.261ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.100ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.200ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=0)                   0.000     0.000    clk
+                                                                      r  clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.971     0.971 r  clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.803     1.774    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.096     1.870 r  clk_IBUF_BUFG_inst/O
+                         net (fo=4522, unplaced)      0.584     2.454    clk_IBUF_BUFG
+                         FDRE                                         r  pb_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_fdre_C_Q)         0.478     2.932 r  pb_reg[1]/Q
+                         net (fo=4, unplaced)         0.494     3.426    pb_reg_n_0_[1]
+                                                                      r  unamedDSP__0_i_29/I0
+                         LUT2 (Prop_lut2_I0_O)        0.295     3.721 r  unamedDSP__0_i_29/O
+                         net (fo=1, unplaced)         0.000     3.721    unamedDSP__0_i_29_n_0
+                                                                      r  unamedDSP__0_i_18/S[1]
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533     4.254 r  unamedDSP__0_i_18/CO[3]
+                         net (fo=1, unplaced)         0.000     4.254    unamedDSP__0_i_18_n_0
+                                                                      r  unamedDSP__0_i_17/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.371 r  unamedDSP__0_i_17/CO[3]
+                         net (fo=1, unplaced)         0.000     4.371    unamedDSP__0_i_17_n_0
+                                                                      r  unamedDSP__0_i_16/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.488 r  unamedDSP__0_i_16/CO[3]
+                         net (fo=1, unplaced)         0.000     4.488    unamedDSP__0_i_16_n_0
+                                                                      r  unamedDSP_i_18/CI
+                         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.331     4.819 r  unamedDSP_i_18/O[3]
+                         net (fo=1, unplaced)         0.448     5.267    p_1_in[15]
+                                                                      r  unamedDSP_i_2/I2
+                         LUT5 (Prop_lut5_I2_O)        0.307     5.574 r  unamedDSP_i_2/O
+                         net (fo=22, unplaced)        0.803     6.377    unamedDSP_i_2_n_0
+                                                                      r  unamedDSP__0/B[16]
+                         DSP48E1 (Prop_dsp48e1_B[16]_P[27])
+                                                      3.656    10.033 r  unamedDSP__0/P[27]
+                         net (fo=1, unplaced)         0.803    10.836    unamedDSP__0_n_78
+                         DSP48E1                                      r  unamedDSP/C[10]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.000    10.000 r  <hidden>
+                                                      0.000    10.000 r  clk
+                         net (fo=0)                   0.000    10.000    clk
+                                                                      r  clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.838    10.838 r  clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.763    11.600    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.091    11.691 r  clk_IBUF_BUFG_inst/O
+                         net (fo=4522, unplaced)      0.439    12.130    clk_IBUF_BUFG
+                         DSP48E1                                      r  unamedDSP/CLK
+                         clock pessimism              0.179    12.309    <hidden>
+                         clock uncertainty           -0.261    12.048    <hidden>
+                         DSP48E1 (Setup_dsp48e1_CLK_C[10])
+                                                     -1.701    10.347    unamedDSP
+  -------------------------------------------------------------------
+                         required time                         10.347    <hidden>
+                         arrival time                         -10.836    <hidden>
+  -------------------------------------------------------------------
+                         slack                                 -0.489    <hidden>
+
+Slack (VIOLATED) :        -0.489ns  (required time - arrival time)
+  Source:                 pb_reg[1]/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            unamedDSP/C[11]
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
+  Data Path Delay:        8.382ns  (logic 5.834ns (69.604%)  route 2.548ns (30.396%))
+  Logic Levels:           7  (CARRY4=4 DSP48E1=1 LUT2=1 LUT5=1)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.130ns = ( 12.130 - 10.000 ) 
+    Source Clock Delay      (SCD):    2.454ns
+    Clock Pessimism Removal (CPR):    0.179ns
+  Clock Uncertainty:      0.261ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.100ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.200ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=0)                   0.000     0.000    clk
+                                                                      r  clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.971     0.971 r  clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.803     1.774    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.096     1.870 r  clk_IBUF_BUFG_inst/O
+                         net (fo=4522, unplaced)      0.584     2.454    clk_IBUF_BUFG
+                         FDRE                                         r  pb_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_fdre_C_Q)         0.478     2.932 r  pb_reg[1]/Q
+                         net (fo=4, unplaced)         0.494     3.426    pb_reg_n_0_[1]
+                                                                      r  unamedDSP__0_i_29/I0
+                         LUT2 (Prop_lut2_I0_O)        0.295     3.721 r  unamedDSP__0_i_29/O
+                         net (fo=1, unplaced)         0.000     3.721    unamedDSP__0_i_29_n_0
+                                                                      r  unamedDSP__0_i_18/S[1]
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533     4.254 r  unamedDSP__0_i_18/CO[3]
+                         net (fo=1, unplaced)         0.000     4.254    unamedDSP__0_i_18_n_0
+                                                                      r  unamedDSP__0_i_17/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.371 r  unamedDSP__0_i_17/CO[3]
+                         net (fo=1, unplaced)         0.000     4.371    unamedDSP__0_i_17_n_0
+                                                                      r  unamedDSP__0_i_16/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.488 r  unamedDSP__0_i_16/CO[3]
+                         net (fo=1, unplaced)         0.000     4.488    unamedDSP__0_i_16_n_0
+                                                                      r  unamedDSP_i_18/CI
+                         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.331     4.819 r  unamedDSP_i_18/O[3]
+                         net (fo=1, unplaced)         0.448     5.267    p_1_in[15]
+                                                                      r  unamedDSP_i_2/I2
+                         LUT5 (Prop_lut5_I2_O)        0.307     5.574 r  unamedDSP_i_2/O
+                         net (fo=22, unplaced)        0.803     6.377    unamedDSP_i_2_n_0
+                                                                      r  unamedDSP__0/B[16]
+                         DSP48E1 (Prop_dsp48e1_B[16]_P[28])
+                                                      3.656    10.033 r  unamedDSP__0/P[28]
+                         net (fo=1, unplaced)         0.803    10.836    unamedDSP__0_n_77
+                         DSP48E1                                      r  unamedDSP/C[11]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.000    10.000 r  <hidden>
+                                                      0.000    10.000 r  clk
+                         net (fo=0)                   0.000    10.000    clk
+                                                                      r  clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.838    10.838 r  clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.763    11.600    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.091    11.691 r  clk_IBUF_BUFG_inst/O
+                         net (fo=4522, unplaced)      0.439    12.130    clk_IBUF_BUFG
+                         DSP48E1                                      r  unamedDSP/CLK
+                         clock pessimism              0.179    12.309    <hidden>
+                         clock uncertainty           -0.261    12.048    <hidden>
+                         DSP48E1 (Setup_dsp48e1_CLK_C[11])
+                                                     -1.701    10.347    unamedDSP
+  -------------------------------------------------------------------
+                         required time                         10.347    <hidden>
+                         arrival time                         -10.836    <hidden>
+  -------------------------------------------------------------------
+                         slack                                 -0.489    <hidden>
+
+Slack (VIOLATED) :        -0.489ns  (required time - arrival time)
+  Source:                 pb_reg[1]/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            unamedDSP/C[12]
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
+  Data Path Delay:        8.382ns  (logic 5.834ns (69.604%)  route 2.548ns (30.396%))
+  Logic Levels:           7  (CARRY4=4 DSP48E1=1 LUT2=1 LUT5=1)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.130ns = ( 12.130 - 10.000 ) 
+    Source Clock Delay      (SCD):    2.454ns
+    Clock Pessimism Removal (CPR):    0.179ns
+  Clock Uncertainty:      0.261ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.100ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.200ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=0)                   0.000     0.000    clk
+                                                                      r  clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.971     0.971 r  clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.803     1.774    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.096     1.870 r  clk_IBUF_BUFG_inst/O
+                         net (fo=4522, unplaced)      0.584     2.454    clk_IBUF_BUFG
+                         FDRE                                         r  pb_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_fdre_C_Q)         0.478     2.932 r  pb_reg[1]/Q
+                         net (fo=4, unplaced)         0.494     3.426    pb_reg_n_0_[1]
+                                                                      r  unamedDSP__0_i_29/I0
+                         LUT2 (Prop_lut2_I0_O)        0.295     3.721 r  unamedDSP__0_i_29/O
+                         net (fo=1, unplaced)         0.000     3.721    unamedDSP__0_i_29_n_0
+                                                                      r  unamedDSP__0_i_18/S[1]
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533     4.254 r  unamedDSP__0_i_18/CO[3]
+                         net (fo=1, unplaced)         0.000     4.254    unamedDSP__0_i_18_n_0
+                                                                      r  unamedDSP__0_i_17/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.371 r  unamedDSP__0_i_17/CO[3]
+                         net (fo=1, unplaced)         0.000     4.371    unamedDSP__0_i_17_n_0
+                                                                      r  unamedDSP__0_i_16/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.488 r  unamedDSP__0_i_16/CO[3]
+                         net (fo=1, unplaced)         0.000     4.488    unamedDSP__0_i_16_n_0
+                                                                      r  unamedDSP_i_18/CI
+                         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.331     4.819 r  unamedDSP_i_18/O[3]
+                         net (fo=1, unplaced)         0.448     5.267    p_1_in[15]
+                                                                      r  unamedDSP_i_2/I2
+                         LUT5 (Prop_lut5_I2_O)        0.307     5.574 r  unamedDSP_i_2/O
+                         net (fo=22, unplaced)        0.803     6.377    unamedDSP_i_2_n_0
+                                                                      r  unamedDSP__0/B[16]
+                         DSP48E1 (Prop_dsp48e1_B[16]_P[29])
+                                                      3.656    10.033 r  unamedDSP__0/P[29]
+                         net (fo=1, unplaced)         0.803    10.836    unamedDSP__0_n_76
+                         DSP48E1                                      r  unamedDSP/C[12]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.000    10.000 r  <hidden>
+                                                      0.000    10.000 r  clk
+                         net (fo=0)                   0.000    10.000    clk
+                                                                      r  clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.838    10.838 r  clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.763    11.600    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.091    11.691 r  clk_IBUF_BUFG_inst/O
+                         net (fo=4522, unplaced)      0.439    12.130    clk_IBUF_BUFG
+                         DSP48E1                                      r  unamedDSP/CLK
+                         clock pessimism              0.179    12.309    <hidden>
+                         clock uncertainty           -0.261    12.048    <hidden>
+                         DSP48E1 (Setup_dsp48e1_CLK_C[12])
+                                                     -1.701    10.347    unamedDSP
+  -------------------------------------------------------------------
+                         required time                         10.347    <hidden>
+                         arrival time                         -10.836    <hidden>
+  -------------------------------------------------------------------
+                         slack                                 -0.489    <hidden>
+
+Slack (VIOLATED) :        -0.489ns  (required time - arrival time)
+  Source:                 pb_reg[1]/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            unamedDSP/C[13]
+                            (rising edge-triggered cell DSP48E1 clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
+  Data Path Delay:        8.382ns  (logic 5.834ns (69.604%)  route 2.548ns (30.396%))
+  Logic Levels:           7  (CARRY4=4 DSP48E1=1 LUT2=1 LUT5=1)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.130ns = ( 12.130 - 10.000 ) 
+    Source Clock Delay      (SCD):    2.454ns
+    Clock Pessimism Removal (CPR):    0.179ns
+  Clock Uncertainty:      0.261ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.100ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.200ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=0)                   0.000     0.000    clk
+                                                                      r  clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.971     0.971 r  clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.803     1.774    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.096     1.870 r  clk_IBUF_BUFG_inst/O
+                         net (fo=4522, unplaced)      0.584     2.454    clk_IBUF_BUFG
+                         FDRE                                         r  pb_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_fdre_C_Q)         0.478     2.932 r  pb_reg[1]/Q
+                         net (fo=4, unplaced)         0.494     3.426    pb_reg_n_0_[1]
+                                                                      r  unamedDSP__0_i_29/I0
+                         LUT2 (Prop_lut2_I0_O)        0.295     3.721 r  unamedDSP__0_i_29/O
+                         net (fo=1, unplaced)         0.000     3.721    unamedDSP__0_i_29_n_0
+                                                                      r  unamedDSP__0_i_18/S[1]
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533     4.254 r  unamedDSP__0_i_18/CO[3]
+                         net (fo=1, unplaced)         0.000     4.254    unamedDSP__0_i_18_n_0
+                                                                      r  unamedDSP__0_i_17/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.371 r  unamedDSP__0_i_17/CO[3]
+                         net (fo=1, unplaced)         0.000     4.371    unamedDSP__0_i_17_n_0
+                                                                      r  unamedDSP__0_i_16/CI
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.488 r  unamedDSP__0_i_16/CO[3]
+                         net (fo=1, unplaced)         0.000     4.488    unamedDSP__0_i_16_n_0
+                                                                      r  unamedDSP_i_18/CI
+                         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.331     4.819 r  unamedDSP_i_18/O[3]
+                         net (fo=1, unplaced)         0.448     5.267    p_1_in[15]
+                                                                      r  unamedDSP_i_2/I2
+                         LUT5 (Prop_lut5_I2_O)        0.307     5.574 r  unamedDSP_i_2/O
+                         net (fo=22, unplaced)        0.803     6.377    unamedDSP_i_2_n_0
+                                                                      r  unamedDSP__0/B[16]
+                         DSP48E1 (Prop_dsp48e1_B[16]_P[30])
+                                                      3.656    10.033 r  unamedDSP__0/P[30]
+                         net (fo=1, unplaced)         0.803    10.836    unamedDSP__0_n_75
+                         DSP48E1                                      r  unamedDSP/C[13]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.000    10.000 r  <hidden>
+                                                      0.000    10.000 r  clk
+                         net (fo=0)                   0.000    10.000    clk
+                                                                      r  clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.838    10.838 r  clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.763    11.600    clk_IBUF
+                                                                      r  clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.091    11.691 r  clk_IBUF_BUFG_inst/O
+                         net (fo=4522, unplaced)      0.439    12.130    clk_IBUF_BUFG
+                         DSP48E1                                      r  unamedDSP/CLK
+                         clock pessimism              0.179    12.309    <hidden>
+                         clock uncertainty           -0.261    12.048    <hidden>
+                         DSP48E1 (Setup_dsp48e1_CLK_C[13])
+                                                     -1.701    10.347    unamedDSP
+  -------------------------------------------------------------------
+                         required time                         10.347    <hidden>
+                         arrival time                         -10.836    <hidden>
+  -------------------------------------------------------------------
+                         slack                                 -0.489    <hidden>
+
+
+
+

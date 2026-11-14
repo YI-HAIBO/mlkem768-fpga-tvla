@@ -1,0 +1,26 @@
+== tables parsed ==
+  kyber_zetas(16b) x128, sign_zeta x256, f1 x256, gold_ntt x256
+== SIGN fidelity: forward NTT vs gold_ntt: OK (0 bad)
+== SIGN fidelity: INTT(gold_ntt) == f*2^27 mod q: OK (0 bad)
+== KEM@BW=27 constants ==
+  Q        = 3329
+  QINV27   = 61403905  (3329^-1 mod 2^27)
+  SCALE_K27= 2811  (2^22*1441 mod 3329)
+  R_MOD27  = 2435  (2^27 mod 3329)
+  BARRETT  = M=20159 SH=26
+  zeta27[0..7] = [2435, 2259, 477, 2470, 1642, 2710, 1872, 900]
+== KEM@BW=27 model checks ==
+  INTT(NTT(0)) == 0*R          range OK (0 oor)  round-trip OK (0 bad)
+  f[i]=i                       range OK (0 oor)  round-trip OK (0 bad)
+  f[i]=i+1                     range OK (0 oor)  round-trip OK (0 bad)
+  LCG random (seed 20261024)   range OK (0 oor)  round-trip OK (0 bad)
+  edge values +/-q/2-1         range OK (0 oor)  round-trip OK (0 bad)
+  KEM27 forward == KEM16 forward (bit-identical): OK (0 bad)
+== headroom audit (W_WIDTH=54) ==
+  |zeta*coeff| max ~ 2^24.0  (limit 2^53)
+  M*a max ~ 2^28.0  (limit 2^53)
+  t_low*Q <= 2^27 * 2^13 = 2^40  OK
+
+RESULT: ALL OK
+wrote c:\Users\Yi\WorkBuddy\2026-10-05-09-29-14\调研FPGA大模型安全\研发\ipx_aoi_fpga_prototype\sim\tb_unified_ntt_dual.v (64698 bytes)
+KEM27: QINV=61403905 SCALE_K=2811 zeta27[0..3]=[2435, 2259, 477, 2470]

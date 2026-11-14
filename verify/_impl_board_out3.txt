@@ -1,0 +1,34 @@
+---- impl board : ipx_aoi_sec_board_top (synth=default place=Explore) ----
+  cwd: C:\tmp_impl_board_t75f_20261025_104107
+  [   10s] vivado started         00_start.txt
+  [   15s] project + sources + xdc loaded 10_project.txt
+  [  385s] synth_design finished  20_synth_done.txt
+  [  405s] opt_design finished    25_opt_done.txt
+  [  525s] place_design finished  30_place_done.txt
+  [  545s] pre-route timing reported 35_pre_route_timing.txt
+  [ 1476s] route_design finished  40_route_done.txt
+  [ 1506s] post-route timing reported 50_post_timing.txt
+  [ 1511s] post-route utilization reported 55_post_util.txt
+  [ 1521s] report_drc finished    60_drc.txt
+  [ 1576s] write_bitstream finished 70_bitstream.txt
+  rc=0  time=1586s  markers=11/11
+  reports: ['pre_route_timing.rpt', 'post_route_timing.rpt', 'util.rpt', 'drc.rpt', 'bit']
+---- board summary ----
+  impl_fmax_mhz                241.25452352231608
+  impl_hold_fails              0
+  impl_setup_fails             0
+  impl_tns                     0.0
+  impl_whs                     0.165
+  impl_wns                     5.855
+  synth_fmax_mhz               252.01612903225808
+  synth_hold_fails             0
+  synth_setup_fails            0
+  synth_tns                    0.0
+  synth_whs                    0.193
+  synth_wns                    6.032
+  util_Block_RAM_Tile          36
+  util_DSPs                    56
+  util_LUT_as_Logic            46419
+  util_LUT_as_Memory           3460
+  util_Slice_LUTs              49879
+  util_Slice_Registers         43539

@@ -1,0 +1,28 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
+| Date         : Sun Oct 11 09:23:02 2026
+| Host         : Yi running 64-bit major release  (build 9200)
+| Command      : report_utilization -file C:/tmp_kem_sub_1791681524/proj/reports/util.rpt -hierarchical
+| Design       : kyber_poly
+| Device       : xc7a100tcsg324-1
+| Speed File   : -1
+| Design State : Synthesized
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++------------+--------+------------+------------+---------+------+-------+--------+--------+------------+
+|  Instance  | Module | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs  | RAMB36 | RAMB18 | DSP Blocks |
++------------+--------+------------+------------+---------+------+-------+--------+--------+------------+
+| kyber_poly |  (top) |       4387 |       4387 |       0 |    0 | 12360 |      0 |      0 |          4 |
++------------+--------+------------+------------+---------+------+-------+--------+--------+------------+
+
+

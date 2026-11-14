@@ -1,0 +1,38 @@
+{
+  "G6": {
+    "n_samples": 22563008,
+    "proxy_mean": 0.01979031341920368,
+    "proxy_std": 0.3070967900298674,
+    "proxy_min": 0,
+    "proxy_max": 8,
+    "autocorr": {
+      "rho_lag1": 0.7967059188866232,
+      "rho_lag2": 0.7953990670575926,
+      "rho_lag3": 0.7945795263179538,
+      "rho_lag4": 0.7940570131028238,
+      "rho_lag5": 0.7907612913003005
+    },
+    "rho1": 0.7967059188866232,
+    "n_eff": 463.45511944235784
+  },
+  "G4": {
+    "raw_bus": {
+      "fixed_mean": 0.0,
+      "random_mean": 0.0,
+      "float_t": 0.0,
+      "abs_t": 0.0,
+      "engine_leak": false,
+      "mean_shift": 0.0
+    },
+    "protected_model_a0": {
+      "float_t": 1.3501989987234362,
+      "abs_t": 1.3501989987234362,
+      "engine_leak": false
+    },
+    "unprotected_model_a008": {
+      "float_t": 6.183732630272108,
+      "abs_t": 6.183732630272108,
+      "engine_leak": true
+    }
+  }
+}

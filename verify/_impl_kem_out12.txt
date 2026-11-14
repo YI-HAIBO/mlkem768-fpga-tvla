@@ -1,0 +1,40 @@
+---- impl kem : unified_ntt_kem ----
+  cmd: D:\FPGA\2026.1\Vivado\bin\vivado.bat -mode batch -nojournal
+  cwd: C:\tmp_impl_unified_ntt_kem_t73m_20261025_082127
+  [    5s] vivado started           00_start.txt
+  [   10s] project + sources + xdc loaded 10_project.txt
+  [  195s] synth_design finished    20_synth_done.txt
+  [  200s] opt_design finished      25_opt_done.txt
+  [  250s] place_design finished    30_place_done.txt
+  [  255s] ?                        35_pre_route_timing.txt
+  [  380s] route_design finished    40_route_done.txt
+  [  385s] post-route timing reported 50_post_timing.txt
+  [  390s] post-route utilization reported 55_post_util.txt
+  [  390s] report_drc finished      60_drc.txt
+  [  420s] write_bitstream finished 70_bitstream.txt
+  rc=0  time=430s  markers=11/11
+  reports: ['pre_route_timing.rpt', 'post_route_timing.rpt', 'util.rpt', 'drc.rpt', 'bit']
+---- kem summary ----
+  impl_fmax_mhz                109.09884355225834
+  impl_hold_fails              0
+  impl_setup_fails             0
+  impl_tns                     0.0
+  impl_whs                     0.048
+  impl_wns                     0.834
+  synth_fmax_mhz               105.61892691170257
+  synth_hold_fails             21
+  synth_setup_fails            0
+  synth_tns                    0.0
+  synth_whs                    -0.067
+  synth_wns                    0.532
+  util_Block_RAM_Tile          36
+  util_Bonded_IOB              80
+  util_DSPs                    9
+  util_F7_Muxes                7
+  util_F8_Muxes                8
+  util_LUT_as_Logic            23196
+  util_LUT_as_Memory           0
+  util_Register_as_Flip_Flop   6639
+  util_Slice_LUTs              23196
+  util_Slice_Registers         6639
+

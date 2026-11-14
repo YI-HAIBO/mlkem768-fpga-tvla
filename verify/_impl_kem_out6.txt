@@ -1,0 +1,25 @@
+---- impl kem : unified_ntt_kem ----
+  cmd: D:\FPGA\2026.1\Vivado\bin\vivado.bat -mode batch -nojournal
+  cwd: C:\tmp_impl_unified_ntt_kem_t73f_20261024_203707
+  [   10s] vivado started           00_start.txt
+  [   25s] project + sources + xdc loaded 10_project.txt
+  rc=1  time=580s  markers=2/11
+  ---- log tail (last 15 of 428 lines) ----
+   | |10    |LUT5    |  4633|
+   | |11    |LUT6    | 17280|
+   | |12    |MUXF7   |  2304|
+   | |13    |MUXF8   |   944|
+   | |14    |FDCE    |  6556|
+   | |15    |FDRE    |    51|
+   | |16    |IBUF    |    53|
+   | |17    |OBUF    |    18|
+   | |18    |OBUFT   |     9|
+   | +------+--------+------+
+   | ---------------------------------------------------------------------------------
+   | Finished Writing Synthesis Report : Time (s): cpu = 00:03:40 ; elapsed = 00:04:46 . Memory (MB): peak = 2530.484 ; gain = 544.512
+   | ---------------------------------------------------------------------------------
+   | Synthesis finished with 0 errors, 0 critical warnings and 11 warnings.
+   | Synthesis Optimization Runtime : Time (s): cpu = 00:03:41 ; elapsed = 00:04:47 . Memory (MB): peak = 2530.484 ; gain = 544.512
+  reports: NONE
+---- kem summary ----
+  (no timing data extracted)

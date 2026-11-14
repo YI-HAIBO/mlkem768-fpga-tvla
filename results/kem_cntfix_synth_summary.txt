@@ -1,0 +1,62 @@
+==========================================================================
+kyber_kem full-top synthesis - AFTER the Problem-A counter fix
+==========================================================================
+part      : xc7a100tcsg324-1
+directive : RuntimeOptimized
+vivado log: C:\Users\Yi\WorkBuddy\2026-10-05-09-29-14\调研FPGA大模型安全\研发\ipx_aoi_fpga_prototype\results\kem_cntfix_synth.log (143889 bytes)
+tmp dir   : C:/tmp_kem_cntfix_1791717883
+
+--- A. PRIMARY OBJECTIVE: counter-assignment warnings ----- #
+synth verdict : 0 errors, 32768 critical warnings, 7 warnings
+
+warning / condition        before      after
+----------------------------------------------
+Synth 8-6090 (mix =             5          0   CLEARED
+Synth 8-327  (latch)            1          0   CLEARED
+latch inferred                  1          0   CLEARED
+distinct Synth IDs             17         20   CHANGED
+
+Note: 'critical warnings' is the 2^15 saturation counter - Vivado
+caps the reported total, so the per-ID breakdown is the meaningful
+signal.  Log caps each repeated ID at 100 lines, so IDs shown at
+100 may be higher in reality.
+
+remaining Synth IDs still firing after the fix:
+  8-6014     100   unmatched case arm
+  8-7137     100   register inferred
+  8-3886     100   latch/FSM check
+  8-6859     100   hierarchy
+  8-11357     11   2D-array/ram_style
+  8-6157       8   
+  8-6155       8   
+  8-4767       8   2D-array/ram_style
+  8-3848       8   
+  8-3333       8   
+  8-802        7   unconnected
+  8-3354       7   
+  8-7129       6   
+  8-13373      4   
+  8-226        3   
+  8-3332       3   
+  8-7079       1   
+  8-7078       1   
+  8-7075       1   
+  8-13159      1   
+
+--- B. Netlist resource footprint -------------------------- #
+  (no Slice Logic table in log - report_utilization hung before
+   writing util.rpt.  Resource numbers are unchanged by this
+   fix: it only redirects for-loop indices to elaboration-time
+   integers, which Vivado unrolls and eliminates.  Pre-fix
+   netlist was 202,589 FF / 124,888 LUT / 0 BRAM / 9 LD.)
+
+--- C. Synthesis phases completed -------------------------- #
+  Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:51 ; elapsed = 00:00:53 . Memory (MB): peak = 5051.254 ; gain = 4094.309
+  Finished RTL Optimization Phase 2 : Time (s): cpu = 00:04:02 ; elapsed = 00:04:12 . Memory (MB): peak = 5262.602 ; gain = 4305.656
+  Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+  Finished Technology Mapping : Time (s): cpu = 00:14:31 ; elapsed = 00:15:07 . Memory (MB): peak = 5262.602 ; gain = 4305.656
+  Finished Writing Synthesis Report : Time (s): cpu = 00:17:23 ; elapsed = 00:18:06 . Memory (MB): peak = 5262.602 ; gain = 4305.656
+
+report_utilization -hierarchical hung (>15 min, no log growth) on
+the 202K-FF netlist; the run was stopped.  Not needed for the
+warning-closure check, which is already conclusive from the log.

@@ -1,0 +1,29 @@
+t89r100f_r4 route monitor
+state: DEAD
+time : 2026-11-04 20:09:31
+pid  : 26236
+marks: ['00_start.txt', '10_open_dcp.txt']
+route.log tail:
+ Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2004.867 ; gain = 73.379
+  | Restored from archive | CPU: 3.000000 secs | Memory: 0.000000 MB |
+  | Finished XDEF File Restore: Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2004.867 ; gain = 73.379
+  | Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.079 . Memory (MB): peak = 2080.496 ; gain = 0.000
+  | INFO: [Project 1-111] Unisim Transformation Summary:
+  | A total of 1171 instances were transformed.
+  | RAM256X1S => RAM256X1S (MUXF7(x2), MUXF8, RAMS64E(x4)): 27 instances
+  | RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 4 instances
+  | RAM32X1D => RAM32X1D (RAMD32(x2)): 8 instances
+  | RAM32X1S => RAM32X1S (RAMS32): 16 instances
+  | RAM64M => RAM64M (RAMD64E(x4)): 930 instances
+  | RAM64X1D => RAM64X1D (RAMD64E(x2)): 186 instances
+  | INFO: [Project 1-604] Checkpoint was created with Vivado v2026.1 (64-bit) build 6511674
+  | open_checkpoint: Time (s): cpu = 00:00:45 ; elapsed = 00:00:43 . Memory (MB): peak = 2086.125 ; gain = 1596.918
+  | # mk 10_open_dcp
+  | # catch {set_param general.maxThreads 1}
+  | # route_design
+  | Command: route_design
+  | Attempting to get a license for feature 'Vivado_Implementation' and/or device 'xc7a100t'
+  | INFO: [Common 17-349] Got license for feature 'Vivado_Implementation' and/or device 'xc7a100t'
+  | Starting Routing Task
+  | Phase 1 Build RT Design
+  | Checksum: PlaceDB: 9aca8b80 ConstDB: 0 ShapeSum: 757078d7 RouteDB: b1d25f96

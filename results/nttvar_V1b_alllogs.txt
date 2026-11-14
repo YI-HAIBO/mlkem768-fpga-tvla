@@ -1,0 +1,330 @@
+INFO: [Common 17-3922] A valid Vivado Design Suite BASIC license has been detected. Your current license is active and will expire on 26-sep-2027.
+#-----------------------------------------------------------
+# Vivado v2026.1 (64-bit)
+# SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+# IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+# SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+# Start of session at: Fri Oct 16 20:50:11 2026
+# Process ID         : 31560
+# Current directory  : C:/tmp_nttvar_1792155010/V1b
+# Command line       : vivado.exe -mode batch -nojournal -log C:/tmp_nttvar_1792155010\V1b\run.log -source C:/tmp_nttvar_1792155010\V1b\run.tcl
+# Log file           : C:/tmp_nttvar_1792155010/V1b/run.log
+# Journal file       : 
+# Running On         : Yi
+# Platform           : Windows 11
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Core(TM) i5-14600KF
+# CPU Frequency      : 3494 MHz
+# CPU Physical cores : 14
+# CPU Logical cores  : 20
+# Host memory        : 68541 MB
+# Swap memory        : 4294 MB
+# Total Virtual      : 72836 MB
+# Available Virtual  : 36263 MB
+#-----------------------------------------------------------
+source {C:/tmp_nttvar_1792155010\V1b\run.tcl}
+# set TAG "V1b"
+# set TAGD "C:/tmp_nttvar_1792155010/V1b"
+# set VFILE "C:/tmp_nttvar_1792155010/v/V1b_kyber_ntt.v"
+# set XDC  "C:/Users/Yi/WorkBuddy/2026-10-05-09-29-14/调研FPGA大模型安兡�/研发/ipx_aoi_fpga_prototype/constrains/kem.xdc"
+# set PART "xc7a100tcsg324-1"
+# set TOP  "kyber_ntt"
+# set RPT  "$TAGD/reports"
+# set PD   "$TAGD/proj"
+# puts "=== V1b : fix_addr ==="
+=== V1b : fix_addr ===
+# if {[file exists $PD]} { file delete -force $PD }
+# file mkdir $RPT
+# create_project -force V1b "$PD" -part $PART
+# add_files "$VFILE"
+# catch { read_xdc "$XDC" }
+# synth_design -top $TOP -part $PART -directive RuntimeOptimized
+Command: synth_design -top kyber_ntt -part xc7a100tcsg324-1 -directive RuntimeOptimized
+INFO: [Vivado_Tcl 97-128] Directive used for synth_design is: runtimeoptimized
+Starting synth_design
+Attempting to get a license for feature 'Vivado_Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Vivado_Synthesis' and/or device 'xc7a100t'
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 29756
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1337.395 ; gain = 570.129
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'kyber_ntt' [C:/tmp_nttvar_1792155010/v/V1b_kyber_ntt.v:47]
+INFO: [Synth 8-226] default block is never used [C:/tmp_nttvar_1792155010/v/V1b_kyber_ntt.v:353]
+INFO: [Synth 8-226] default block is never used [C:/tmp_nttvar_1792155010/v/V1b_kyber_ntt.v:85]
+INFO: [Synth 8-6155] done synthesizing module 'kyber_ntt' (0#1) [C:/tmp_nttvar_1792155010/v/V1b_kyber_ntt.v:47]
+WARNING: [Synth 8-6014] Unused sequential element aj_tmp_reg was removed.  [C:/tmp_nttvar_1792155010/v/V1b_kyber_ntt.v:389]
+WARNING: [Synth 8-6014] Unused sequential element ajl_tmp_reg was removed.  [C:/tmp_nttvar_1792155010/v/V1b_kyber_ntt.v:390]
+WARNING: [Synth 8-6014] Unused sequential element zv_tmp_reg was removed.  [C:/tmp_nttvar_1792155010/v/V1b_kyber_ntt.v:391]
+WARNING: [Synth 8-7129] Port read_addr[7] in module kyber_ntt is either unconnected or has no load
+WARNING: [Synth 8-7129] Port read_addr[6] in module kyber_ntt is either unconnected or has no load
+WARNING: [Synth 8-7129] Port read_addr[5] in module kyber_ntt is either unconnected or has no load
+WARNING: [Synth 8-7129] Port read_addr[4] in module kyber_ntt is either unconnected or has no load
+WARNING: [Synth 8-7129] Port read_addr[3] in module kyber_ntt is either unconnected or has no load
+WARNING: [Synth 8-7129] Port read_addr[2] in module kyber_ntt is either unconnected or has no load
+WARNING: [Synth 8-7129] Port read_addr[1] in module kyber_ntt is either unconnected or has no load
+WARNING: [Synth 8-7129] Port read_addr[0] in module kyber_ntt is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1635.672 ; gain = 868.406
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1635.672 ; gain = 868.406
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1635.672 ; gain = 868.406
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'kyber_ntt'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  S_IDLE |                              000 |                              000
+           S_LAYER_SETUP |                              001 |                              001
+                S_BUTTER |                              010 |                              010
+            S_NEXT_BLOCK |                              011 |                              011
+            S_NEXT_LAYER |                              100 |                              100
+                 S_SCALE |                              101 |                              110
+                S_REDUCE |                              110 |                              101
+                  S_DONE |                              111 |                              111
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'kyber_ntt'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:22 ; elapsed = 00:00:22 . Memory (MB): peak = 1862.418 ; gain = 1095.152
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input   16 Bit       Adders := 4     
+	   2 Input   16 Bit       Adders := 2     
+	   2 Input    9 Bit       Adders := 1     
+	   2 Input    8 Bit       Adders := 4     
+	   2 Input    7 Bit       Adders := 1     
+	   2 Input    3 Bit       Adders := 1     
++---Registers : 
+	               16 Bit    Registers := 256   
+	                8 Bit    Registers := 3     
+	                7 Bit    Registers := 2     
+	                3 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Multipliers : 
+	              12x32  Multipliers := 3     
+	                8x8  Multipliers := 1     
++---Muxes : 
+	   8 Input   16 Bit        Muxes := 256   
+	   2 Input   16 Bit        Muxes := 2048  
+	   8 Input    9 Bit        Muxes := 1     
+	   8 Input    8 Bit        Muxes := 3     
+	   2 Input    8 Bit        Muxes := 2     
+	   8 Input    7 Bit        Muxes := 1     
+	   8 Input    3 Bit        Muxes := 2     
+	   2 Input    3 Bit        Muxes := 4     
+	   8 Input    1 Bit        Muxes := 266   
+	   2 Input    1 Bit        Muxes := 1024  
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3886] merging instance 'zeta_cnt_reg_rep[5]' (FDCE) to 'zeta_cnt_reg[5]'
+INFO: [Synth 8-3886] merging instance 'zeta_cnt_reg_rep[4]' (FDCE) to 'zeta_cnt_reg[4]'
+INFO: [Synth 8-3886] merging instance 'zeta_cnt_reg_rep[3]' (FDCE) to 'zeta_cnt_reg[3]'
+INFO: [Synth 8-3886] merging instance 'zeta_cnt_reg_rep[2]' (FDCE) to 'zeta_cnt_reg[2]'
+INFO: [Synth 8-3886] merging instance 'zeta_cnt_reg_rep[1]' (FDCE) to 'zeta_cnt_reg[1]'
+INFO: [Synth 8-3886] merging instance 'zeta_cnt_reg_rep[0]' (FDCE) to 'zeta_cnt_reg[0]'
+INFO: [Synth 8-3886] merging instance 'zeta_cnt_reg_rep[6]' (FDCE) to 'zeta_cnt_reg[6]'
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:40 ; elapsed = 00:00:56 . Memory (MB): peak = 1862.418 ; gain = 1095.152
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+ROM: Preliminary Mapping Report
++------------+------------+---------------+----------------+
+|Module Name | RTL Object | Depth x Width | Implemented As | 
++------------+------------+---------------+----------------+
+|kyber_ntt   | get_zeta   | 128x14        | LUT            | 
++------------+------------+---------------+----------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:45 ; elapsed = 00:01:09 . Memory (MB): peak = 1862.418 ; gain = 1095.152
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:49 ; elapsed = 00:01:15 . Memory (MB): peak = 2056.023 ; gain = 1288.758
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:50 ; elapsed = 00:01:15 . Memory (MB): peak = 2056.023 ; gain = 1288.758
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:50 ; elapsed = 00:01:15 . Memory (MB): peak = 2056.023 ; gain = 1288.758
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:50 ; elapsed = 00:01:15 . Memory (MB): peak = 2056.023 ; gain = 1288.758
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:50 ; elapsed = 00:01:15 . Memory (MB): peak = 2056.023 ; gain = 1288.758
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:50 ; elapsed = 00:01:15 . Memory (MB): peak = 2056.023 ; gain = 1288.758
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+DSP Final Report (the ' indicates corresponding REG is set)
++------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping  | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|kyber_ntt   | not(C)+A*B+1 | 30     | 11     | 32     | -      | 32     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
+|kyber_ntt   | A*B          | 16     | 16     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|kyber_ntt   | A*B          | 30     | 11     | -      | -      | 29     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|kyber_ntt   | A*B          | 30     | 12     | -      | -      | 30     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|kyber_ntt   | not(C)+A*B+1 | 30     | 18     | 32     | -      | 32     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
+|kyber_ntt   | A*B          | 16     | 16     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|kyber_ntt   | A*B          | 30     | 18     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|kyber_ntt   | A*B          | 30     | 12     | -      | -      | 30     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|kyber_ntt   | C+A*B        | 30     | 15     | 26     | -      | 31     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
+|kyber_ntt   | not(C)+A*B+1 | 30     | 18     | 32     | -      | 32     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
+|kyber_ntt   | A*B          | 16     | 16     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|kyber_ntt   | A*B          | 30     | 18     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|kyber_ntt   | C+A*B        | 30     | 15     | 26     | -      | 31     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
++------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+--------+------+
+|      |Cell    |Count |
++------+--------+------+
+|1     |BUFG    |     1|
+|2     |CARRY4  |    92|
+|3     |DSP48E1 |    13|
+|4     |LUT1    |    27|
+|5     |LUT2    |   488|
+|6     |LUT3    |  6574|
+|7     |LUT4    |  4820|
+|8     |LUT5    |  5470|
+|9     |LUT6    | 13106|
+|10    |MUXF7   |  2188|
+|11    |MUXF8   |  1056|
+|12    |FDCE    |  4297|
+|13    |IBUF    |    29|
+|14    |OBUF    |    18|
++------+--------+------+
+
+Report Instance Areas: 
++------+---------+-------+------+
+|      |Instance |Module |Cells |
++------+---------+-------+------+
+|1     |top      |       | 38179|
++------+---------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:50 ; elapsed = 00:01:15 . Memory (MB): peak = 2056.023 ; gain = 1288.758
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 11 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:50 ; elapsed = 00:01:16 . Memory (MB): peak = 2056.023 ; gain = 1288.758
+Synthesis Optimization Complete : Time (s): cpu = 00:00:50 ; elapsed = 00:01:16 . Memory (MB): peak = 2066.406 ; gain = 1288.758
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.171 . Memory (MB): peak = 2097.488 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 3349 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+WARNING: [Netlist 29-101] Netlist 'kyber_ntt' is not ideal for floorplanning, since the cellview 'kyber_ntt' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 2227.285 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete | Checksum: 18e0bb19
+INFO: [Common 17-83] Releasing license: Vivado_Synthesis
+26 Infos, 12 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:56 ; elapsed = 00:01:24 . Memory (MB): peak = 2227.285 ; gain = 1465.969
+# catch { report_utilization -file "$RPT/util.rpt" -hierarchical }
+# catch { report_common_property -of_objects [current_design]
+#         -property {NUM_LUTS NUM_LOGIC_LUTS NUM_LUT_FLOPS NUM_LUTRAM
+#                     NUM_SLICE_LUTS NUM_FLOPS NUM_DSP NUM_BRAM}
+#         -file "$RPT/common.rpt" }
+# set d [current_design]
+# foreach pr {NUM_LUTS NUM_LOGIC_LUTS NUM_LUT_FLOPS NUM_LUTRAM NUM_FLOPS
+#             NUM_DSP NUM_BRAM NUM_SLICE_LUTS NUM_SLICES} {
+#     catch { set v 0 }
+#     catch { set v [get_property $pr $d] }
+#     puts "SUMMARY V1b $pr=$v"
+# }
+SUMMARY V1b NUM_LUTS=
+SUMMARY V1b NUM_LOGIC_LUTS=
+SUMMARY V1b NUM_LUT_FLOPS=
+SUMMARY V1b NUM_LUTRAM=
+SUMMARY V1b NUM_FLOPS=
+SUMMARY V1b NUM_DSP=
+SUMMARY V1b NUM_BRAM=
+SUMMARY V1b NUM_SLICE_LUTS=
+SUMMARY V1b NUM_SLICES=
+# catch { write_verilog -force -nolib "$RPT/netlist.v" }
+# catch { write_xst -force "$RPT/netlist.xst" }
+# puts "V1b DONE"
+V1b DONE
+# exit
+INFO: [Common 17-206] Exiting Vivado at Fri Oct 16 20:51:54 2026...

@@ -1,0 +1,13 @@
+﻿count=3
+PID=24940 PPID=26344 mem=3072MB
+  CMD: "D:/FPGA/2026.1/Vivado/bin/unwrapped/win64.o/vivado.exe"   -mode batch -source "C:\Users\Yi\WorkBuddy\2026-10-02-09-55-51\fpga-guomi-crypto\.workbuddy\tmp\route2_wrap4.tcl" -log "C:\Users\Yi\WorkBuddy\2026-10-02-09-55-51\fpga-guomi-crypto\.workbuddy\tmp\route2_wrap4_vivado.log" -journal "C:\Users\Yi\WorkBuddy\2026-10-02-09-55-51\fpga-guomi-crypto\.workbuddy\tmp\route2_wrap4_vivado.jou"
+PID=8248 PPID=16292 mem=2681MB
+  CMD: "D:/FPGA/2026.1/Vivado/bin/unwrapped/win64.o/vivado.exe"   -mode batch -nojournal -log C:/tmp_kem_p2_1791970280\synth.log -source C:/tmp_kem_p2_1791970280\synth.tcl
+PID=29556 PPID=25856 mem=3645MB
+  CMD: "D:/FPGA/2026.1/Vivado/bin/unwrapped/win64.o/vivado.exe"   -mode batch -source C:\Users\Yi\WorkBuddy\2026-10-02-09-58-22\scripts\impl_and_bitstream.tcl -log C:\Users\Yi\WorkBuddy\2026-10-02-09-58-22\simout\phase_p2_redesign_impl.log
+PY PID=22032 PPID=27680 mem=17MB
+  CMD: C:\Users\Yi\.workbuddy\binaries\python\versions\3.13.12\python.exe C:/Users/Yi/WorkBuddy/2026-10-02-09-55-51/fpga-guomi-crypto/.workbuddy/tmp/run_route2_wrap4.py
+PY PID=4580 PPID=10160 mem=24MB
+  CMD: C:\Users\Yi\.workbuddy\binaries\python\versions\3.13.12\python.exe scripts/run_kem_synth_p2.py
+PY PID=25668 PPID=23688 mem=23MB
+  CMD: C:\Users\Yi\.workbuddy\binaries\python\versions\3.13.12\python.exe C:/Users/Yi/WorkBuddy/2026-10-02-09-58-22/scripts/phase_p2_redesign_run.py

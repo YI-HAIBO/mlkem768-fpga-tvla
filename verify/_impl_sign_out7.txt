@@ -1,0 +1,36 @@
+---- impl sign : unified_ntt_sign ----
+  cmd: D:\FPGA\2026.1\Vivado\bin\vivado.bat -mode batch -nojournal
+  cwd: C:\tmp_impl_unified_ntt_sign_t73j_20261025_075525
+  [    5s] vivado started           00_start.txt
+  [   15s] project + sources + xdc loaded 10_project.txt
+  [  315s] synth_design finished    20_synth_done.txt
+  [  325s] opt_design finished      25_opt_done.txt
+  [  510s] place_design finished    30_place_done.txt
+  [  520s] ?                        35_pre_route_timing.txt
+  [ 1300s] route_design finished    40_route_done.txt
+  [ 1315s] post-route timing reported 50_post_timing.txt
+  [ 1315s] post-route utilization reported 55_post_util.txt
+  [ 1325s] report_drc finished      60_drc.txt
+  [ 1365s] write_bitstream finished 70_bitstream.txt
+  rc=0  time=1370s  markers=11/11
+  reports: ['pre_route_timing.rpt', 'post_route_timing.rpt', 'util.rpt', 'drc.rpt', 'bit']
+---- sign summary ----
+  impl_fmax_mhz                100.8471157724889
+  impl_hold_fails              0
+  impl_setup_fails             0
+  impl_tns                     0.0
+  impl_whs                     0.047
+  impl_wns                     0.084
+  synth_hold_fails             20
+  synth_whs                    -0.157
+  util_Block_RAM_Tile          36
+  util_Bonded_IOB              114
+  util_DSPs                    25
+  util_F7_Muxes                7
+  util_F8_Muxes                8
+  util_LUT_as_Logic            38117
+  util_LUT_as_Memory           0
+  util_Register_as_Flip_Flop   14688
+  util_Slice_LUTs              38117
+  util_Slice_Registers         14688
+

@@ -1,0 +1,25 @@
+---- impl kem : unified_ntt_kem ----
+  cmd: D:\FPGA\2026.1\Vivado\bin\vivado.bat -mode batch -nojournal
+  cwd: C:\tmp_impl_unified_ntt_kem_t73h_20261025_074317
+  [   55s] vivado started           00_start.txt
+  [   70s] project + sources + xdc loaded 10_project.txt
+  rc=1  time=165s  markers=2/11
+  ---- log tail (last 15 of 233 lines) ----
+   | ---------------------------------------------------------------------------------
+   | Finished RTL Component Statistics 
+   | ---------------------------------------------------------------------------------
+   | ---------------------------------------------------------------------------------
+   | Start Part Resource Summary
+   | ---------------------------------------------------------------------------------
+   | Part Resources:
+   | DSPs: 240 (col length:80)
+   | BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+   | ---------------------------------------------------------------------------------
+   | Finished Part Resource Summary
+   | ---------------------------------------------------------------------------------
+   | ---------------------------------------------------------------------------------
+   | Start Cross Boundary and Area Optimization
+   | ---------------------------------------------------------------------------------
+  reports: NONE
+---- kem summary ----
+  (no timing data extracted)

@@ -1,0 +1,47 @@
+{
+  "all_pass": true,
+  "widths": {
+    "W=8": {
+      "W": 8,
+      "method": "exhaustive",
+      "n_inputs": 256,
+      "precharge_weight": 0,
+      "precharge_weight_max": 0,
+      "evaluate_weight": 8,
+      "evaluate_weight_min": 8,
+      "evaluate_weight_max": 8,
+      "violations": 0,
+      "constant_weight_held": true
+    },
+    "W=16": {
+      "W": 16,
+      "method": "exhaustive",
+      "n_inputs": 65536,
+      "precharge_weight": 0,
+      "precharge_weight_max": 0,
+      "evaluate_weight": 16,
+      "evaluate_weight_min": 16,
+      "evaluate_weight_max": 16,
+      "violations": 0,
+      "constant_weight_held": true
+    },
+    "W=32": {
+      "W": 32,
+      "method": "sampled (100000)",
+      "n_inputs": 4294967296,
+      "precharge_weight": 0,
+      "evaluate_weight": 32,
+      "violations": 0,
+      "constant_weight_held": true
+    },
+    "W=64": {
+      "W": 64,
+      "method": "sampled (100000)",
+      "n_inputs": 18446744073709551616,
+      "precharge_weight": 0,
+      "evaluate_weight": 64,
+      "violations": 0,
+      "constant_weight_held": true
+    }
+  }
+}

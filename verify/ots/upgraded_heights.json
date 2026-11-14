@@ -1,0 +1,65 @@
+{
+  "alice__9cb2622b72d36b38_upgraded.ots": [
+    {
+      "height": 973423,
+      "merkle_root": "585a9f6411812ce9ba12d3d3c52d2184f9f5d380ee36e83c808db96f01385a2c",
+      "chain_verified": true
+    }
+  ],
+  "bob__9cb2622b72d36b38_upgraded.ots": [
+    {
+      "height": 973320,
+      "merkle_root": "ca8517c491e5b58aec5a1a1a000b42252bd8ac3630e804a73944c530df209c66",
+      "chain_verified": true
+    }
+  ],
+  "a__9cb2622b72d36b38_upgraded.ots": [
+    {
+      "height": 973423,
+      "merkle_root": "585a9f6411812ce9ba12d3d3c52d2184f9f5d380ee36e83c808db96f01385a2c",
+      "chain_verified": true
+    }
+  ],
+  "alice__a14ac6c86d23c465_upgraded.ots": [
+    {
+      "height": 973423,
+      "merkle_root": "585a9f6411812ce9ba12d3d3c52d2184f9f5d380ee36e83c808db96f01385a2c",
+      "chain_verified": true
+    }
+  ],
+  "bob__a14ac6c86d23c465_upgraded.ots": [
+    {
+      "height": 973320,
+      "merkle_root": "ca8517c491e5b58aec5a1a1a000b42252bd8ac3630e804a73944c530df209c66",
+      "chain_verified": true
+    }
+  ],
+  "a__a14ac6c86d23c465_upgraded.ots": [
+    {
+      "height": 973423,
+      "merkle_root": "585a9f6411812ce9ba12d3d3c52d2184f9f5d380ee36e83c808db96f01385a2c",
+      "chain_verified": true
+    }
+  ],
+  "alice__e2f696ff02c1d893_upgraded.ots": [
+    {
+      "height": 973423,
+      "merkle_root": "585a9f6411812ce9ba12d3d3c52d2184f9f5d380ee36e83c808db96f01385a2c",
+      "chain_verified": true
+    }
+  ],
+  "bob__e2f696ff02c1d893_upgraded.ots": [
+    {
+      "height": 973320,
+      "merkle_root": "ca8517c491e5b58aec5a1a1a000b42252bd8ac3630e804a73944c530df209c66",
+      "chain_verified": true
+    }
+  ],
+  "a__e2f696ff02c1d893_upgraded.ots": [
+    {
+      "height": 973423,
+      "merkle_root": "585a9f6411812ce9ba12d3d3c52d2184f9f5d380ee36e83c808db96f01385a2c",
+      "chain_verified": true
+    }
+  ]
+}

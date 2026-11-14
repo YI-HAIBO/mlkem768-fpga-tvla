@@ -1,0 +1,414 @@
+INFO: [Common 17-3922] A valid Vivado Design Suite BASIC license has been detected. Your current license is active and will expire on 26-sep-2027.
+#-----------------------------------------------------------
+# Vivado v2026.1 (64-bit)
+# SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+# IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+# SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+# Start of session at: Fri Oct 16 19:18:18 2026
+# Process ID         : 48060
+# Current directory  : C:/tmp_nttvar_1792149297/V1
+# Command line       : vivado.exe -mode batch -nojournal -log C:/tmp_nttvar_1792149297\V1\run.log -source C:/tmp_nttvar_1792149297\V1\run.tcl
+# Log file           : C:/tmp_nttvar_1792149297/V1/run.log
+# Journal file       : 
+# Running On         : Yi
+# Platform           : Windows 11
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Core(TM) i5-14600KF
+# CPU Frequency      : 3494 MHz
+# CPU Physical cores : 14
+# CPU Logical cores  : 20
+# Host memory        : 68541 MB
+# Swap memory        : 4294 MB
+# Total Virtual      : 72836 MB
+# Available Virtual  : 29814 MB
+#-----------------------------------------------------------
+source {C:/tmp_nttvar_1792149297\V1\run.tcl}
+# set TAG "V1"
+# set TAGD "C:/tmp_nttvar_1792149297/V1"
+# set VFILE "C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v"
+# set XDC  "C:/Users/Yi/WorkBuddy/2026-10-05-09-29-14/调研FPGA大模型安兡�/研发/ipx_aoi_fpga_prototype/constrains/kem.xdc"
+# set PART "xc7a100tcsg324-1"
+# set TOP  "kyber_ntt"
+# set RPT  "$TAGD/reports"
+# set PD   "$TAGD/proj"
+# puts "=== V1 : no_read_mux ==="
+=== V1 : no_read_mux ===
+# if {[file exists $PD]} { file delete -force $PD }
+# file mkdir $RPT
+# create_project -force V1 "$PD" -part $PART
+create_project: Time (s): cpu = 00:00:13 ; elapsed = 00:00:08 . Memory (MB): peak = 760.160 ; gain = 271.930
+# add_files "$VFILE"
+# catch { read_xdc "$XDC" }
+# synth_design -top $TOP -part $PART -directive RuntimeOptimized
+Command: synth_design -top kyber_ntt -part xc7a100tcsg324-1 -directive RuntimeOptimized
+INFO: [Vivado_Tcl 97-128] Directive used for synth_design is: runtimeoptimized
+Starting synth_design
+Attempting to get a license for feature 'Vivado_Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Vivado_Synthesis' and/or device 'xc7a100t'
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 34556
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1338.121 ; gain = 571.996
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'kyber_ntt' [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:47]
+INFO: [Synth 8-226] default block is never used [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:353]
+INFO: [Synth 8-226] default block is never used [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:85]
+INFO: [Synth 8-6155] done synthesizing module 'kyber_ntt' (0#1) [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:47]
+WARNING: [Synth 8-6014] Unused sequential element zeta_cnt_reg was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:340]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[0] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[1] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[2] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[3] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[4] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[5] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[6] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[7] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[8] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[9] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[10] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[11] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[12] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[13] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[14] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[15] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[16] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[17] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[18] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[19] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[20] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[21] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[22] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[23] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[24] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[25] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[26] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[27] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[28] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[29] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[30] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[31] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[32] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[33] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[34] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[35] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[36] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[37] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[38] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[39] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[40] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[41] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[42] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[43] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[44] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[45] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[46] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[47] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[48] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[49] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[50] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[51] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[52] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[53] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[54] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[55] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[56] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[57] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[58] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[59] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[60] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[61] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[62] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[63] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[64] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[65] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[66] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[67] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[68] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[69] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[70] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[71] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[72] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[73] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[74] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[75] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[76] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[77] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[78] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[79] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[80] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[81] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[82] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[83] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[84] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[85] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[86] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[87] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[88] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[89] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[90] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[91] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[92] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[93] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[94] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[95] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[96] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[97] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+WARNING: [Synth 8-6014] Unused sequential element coeff_reg[98] was removed.  [C:/tmp_nttvar_1792149297/v/V1_kyber_ntt.v:344]
+INFO: [Common 17-14] Message 'Synth 8-6014' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+WARNING: [Synth 8-3917] design kyber_ntt has port read_data[15] driven by constant 0
+WARNING: [Synth 8-3917] design kyber_ntt has port read_data[14] driven by constant 0
+WARNING: [Synth 8-3917] design kyber_ntt has port read_data[13] driven by constant 0
+WARNING: [Synth 8-3917] design kyber_ntt has port read_data[12] driven by constant 0
+WARNING: [Synth 8-3917] design kyber_ntt has port read_data[11] driven by constant 0
+WARNING: [Synth 8-3917] design kyber_ntt has port read_data[10] driven by constant 0
+WARNING: [Synth 8-3917] design kyber_ntt has port read_data[9] driven by constant 0
+WARNING: [Synth 8-3917] design kyber_ntt has port read_data[8] driven by constant 0
+WARNING: [Synth 8-3917] design kyber_ntt has port read_data[7] driven by constant 0
+WARNING: [Synth 8-3917] design kyber_ntt has port read_data[6] driven by constant 0
+WARNING: [Synth 8-3917] design kyber_ntt has port read_data[5] driven by constant 0
+WARNING: [Synth 8-3917] design kyber_ntt has port read_data[4] driven by constant 0
+WARNING: [Synth 8-3917] design kyber_ntt has port read_data[3] driven by constant 0
+WARNING: [Synth 8-3917] design kyber_ntt has port read_data[2] driven by constant 0
+WARNING: [Synth 8-3917] design kyber_ntt has port read_data[1] driven by constant 0
+WARNING: [Synth 8-3917] design kyber_ntt has port read_data[0] driven by constant 0
+WARNING: [Synth 8-7129] Port load in module kyber_ntt is either unconnected or has no load
+WARNING: [Synth 8-7129] Port load_addr[7] in module kyber_ntt is either unconnected or has no load
+WARNING: [Synth 8-7129] Port load_addr[6] in module kyber_ntt is either unconnected or has no load
+WARNING: [Synth 8-7129] Port load_addr[5] in module kyber_ntt is either unconnected or has no load
+WARNING: [Synth 8-7129] Port load_addr[4] in module kyber_ntt is either unconnected or has no load
+WARNING: [Synth 8-7129] Port load_addr[3] in module kyber_ntt is either unconnected or has no load
+WARNING: [Synth 8-7129] Port load_addr[2] in module kyber_ntt is either unconnected or has no load
+WARNING: [Synth 8-7129] Port load_addr[1] in module kyber_ntt is either unconnected or has no load
+WARNING: [Synth 8-7129] Port load_addr[0] in module kyber_ntt is either unconnected or has no load
+WARNING: [Synth 8-7129] Port load_data[15] in module kyber_ntt is either unconnected or has no load
+WARNING: [Synth 8-7129] Port load_data[14] in module kyber_ntt is either unconnected or has no load
+WARNING: [Synth 8-7129] Port load_data[13] in module kyber_ntt is either unconnected or has no load
+WARNING: [Synth 8-7129] Port load_data[12] in module kyber_ntt is either unconnected or has no load
+WARNING: [Synth 8-7129] Port load_data[11] in module kyber_ntt is either unconnected or has no load
+WARNING: [Synth 8-7129] Port load_data[10] in module kyber_ntt is either unconnected or has no load
+WARNING: [Synth 8-7129] Port load_data[9] in module kyber_ntt is either unconnected or has no load
+WARNING: [Synth 8-7129] Port load_data[8] in module kyber_ntt is either unconnected or has no load
+WARNING: [Synth 8-7129] Port load_data[7] in module kyber_ntt is either unconnected or has no load
+WARNING: [Synth 8-7129] Port load_data[6] in module kyber_ntt is either unconnected or has no load
+WARNING: [Synth 8-7129] Port load_data[5] in module kyber_ntt is either unconnected or has no load
+WARNING: [Synth 8-7129] Port load_data[4] in module kyber_ntt is either unconnected or has no load
+WARNING: [Synth 8-7129] Port load_data[3] in module kyber_ntt is either unconnected or has no load
+WARNING: [Synth 8-7129] Port load_data[2] in module kyber_ntt is either unconnected or has no load
+WARNING: [Synth 8-7129] Port load_data[1] in module kyber_ntt is either unconnected or has no load
+WARNING: [Synth 8-7129] Port load_data[0] in module kyber_ntt is either unconnected or has no load
+WARNING: [Synth 8-7129] Port read_addr[7] in module kyber_ntt is either unconnected or has no load
+WARNING: [Synth 8-7129] Port read_addr[6] in module kyber_ntt is either unconnected or has no load
+WARNING: [Synth 8-7129] Port read_addr[5] in module kyber_ntt is either unconnected or has no load
+WARNING: [Synth 8-7129] Port read_addr[4] in module kyber_ntt is either unconnected or has no load
+WARNING: [Synth 8-7129] Port read_addr[3] in module kyber_ntt is either unconnected or has no load
+WARNING: [Synth 8-7129] Port read_addr[2] in module kyber_ntt is either unconnected or has no load
+WARNING: [Synth 8-7129] Port read_addr[1] in module kyber_ntt is either unconnected or has no load
+WARNING: [Synth 8-7129] Port read_addr[0] in module kyber_ntt is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 1466.664 ; gain = 700.539
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1466.664 ; gain = 700.539
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1466.664 ; gain = 700.539
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'kyber_ntt'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  S_IDLE |                              000 |                              000
+           S_LAYER_SETUP |                              001 |                              001
+                S_BUTTER |                              010 |                              010
+            S_NEXT_BLOCK |                              011 |                              011
+            S_NEXT_LAYER |                              100 |                              100
+                 S_SCALE |                              101 |                              110
+                S_REDUCE |                              110 |                              101
+                  S_DONE |                              111 |                              111
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'kyber_ntt'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1466.664 ; gain = 700.539
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input    9 Bit       Adders := 1     
+	   2 Input    8 Bit       Adders := 2     
+	   2 Input    3 Bit       Adders := 1     
++---Registers : 
+	                9 Bit    Registers := 1     
+	                8 Bit    Registers := 3     
+	                3 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   8 Input    9 Bit        Muxes := 1     
+	   2 Input    8 Bit        Muxes := 2     
+	   8 Input    8 Bit        Muxes := 3     
+	   8 Input    3 Bit        Muxes := 2     
+	   2 Input    3 Bit        Muxes := 4     
+	   8 Input    1 Bit        Muxes := 9     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1692.793 ; gain = 926.668
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 1692.793 ; gain = 926.668
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 1948.496 ; gain = 1182.371
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 1948.496 ; gain = 1182.371
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 1948.496 ; gain = 1182.371
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 1948.496 ; gain = 1182.371
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 1948.496 ; gain = 1182.371
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 1948.496 ; gain = 1182.371
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |    23|
+|3     |LUT1   |     3|
+|4     |LUT2   |    35|
+|5     |LUT3   |    52|
+|6     |LUT4   |    31|
+|7     |LUT5   |    14|
+|8     |LUT6   |    22|
+|9     |FDCE   |    42|
+|10    |IBUF   |     4|
+|11    |OBUF   |    18|
++------+-------+------+
+
+Report Instance Areas: 
++------+---------+-------+------+
+|      |Instance |Module |Cells |
++------+---------+-------+------+
+|1     |top      |       |   245|
++------+---------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 1948.496 ; gain = 1182.371
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 309 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 1948.496 ; gain = 1182.371
+Synthesis Optimization Complete : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 1951.625 ; gain = 1182.371
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1966.648 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 23 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2078.621 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete | Checksum: 5558309
+INFO: [Common 17-83] Releasing license: Vivado_Synthesis
+20 Infos, 149 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:25 ; elapsed = 00:00:29 . Memory (MB): peak = 2079.672 ; gain = 1319.512
+# catch { report_utilization -file "$RPT/util.rpt" -hierarchical }
+# catch { report_common_property -of_objects [current_design]
+#         -property {NUM_LUTS NUM_LOGIC_LUTS NUM_LUT_FLOPS NUM_LUTRAM
+#                     NUM_SLICE_LUTS NUM_FLOPS NUM_DSP NUM_BRAM}
+#         -file "$RPT/common.rpt" }
+# set d [current_design]
+# foreach pr {NUM_LUTS NUM_LOGIC_LUTS NUM_LUT_FLOPS NUM_LUTRAM NUM_FLOPS
+#             NUM_DSP NUM_BRAM NUM_SLICE_LUTS NUM_SLICES} {
+#     catch { set v 0 }
+#     catch { set v [get_property $pr $d] }
+#     puts "SUMMARY V1 $pr=$v"
+# }
+SUMMARY V1 NUM_LUTS=
+SUMMARY V1 NUM_LOGIC_LUTS=
+SUMMARY V1 NUM_LUT_FLOPS=
+SUMMARY V1 NUM_LUTRAM=
+SUMMARY V1 NUM_FLOPS=
+SUMMARY V1 NUM_DSP=
+SUMMARY V1 NUM_BRAM=
+SUMMARY V1 NUM_SLICE_LUTS=
+SUMMARY V1 NUM_SLICES=
+# catch { write_verilog -force -nolib "$RPT/netlist.v" }
+# catch { write_xst -force "$RPT/netlist.xst" }
+# puts "V1 DONE"
+V1 DONE
+# exit
+INFO: [Common 17-206] Exiting Vivado at Fri Oct 16 19:19:09 2026...
