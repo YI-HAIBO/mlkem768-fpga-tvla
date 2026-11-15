@@ -1,0 +1,82 @@
+{
+  "model": "P=C+a*HW(K xor D)+N(0,s^2), s=3",
+  "reps": 15,
+  "table": {
+    "protected": {
+      "a": 0.0,
+      "traces": [
+        256,
+        512,
+        1024,
+        2048,
+        4096,
+        8192,
+        16384,
+        65536
+      ],
+      "success_rate": [
+        0.0,
+        0.0,
+        0.067,
+        0.0,
+        0.0,
+        0.067,
+        0.0,
+        0.0
+      ]
+    },
+    "monitor_threshold": {
+      "a": 0.08,
+      "traces": [
+        256,
+        512,
+        1024,
+        2048,
+        4096,
+        8192,
+        16384,
+        65536
+      ],
+      "success_rate": [
+        0.0,
+        0.0,
+        0.067,
+        0.0,
+        0.267,
+        0.133,
+        0.267,
+        0.667
+      ]
+    },
+    "unprotected": {
+      "a": 0.3,
+      "traces": [
+        256,
+        512,
+        1024,
+        2048,
+        4096,
+        8192,
+        16384,
+        65536
+      ],
+      "success_rate": [
+        0.067,
+        0.2,
+        0.267,
+        0.333,
+        0.6,
+        0.6,
+        0.533,
+        0.667
+      ]
+    }
+  },
+  "_verdict": {
+    "protected_suppresses_to_noise_floor": true,
+    "attacker_below_half_at_monitor_window": true,
+    "recovery_improves_with_16x_traces": true,
+    "sensitivity_gap_preserved": true,
+    "note": "single-byte HW model has inherent key aliasing (predictions for keys differing in few bits are highly correlated), so the SR ceiling is below 1.0 even for the unprotected amplitude; the quantitative claim is the contrast protected~0 vs monitor-window<0.5 vs 16x-traces-up."
+  }
+}

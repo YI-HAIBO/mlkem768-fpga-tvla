@@ -1,0 +1,31 @@
+{
+  "mode": "selftest",
+  "n_per_group": 4096,
+  "sigma": 3.0,
+  "windows": [
+    {
+      "window": 0,
+      "t": 1.7248964641473152,
+      "float_flags": false,
+      "rtl_flags": false,
+      "agree": true,
+      "mean_f": 100.05488114974854,
+      "mean_r": 99.93905628103181
+    },
+    {
+      "window": 1,
+      "t": 6.8747427515874255,
+      "float_flags": true,
+      "rtl_flags": true,
+      "agree": true,
+      "mean_f": 100.40619594175321,
+      "mean_r": 99.95370838908084
+    }
+  ],
+  "_verdict": {
+    "clean_window_quiet": true,
+    "leak_window_flagged": true,
+    "harness_valid": true,
+    "note": "harness \u6b63\u786e\u8bc6\u522b\u6e05\u6d01/\u6cc4\u6f0f\u7a97\u53e3\uff0c\u4e14\u6d6e\u70b9 t \u5224\u636e\u4e0e\u677f\u4e0a\u6574\u6570\u5224\u636e\u4e00\u81f4"
+  }
+}

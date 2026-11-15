@@ -1,0 +1,48 @@
+{
+  "model": "S1: P=C+a*HW+N(0,s^2); S2: P=C+N(0,s^2(1+b*HW)); S4: P=C+N(0,s^2); s=3, n=4096, 8-bit",
+  "rows": [
+    {
+      "scenario": "S1_first_order",
+      "desc": "\u4e00\u9636\u6cc4\u6f0f a=0.30",
+      "t_first_order": 19.014694810318748,
+      "first_order_flags": true,
+      "t_second_order": 0.7744453923043747,
+      "second_order_flags": false,
+      "mean_f": 102.40966796875,
+      "mean_r": 101.129638671875,
+      "var_f": 9.39208233173077,
+      "var_r": 9.169758697248932
+    },
+    {
+      "scenario": "S2_second_order",
+      "desc": "\u7eaf\u4e8c\u9636\u6cc4\u6f0f beta=1.0",
+      "t_first_order": 1.1083311063214258,
+      "first_order_flags": false,
+      "t_second_order": 18.30409935701102,
+      "second_order_flags": true,
+      "mean_f": 100.0419921875,
+      "mean_r": 99.845458984375,
+      "var_f": 83.80873683608058,
+      "var_r": 44.98441405057616
+    },
+    {
+      "scenario": "S4_none",
+      "desc": "\u65e0\u6cc4\u6f0f\uff08\u9634\u6027\u5bf9\u7167\uff09",
+      "t_first_order": 1.389514456097398,
+      "first_order_flags": false,
+      "t_second_order": 1.433627915551868,
+      "second_order_flags": false,
+      "mean_f": 100.01171875,
+      "mean_r": 99.918701171875,
+      "var_f": 9.380570818070819,
+      "var_r": 8.974829667944903
+    }
+  ],
+  "_verdict": {
+    "first_order_catches_first_order": true,
+    "first_order_misses_second_order": true,
+    "second_order_catches_second_order": true,
+    "second_order_silent_on_none": true,
+    "extension_effective": true
+  }
+}

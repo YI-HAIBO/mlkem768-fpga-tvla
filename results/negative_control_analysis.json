@@ -1,0 +1,99 @@
+{
+  "model": "P=C+0.12*HW(V)+N(0,3.0^2), n=4096",
+  "reps": 10,
+  "results": {
+    "N1_fixed_fixed": {
+      "t_values": [
+        -0.5865735146969278,
+        0.14763224068914865,
+        -1.2069708999933728,
+        0.10629665812939955,
+        -1.227973920292368,
+        1.1017421606331481,
+        1.3512987330746924,
+        -1.8915487869614145,
+        -0.42529302148115755,
+        -0.5952505464834352
+      ],
+      "flags": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "false_alarm_rate": 0.0,
+      "mean_abs_t": 0.864,
+      "max_abs_t": 1.892
+    },
+    "N2_random_random": {
+      "t_values": [
+        0.4082810496843691,
+        1.5988956270648287,
+        0.2775425719982251,
+        -0.018820164905281104,
+        -1.4887147823229687,
+        0.36603938280249076,
+        -0.07607121898865671,
+        0.01570660222836751,
+        1.9267611031333263,
+        1.9964867463344016
+      ],
+      "flags": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "false_alarm_rate": 0.0,
+      "mean_abs_t": 0.817,
+      "max_abs_t": 1.996
+    },
+    "P1_fixed_random": {
+      "t_values": [
+        6.756900976551494,
+        8.433794296077664,
+        6.530215507442874,
+        6.941341954353454,
+        5.609409474485905,
+        7.7989460856211235,
+        8.159311513297467,
+        5.739795934710591,
+        7.541843342289349,
+        7.094081009360318
+      ],
+      "flags": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "false_alarm_rate": 1.0,
+      "mean_abs_t": 7.061,
+      "max_abs_t": 8.434
+    }
+  },
+  "_verdict": {
+    "negative_controls_quiet": true,
+    "positive_control_flags": true,
+    "dual_contrast_reliable": true,
+    "note": "N1/N2 \u9634\u6027\u5bf9\u7167\u4e0d\u8bef\u62a5\uff08|t|<4.5\uff09\uff0cP1 \u9633\u6027\u5bf9\u7167 100% \u62a5\uff0c\u53cc\u5bf9\u6bd4\uff08\u56fa\u5b9a-\u968f\u673a + \u9634\u6027\u5bf9\u7167\uff09\u53ef\u9760"
+  }
+}

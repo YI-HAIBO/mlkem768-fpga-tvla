@@ -90,7 +90,18 @@ module kyber_ntt #(
 
     // Coefficient read interface (combinational)
     input  wire [7:0]          read_addr,
-    output wire [BW-1:0]       read_data
+    output wire [BW-1:0]       read_data,
+
+    // ---- #6a leakage probe taps --------------------------------------------
+    // Expose existing internal datapath signals for the tvla_probe_router.
+    // Pure wiring of signals already present in the module -- NO logic change,
+    // so timing / KAT behaviour is bit-identical.  probe_valid qualifies the
+    // butterfly arithmetic phases (fqmul/barrett result stable, before/at the
+    // coeff[] writeback) so the router only samples meaningful data.
+    output wire [BW-1:0]       probe_fqmul,    // fqmul / basemul result
+    output wire [BW-1:0]       probe_addsub,   // butterfly add/sub output
+    output wire [BW-1:0]       probe_ram_rd,   // coeff RAM synchronous read data
+    output wire                probe_valid     // arithmetic-phase valid
 );
 
     // -------------------------------------------------------------------------
@@ -731,6 +742,19 @@ module kyber_ntt #(
     // shadow copy, updated on every coeff[] write and read combinationally.
     // -------------------------------------------------------------------------
     assign read_data = coeff_rd[read_addr];
+
+    // -------------------------------------------------------------------------
+    // #6a probe taps -- expose the arithmetic datapath for the TDM probe
+    // router.  These are the same signals the FSM already computes; the taps
+    // only add output loads, never alter the combinational cone.  probe_valid
+    // is high during the butterfly phases where fqmul/barrett results are
+    // stable and the coeff[] writeback is in flight (M2a/M2b/M2c).
+    // -------------------------------------------------------------------------
+    assign probe_fqmul   = mont_res;
+    assign probe_addsub  = inv_mode ? xd_reg : fwd_a;
+    assign probe_ram_rd  = dout_a;
+    assign probe_valid   = (state == S_BUTTER &&
+                            butter_ph >= 4'd6 && butter_ph <= 4'd8);
 
 endmodule
 

@@ -1,0 +1,22 @@
+{
+  "artix7": {
+    "synth.dcp": 38761670,
+    "timing.rpt": 61175,
+    "util.rpt": 9178
+  },
+  "zynq7": {
+    "synth.dcp": 33836310,
+    "timing.rpt": 59808,
+    "util.rpt": 9210
+  },
+  "kintex7": {
+    "synth.dcp": 33925363,
+    "timing.rpt": 56147,
+    "util.rpt": 9579
+  },
+  "kintexuplus": {
+    "synth.dcp": 33577553,
+    "timing.rpt": 68537,
+    "util.rpt": 10183
+  }
+}

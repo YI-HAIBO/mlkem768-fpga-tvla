@@ -1,0 +1,23 @@
+{
+  "source": "C:/Users/Yi/WorkBuddy/2026-10-05-09-29-14/\u8c03\u7814FPGA\u5927\u6a21\u578b\u5b89\u5168/\u7814\u53d1/ipx_aoi_fpga_prototype\\results\\trng_long_100mbit.bin",
+  "n_bits": 10000000,
+  "p1": 0.500215,
+  "model_value_bits_per_bit": 0.909,
+  "estimates": {
+    "MCV": 0.99938,
+    "Collision": 1.0,
+    "Markov": 0.54215,
+    "Shannon": 1.0
+  },
+  "p_hat_mcv": 0.500215,
+  "sum_p2": 0.5,
+  "markov_p": {
+    "p00": 0.313255,
+    "p01": 0.686745,
+    "p10": 0.686155,
+    "p11": 0.313845
+  },
+  "min_estimate_bits_per_bit": 0.54215,
+  "pipeline_ready_for_silicon": true,
+  "note": "SP 800-90B non-IID min-entropy estimators (MCV/Collision/Markov); Shannon is an IID reference only. Same pipeline ingests real board-level entropy samples unchanged."
+}

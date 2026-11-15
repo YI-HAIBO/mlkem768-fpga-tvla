@@ -156,6 +156,11 @@ module ipx_aoi_sec_board_top #(
     wire       ct_valid; wire [15:0] ct_addr, ct_data;
     wire       ss_valid; wire [7:0]  ss_data;
 
+    // #6a probe taps exposed by u_kem (NTT arithmetic datapath) for the TDM
+    // probe router below.
+    wire [15:0] ntt_probe_fqmul, ntt_probe_addsub, ntt_probe_ram_rd;
+    wire        ntt_probe_valid;
+
     // -------------------------------------------------------------------------
     // 片上 ROM：seed[j]=j (0..31)；msg[k]=8'hA5^k (k=0..31)
     //   in_addr 直接等于装载索引 (seed 用 0..31, msg 用 32..63)
@@ -196,7 +201,11 @@ module ipx_aoi_sec_board_top #(
         .ct_addr    (ct_addr),
         .ct_data    (ct_data),
         .ss_valid   (ss_valid),
-        .ss_data    (ss_data)
+        .ss_data    (ss_data),
+        .ntt_probe_fqmul(ntt_probe_fqmul),
+        .ntt_probe_addsub(ntt_probe_addsub),
+        .ntt_probe_ram_rd(ntt_probe_ram_rd),
+        .ntt_probe_valid(ntt_probe_valid)
     );
 
     // -------------------------------------------------------------------------
@@ -269,6 +278,64 @@ module ipx_aoi_sec_board_top #(
             tvla_eval_seen <= 1'b0;
         else if (tvla_batch_done)
             tvla_eval_seen <= 1'b1;
+    end
+
+    // -------------------------------------------------------------------------
+    // #6a on-die probe router (coverage extension, Path B):
+    // multiplex the three NTT arithmetic probe taps (fqmul result / butterfly
+    // add-sub output / coeff RAM read data) through a SECOND tvla_online
+    // engine, so the board monitor covers the arithmetic datapath and the
+    // coefficient storage -- not only the protected output buses.
+    // The taps are pure exposed wires from u_kem (no logic change, KAT-verified
+    // identical); the router + engine are new leaves of the board netlist and
+    // never feed back into the KEM datapath.  tap_advance is driven by each
+    // completed Welch evaluation, so the router sweeps tap0 -> tap1 -> tap2 ->
+    // wrap on successive fixed/random run pairs selected by test_sw[0].
+    // -------------------------------------------------------------------------
+    wire [47:0] probe_flat = { ntt_probe_ram_rd, ntt_probe_addsub, ntt_probe_fqmul };
+    wire [5:0]  probe_sample;
+    wire        probe_sample_valid, probe_sample_fixed, probe_batch_restart;
+    wire [1:0]  probe_tap_id;
+    wire [2:0]  probe_leak_result, probe_degen_result;
+    wire        probe_report_cycle;
+    wire        probe_batch_ready, probe_batch_done, probe_leak, probe_degen;
+
+    tvla_probe_router #(
+        .NTAP(3), .TAPID_W(2), .PROBE_W(16), .HW_W(6), .SAMPLE_W(6)
+    ) u_probe_router (
+        .clk(clk_slow), .rst_n(rst_slow_sync),
+        .probe_flat(probe_flat),
+        .probe_valid(ntt_probe_valid),
+        .probe_fixed(test_sw[0]),
+        .tap_advance(probe_batch_done),
+        .sample(probe_sample), .sample_valid(probe_sample_valid),
+        .sample_fixed(probe_sample_fixed), .batch_restart(probe_batch_restart),
+        .batch_done(probe_batch_done), .leak_detected(probe_leak),
+        .degenerate(probe_degen),
+        .tap_id(probe_tap_id), .leak_result(probe_leak_result),
+        .degen_result(probe_degen_result), .report_cycle(probe_report_cycle)
+    );
+
+    tvla_online #(.SAMPLE_W(6), .N_LOG2(8), .THRESH2(81)) u_tvla_probe (
+        .clk(clk_slow), .rst_n(rst_slow_sync),
+        .sample_valid(probe_sample_valid), .sample(probe_sample),
+        .sample_fixed(probe_sample_fixed), .batch_restart(probe_batch_restart),
+        .batch_ready(probe_batch_ready), .batch_done(probe_batch_done),
+        .leak_detected(probe_leak), .degenerate(probe_degen),
+        .cnt_fixed(), .cnt_random(), .sum_fixed(), .sum_random(),
+        .sq_fixed(), .sq_random()
+    );
+
+    // Sticky probe-monitor status for the LED health page.
+    reg probe_round_seen, probe_leak_any;
+    always @(posedge clk_slow) begin
+        if (!rst_slow_sync) begin
+            probe_round_seen <= 1'b0;
+            probe_leak_any   <= 1'b0;
+        end else begin
+            if (probe_report_cycle) probe_round_seen <= 1'b1;
+            if (probe_leak_result != 3'd0) probe_leak_any <= 1'b1;
+        end
     end
 
     // -------------------------------------------------------------------------
@@ -424,7 +491,9 @@ module ipx_aoi_sec_board_top #(
             test_led <= {
                 tvla_cnt_fixed[11:8],        // [15:12] fixed-group count
                 tvla_cnt_random[11:8],       // [11:8]  random-group count
-                3'b000,                      // [7:5]   reserved
+                probe_leak_any,              // [7]     any probe leak (|t|>4.5)
+                probe_round_seen,            // [6]     probe router full round done
+                ntt_probe_valid,             // [5]     probe sampling active
                 tvla_batch_ready,            // [4]     evaluating
                 tvla_eval_seen,              // [3]     >=1 evaluation completed
                 tvla_degenerate,             // [2]     D == 0

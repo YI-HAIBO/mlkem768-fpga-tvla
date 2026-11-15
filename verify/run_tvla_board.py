@@ -18,7 +18,8 @@ CORE_FILES = ["kyber_kem.v", "kyber_poly.v", "kyber_ntt.v", "kyber_sampler.v",
 def run(timeout=900):
     sources = ([os.path.join(CORE, f) for f in CORE_FILES]
                + [os.path.join(RTL, "ipx_aoi_sec_board_top.v"),
-                  os.path.join(REAL, "tvla_online.v")])
+                  os.path.join(REAL, "tvla_online.v"),
+                  os.path.join(REAL, "tvla_probe_router.v")])
     tb = os.path.join(SIM, "tb_board_top_tvla.v")
     tmpdir = tempfile.mkdtemp(prefix="tvla_board_")
     vvp = os.path.join(tmpdir, "tb.vvp")

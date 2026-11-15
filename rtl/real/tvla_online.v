@@ -41,7 +41,8 @@
 
 module tvla_online #(
     parameter SAMPLE_W = 6,          // leakage sample width (HW proxy, 6-bit)
-    parameter N_LOG2   = 12          // n = 2^12 = 4096 samples per group
+    parameter N_LOG2   = 12,         // n = 2^12 = 4096 samples per group
+    parameter THRESH2  = 81          // 4*T^2 for the |t| > T rule (T=4.5 -> 81)
 )(
     input  wire        clk,
     input  wire        rst_n,
@@ -172,10 +173,10 @@ module tvla_online #(
                         cstate <= ST_E4;
                     end
 
-                    // stage 4: lhs = 4*n*d^2 = d^2 << (k+2); rhs = 81*D
+                    // stage 4: lhs = 4*n*d^2 = d^2 << (k+2); rhs = THRESH2*D
                     ST_E4: begin
                         lhs <= d2 << (N_LOG2 + 2);
-                        rhs <= 81 * DD;
+                        rhs <= THRESH2 * DD;
                         cstate <= ST_E5;
                     end
 

@@ -68,7 +68,16 @@ module kyber_kem #(
     output reg [15:0]          ct_data,
 
     output reg                 ss_valid,
-    output reg [7:0]           ss_data
+    output reg [7:0]           ss_data,
+
+    // ---- #6a leakage probe taps (passthrough from u_ntt) --------------------
+    // Expose the NTT arithmetic datapath to the top level for the TDM probe
+    // router.  Pure wiring of the u_ntt probe outputs; the KEM functional
+    // behaviour and its KAT golden-vector results are unchanged.
+    output wire [BW-1:0]       ntt_probe_fqmul,
+    output wire [BW-1:0]       ntt_probe_addsub,
+    output wire [BW-1:0]       ntt_probe_ram_rd,
+    output wire                ntt_probe_valid
 );
 
     // -------------------------------------------------------------------------
@@ -467,7 +476,11 @@ module kyber_kem #(
         .start(ntt_st), .inverse(ntt_inv),
         .busy(ntt_bs), .done(ntt_dn),
         .load(ntt_load_en), .load_addr(ntt_la), .load_data(ntt_load_data),
-        .read_addr(ntt_ra), .read_data(ntt_rd)
+        .read_addr(ntt_ra), .read_data(ntt_rd),
+        .probe_fqmul(ntt_probe_fqmul),
+        .probe_addsub(ntt_probe_addsub),
+        .probe_ram_rd(ntt_probe_ram_rd),
+        .probe_valid(ntt_probe_valid)
     );
 
     kyber_poly #(.N(N), .Q(Q), .BW(BW)) u_kpoly (
